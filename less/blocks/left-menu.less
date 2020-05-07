@@ -1,0 +1,85 @@
+.left-menu{
+    width: 240px;
+    height: 100vh;
+    float: left;
+    background: #fff;
+    position: relative;
+    user-select: none;
+    &__main-menu{
+        width: 100%;
+        margin-top: 96px;
+
+        &-item{
+            position: relative;
+            display: block;
+            width: 100%;
+            height:40px;
+
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
+
+
+        }
+        &-link{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            color: #0B0E2D;
+            &:hover{
+                background: rgb(244, 250, 255);
+            }
+        }
+        &-icon{
+            float: left;
+            margin: 8px 10px 8px 22px ;
+            opacity: .2;
+        }
+        .active{
+            background: rgba(78, 148, 202, .1);
+            position: relative;
+            &:before{
+                content: '';
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background: #4E94CA;
+                position: absolute;
+            }
+            img{
+                opacity: 1;
+            }
+        }
+    }
+    &__footer{
+        width: calc(100% - 48px);
+        padding: 24px;
+        
+        position: absolute;
+        bottom: 0;
+
+        &-item{
+            display: block;
+            margin-top: 16px;
+
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            color: rgba(11, 15, 50, 0.5);
+        }
+        &-link{
+            color: #4E94CA;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

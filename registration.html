@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <include src="../sections/head.html"></include>
+</head>
+
+<body>
+
+    <main class="main">
+        <div class="login">
+
+            <div class="login__holderbtn">
+                <button class="button login__holderbtn-button">Войти</button>
+            </div>
+
+            <div class="login__window">
+
+                <form>
+
+                    <div class="login__window-title">
+                        Регистрация
+                    </div>
+
+                    <div class="login__window-input-holder">
+                        <input 
+                            class="input login__window-login" 
+                            name="login"   
+                            type="text" 
+                            placeholder=""
+                        >
+                    </div>
+
+                    <div class="login__window-input-holder">
+                        <input 
+                            class="input login__window-login" 
+                            name="name"   
+                            type="text" 
+                            placeholder=""
+                        >
+                    </div>
+
+                    <div class="login__window-input-holder">
+                        <input 
+                            class="input login__window-password"
+                            name="password"
+                            type="password"
+                            autocomplete="on"
+                            placeholder=""
+                        >
+                        <span class="login__window-password-eye"></span>
+                    </div>
+
+                    <div class="login__window-holderbtn">
+                        <button class="button button-blue login__window-btn">Зарегистрироваться</button>
+                    </div>
+
+                    <p class="login__window-text">
+                        Нажимая «Зарегистрироваться»<br/> вы соглашаетесь 
+                        <a class="login__window-text-link" href="">с пользовательким соглашением</a> 
+                    </p>
+
+                </form>
+
+            </div>
+
+            <div class="login__footer">
+                <p class="login__footer-right">© 2020 SmartFeedback</p>
+                <a class="login__footer-link" href="">Соглашение</a>
+                <a class="login__footer-link" href="">Конфеденциальность</a>
+            </div>
+
+        </div>
+    </main>
+
+    <include src="../sections/scripts.html"></include>
+</body>
+
+</html>
