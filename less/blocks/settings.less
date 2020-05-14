@@ -110,6 +110,11 @@
         &-input{
             width: 468px;
             height: 48px;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
             box-sizing: border-box;
         }
         &-button{
@@ -139,13 +144,24 @@
                 text-decoration: underline;
             }
         }
-        &-load-avatar{
+        &-load-avatar, &-delete-avatar{
             border: 0;
-            margin-top: 16px;
+            margin: 16px 0 0 6px;
             color: #4E94CA;
+            display: inline-block;
             &:hover{
                 border: 0;
                 text-decoration: underline;
+            }
+        }
+        &-delete-avatar{
+            color: #FF4D57;
+            &:hover{
+                color: #FF4D57;
+                text-decoration: underline;
+            }
+            &:focus{
+                outline: none;
             }
         }
         &-load-text{
@@ -244,7 +260,7 @@ input:checked + .settings__panel-switch-slider:before {
 
 
 
-@media (max-width: 1240px) {
+@media (max-width: 1290px) {
     .settings{
         &__panel{
             &-container{

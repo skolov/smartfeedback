@@ -3,11 +3,19 @@
     height: 100vh;
     float: left;
     background: #fff;
-    position: relative;
+    position: fixed;
     user-select: none;
+    &__logo{
+        width: calc(100% - 48px);
+        padding: 24px;
+        position: relative;
+        &-image{
+            width: 130px;
+        }
+    }
     &__main-menu{
         width: 100%;
-        margin-top: 96px;
+        margin-top: 24px;
 
         &-item{
             position: relative;
@@ -15,7 +23,6 @@
             width: 100%;
             height:40px;
 
-            font-family: 'Montserrat';
             font-style: normal;
             font-weight: 500;
             font-size: 13px;
@@ -26,12 +33,14 @@
         &-link{
             width: 100%;
             height: 100%;
-            position: absolute;
+            
             display: flex;
             align-items: center;
             color: #0B0E2D;
             &:hover{
-                background: rgb(244, 250, 255);
+                background: rgba(78, 148, 202, .1);
+                color: #4E94CA;
+                text-decoration: none;
             }
         }
         &-icon{
@@ -42,6 +51,9 @@
         .active{
             background: rgba(78, 148, 202, .1);
             position: relative;
+            &:hover{
+                color: #0B0E2D;
+            }
             &:before{
                 content: '';
                 top: 0;
@@ -67,7 +79,6 @@
             display: block;
             margin-top: 16px;
 
-            font-family: 'Montserrat';
             font-style: normal;
             font-weight: 500;
             font-size: 12px;
@@ -82,4 +93,10 @@
             }
         }
     }
+}
+
+@media (max-width: 1170px) {
+    /*.left-menu{
+        display: none;
+    }*/
 }

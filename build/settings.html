@@ -67,7 +67,7 @@
                     <div class="companies__head-panel-profile-container">
                         <button class="companies__head-panel-profile profile-menu">Дмитрий Мезенин
                             <div class="companies__head-panel-avatar">
-                                <img src="/assets/images/pictures/profile/a69d5d32c5677a3c10b81eb9d24d126d.png" alt="" class="companies__head-panel-avatar-img">
+                                <img src="/assets/images/icons/avatar-default.svg" alt="" class="companies__head-panel-avatar-img">
                             </div>
                             <img class="companies__head-panel-more profile-menu" src="/assets/images/icons/dropdown-ico.svg">        
                         </button>
@@ -118,7 +118,7 @@
                             <p class="settings__panel-label">
                                 Фамилия и имя
                             </p>
-                            <input class="input settings__panel-input" type="text" name="name" placeholder="Фамилия и имя">
+                            <input class="input settings__panel-input is-invalid" type="text" name="name" placeholder="Фамилия и имя">
                         </div>
 
                         
@@ -126,21 +126,23 @@
                             <p class="settings__panel-label">
                                 Должность
                             </p>
-                            <input class="input settings__panel-input" type="text" name="post" placeholder="Должность">
+                            <input class="input settings__panel-input is-invalid" type="text" name="post" placeholder="Должность">
                         </div>
 
                         <div class="settings__panel-input-holder">
                             <p class="settings__panel-label">
                                 Электронная почта
                             </p>
-                            <input class="input settings__panel-input" type="text" name="email" placeholder="Электронная почта">
+                            <input class="input settings__panel-input is-invalid" type="text" name="email" placeholder="Электронная почта">
                         </div>
 
                         <div class="settings__panel-input-holder--margin">
                             <div class="settings__panel-avatar">
-                                <img class="settings__panel-img" alt="avatar" src="/assets/images/pictures/profile/a69d5d32c5677a3c10b81eb9d24d126d.png">
+                                <img class="settings__panel-img" alt="avatar" src="/assets/images/icons/avatar-default.svg">
                             </div>
-                            <button class="button settings__panel-load-avatar">Загрузить фотографию</button>
+                            <label class="button settings__panel-load-avatar">Загрузить фотографию</label>
+                            <button class="button settings__panel-delete-avatar" id="remove_avatar" type="button">Удалить</button>
+
                             <p class="settings__panel-load-text">До 5 мб. PNG, JPG</p>
                         </div>
 
@@ -166,7 +168,7 @@
                             <p class="settings__panel-label">
                                 Старый пароль
                             </p>
-                            <input class="input settings__panel-input" type="password" name="oldpass" autocomplete="true" placeholder="Старый пароль">
+                            <input class="input settings__panel-input is-invalid" type="password" name="oldpass" autocomplete="true" placeholder="Старый пароль">
                             <span class="login__window-password-eye settings__panel-passw-eye"></span>
                         </div>
 
@@ -174,7 +176,7 @@
                             <p class="settings__panel-label">
                                 Новый пароль
                             </p>
-                            <input class="input settings__panel-input" type="password" autocomplete="true" name="newpass" placeholder="Новый пароль">
+                            <input class="input settings__panel-input is-invalid" type="password" autocomplete="true" name="newpass" placeholder="Новый пароль">
                             <span class="login__window-password-eye settings__panel-passw-eye"></span>
                         </div>
                        
@@ -218,7 +220,7 @@
                                 </label>
                                 <p class="settings__panel-switch-text">Присылать уведомления по почте</p>
                             </div>
-                            <input class="input settings__panel-input" type="tel" name="phone" placeholder="Your email">
+                            <input class="input settings__panel-input is-invalid" type="tel" name="phone" placeholder="Your email">
                         </div>
                        
 

@@ -20,53 +20,217 @@
                 <h2 class="companies__head-panel-title">БЦ Юниверсал</h2>
                 <div class="companies__head-panel-controls">
                     <a class="companies__head-panel-link" href="">Подключить полный тариф</a>
-                    <a class="companies__head-panel-link profile-menu" href="">Дмитрий Мезенин
-                        <div class="companies__head-panel-avatar">
-                            <img
-                                src=""
-                                alt=""
-                                class="companies__head-panel-avatar-img"
-                            />
-                        </div>                 
-                    </a>
+                    <div class="companies__head-panel-profile-container">
+                        <button class="companies__head-panel-profile profile-menu">Дмитрий Мезенин
+                            <div class="companies__head-panel-avatar">
+                                <img
+                                    src="/assets/images/icons/avatar-default.svg"
+                                    alt=""
+                                    class="companies__head-panel-avatar-img"
+                                />
+                            </div>
+                            <img 
+                                class="companies__head-panel-more profile-menu"
+                                src="/assets/images/icons/dropdown-ico.svg"
+                            />        
+                        </button>
+                    </div>
                     <div class="companies__head-panel-dropdown-holder">
-
-                        <img class="companies__head-panel-more profile-menu"
-                            src="/images/icons/dropdown-ico.svg"
-                        />
 
                         <ul class="companies__head-panel-menu-dropdown profile-menu">
                             <li class="companies__head-panel-menu-dropdown-item">
                                 <a class="companies__head-panel-menu-dropdown-link" href="">
-                                    <img
-                                        class="companies__head-panel-menu-dropdown-ico"
-                                        src="/images/icons/dropdown-settings.svg"
-                                        alt="ico"
-                                    >Настройки
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-settings"></use>
+                                    </svg>Настройки
                                 </a>
                             </li>
                             <li class="companies__head-panel-menu-dropdown-item">
                                 <a class="companies__head-panel-menu-dropdown-link" href="">
-                                    <img
-                                        class="companies__head-panel-menu-dropdown-ico"
-                                        src="/images/icons/dropdown-tariff.svg"
-                                        alt="ico"
-                                    >Тариф
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-tariff"></use>
+                                    </svg>Тариф
                                 </a>
                             </li>
                             <li class="companies__head-panel-menu-dropdown-item">
                                 <a class="companies__head-panel-menu-dropdown-link" href="">
-                                    <img
-                                        class="companies__head-panel-menu-dropdown-ico"
-                                        src="/images/icons/dropdown-exit.svg"
-                                        alt="ico"
-                                    >Выход
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-exit"></use>
+                                    </svg>Выход
                                 </a>
                             </li>
                         </ul>
 
                     </div>
                 </div>
+            </div>
+
+
+            <div class="companies__table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Дата</th>
+                            <th>Время</th>
+                            <th>КТ</th>
+                            <th>NPS</th>
+                            <th>Контактная информация</th>
+                            <th>Файл</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>116</td>
+                            <td>10 апреля 2019</td>
+                            <td>10:30</td>
+                            <td>
+                                <a class="companies__table-link-kt" href="">
+                                    Длинное название ...
+                                </a>
+                                <button class="companies__table-btn-clip">
+                                    <img
+                                        class="companies__table-link-clip-image"
+                                        alt=""
+                                        src="/assets/images/icons/clip-ico.svg"
+                                    />
+                                </button>
+                            </td>
+                            <td>10</td>
+                            <td>
+                                <a class="companies__table-link-kinfo" href="">
+                                    8 953 057-65-69
+                                </a>
+                            </td>
+                            <td>
+                                <a class="companies__table-link" href="">
+                                    Аудио
+                                </a>
+                            </td>
+                            <td>Отвечен</td>
+                        </tr>
+                        <tr>
+                            <td>116</td>
+                            <td>10 апреля 2019</td>
+                            <td>10:30</td>
+                            <td>
+                                <a class="companies__table-link-kt" href="">
+                                    Длинное название ...
+                                </a>
+                                <button class="companies__table-btn-clip">
+                                    <img
+                                        class="companies__table-link-clip-image"
+                                        alt=""
+                                        src="/assets/images/icons/clip-ico.svg"
+                                    />
+                                </button>
+                            </td>
+                            <td>10</td>
+                            <td>
+                                <a class="companies__table-link-kinfo" href="">
+                                    ivanovpetvi93@mail.ru
+                                </a>
+                            </td>
+                            <td>
+                                <a class="companies__table-link" href="">
+                                    Аудио
+                                </a>
+                            </td>
+                            <td>Отвечен</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="companies__table-red-line"></span>
+                                116
+                            </td>
+                            <td>10 апреля 2019</td>
+                            <td>10:30</td>
+                            <td>
+                                <a class="companies__table-link-kt" href="">
+                                    Длинное название ...
+                                </a>
+                                <button class="companies__table-btn-clip">
+                                    <img
+                                        class="companies__table-link-clip-image"
+                                        alt=""
+                                        src="/assets/images/icons/clip-ico.svg"
+                                    />
+                                </button>
+                            </td>
+                            <td>10</td>
+                            <td>
+                                <a class="companies__table-link-kinfo" href="">
+                                    8 953 057-65-69
+                                </a>
+                            </td>
+                            <td>
+                                <a class="companies__table-link" href="">
+                                    Аудио
+                                </a>
+                            </td>
+                            <td><p class="companies__table-redmark">Не отвечен</p></td>
+                        </tr>
+                        <tr>
+                            <td>116</td>
+                            <td>10 апреля 2019</td>
+                            <td>10:30</td>
+                            <td>
+                                <a class="companies__table-link-kt" href="">
+                                    Длинное название ...
+                                </a>
+                                <button class="companies__table-btn-clip">
+                                    <img
+                                        class="companies__table-link-clip-image"
+                                        alt=""
+                                        src="/assets/images/icons/clip-ico.svg"
+                                    />
+                                </button>
+                            </td>
+                            <td>10</td>
+                            <td>
+                                <a class="companies__table-link-kinfo" href="">
+                                    8 953 057-65-69
+                                </a>
+                            </td>
+                            <td>
+                                <a class="companies__table-link" href="">
+                                    Аудио
+                                </a>
+                            </td>
+                            <td>Отвечен</td>
+                        </tr>
+                        <tr>
+                            <td>116</td>
+                            <td>10 апреля 2019</td>
+                            <td>10:30</td>
+                            <td>
+                                <a class="companies__table-link-kt" href="">
+                                    Длинное название ...
+                                </a>
+                                <button class="companies__table-btn-clip">
+                                    <img
+                                        class="companies__table-link-clip-image"
+                                        alt=""
+                                        src="/assets/images/icons/clip-ico.svg"
+                                    />
+                                </button>
+                            </td>
+                            <td>10</td>
+                            <td>
+                                <a class="companies__table-link-kinfo" href="">
+                                    8 953 057-65-69
+                                </a>
+                            </td>
+                            <td>
+                                <a class="companies__table-link" href="">
+                                    Аудио
+                                </a>
+                            </td>
+                            <td>Отвечен</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             
@@ -90,20 +254,28 @@
                 <div class="companies__content-item--smaller">
                     <div class="companies__content-add">
                         <div class="companies__content-add-window--smaller">
-                            <img
-                                src="/images/icons/qr-code.svg"
-                                alt="company"
-                                class="companies__content-add-img"
-                            />
-                            <p class="companies__content-text">
-                                Добавить КТ
-                            </p>
+                            <button class="companies__content-add-btn">
+                                <img
+                                    src="/assets/images/icons/qr-code.svg"
+                                    alt="company"
+                                    class="companies__content-add-img"
+                                />
+                                <p class="companies__content-text">
+                                    Добавить КТ
+                                </p>
+                            </button>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="companies__content-item--smaller">
+                <div class="companies__content-item--smaller notcompl">
+                    
+                    <div class="companies__content-notaompl-alert">
+                        Не заполнено!
+                    </div>
+                    
+
                     <div class="companies__content-avatar">
                         <img
                             src=""
@@ -119,15 +291,58 @@
                         <div class="companies__content-footer-link">
                             <a class="companies__content-footer-litem--notcompl" href="">Скачать QR-код</a>
                         </div>
-                        <img 
-                            src="/images/icons/more-point-ico.svg" 
-                            alt="" 
-                            class="companies__content-footer-more"
-                        />
+                        
+                        <div class="companies__content-footer-dropholder">
+                            <button class="companies__content-footer-btn">
+                                <img 
+                                    src="/assets/images/icons/more-point-ico.svg" 
+                                    alt="" 
+                                    class="companies__content-footer-more"
+                                />
+                            </button>
+                            <ul class="companies__content-footer-dropmenu">
+                                <li class="companies__content-footer-dropitem">
+                                    <a class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#edit"></use>
+                                        </svg>
+                                        Редактировать
+                                    </a>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <a class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#copy"></use>
+                                        </svg>
+                                        Дублировать
+                                    </a>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <a class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#template"></use>
+                                        </svg>
+                                        Сохранить как шаблон
+                                    </a>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <a class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#trash"></use>
+                                        </svg>
+                                        Удалить
+                                    </a>
+                                </li>   
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="companies__content-item--smaller">
+                <div class="companies__content-item--smaller notcompl">
+
+                    <div class="companies__content-notaompl-alert">
+                        Не заполнено!
+                    </div>
                     <div class="companies__content-avatar">
                         <img
                             src=""
@@ -143,15 +358,56 @@
                         <div class="companies__content-footer-link">
                             <a class="companies__content-footer-litem" href="">Скачать QR-код</a>
                         </div>
-                        <img 
-                            src="/images/icons/more-point-ico.svg" 
-                            alt="" 
-                            class="companies__content-footer-more"
-                        />
+                        <div class="companies__content-footer-dropholder">
+                            <button class="companies__content-footer-btn">
+                                <img 
+                                    src="/assets/images/icons/more-point-ico.svg" 
+                                    alt="" 
+                                    class="companies__content-footer-more"
+                                />
+                            </button>
+                            <ul class="companies__content-footer-dropmenu">
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#edit"></use>
+                                        </svg>
+                                        Редактировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#copy"></use>
+                                        </svg>
+                                        Дублировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#template"></use>
+                                        </svg>
+                                        Сохранить как шаблон
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#trash"></use>
+                                        </svg>
+                                        Удалить
+                                    </button>
+                                </li>   
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="companies__content-item--smaller">
+                <div class="companies__content-item--smaller notcompl">
+                    <div class="companies__content-notaompl-alert">
+                        Не заполнено!
+                    </div>
                     <div class="companies__content-avatar">
                         <img
                             src=""
@@ -167,11 +423,314 @@
                         <div class="companies__content-footer-link">
                             <a class="companies__content-footer-litem" href="">Скачать QR-код</a>
                         </div>
-                        <img 
-                            src="/images/icons/more-point-ico.svg" 
-                            alt="" 
-                            class="companies__content-footer-more"
+                        <div class="companies__content-footer-dropholder">
+                            <button class="companies__content-footer-btn">
+                                <img 
+                                    src="/assets/images/icons/more-point-ico.svg" 
+                                    alt="" 
+                                    class="companies__content-footer-more"
+                                />
+                            </button>
+                            
+                            <ul class="companies__content-footer-dropmenu">
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#edit"></use>
+                                        </svg>
+                                        Редактировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#copy"></use>
+                                        </svg>
+                                        Дублировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#template"></use>
+                                        </svg>
+                                        Сохранить как шаблон
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#trash"></use>
+                                        </svg>
+                                        Удалить
+                                    </button>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="companies__content-item--smaller notcompl">
+                    <div class="companies__content-notaompl-alert">
+                        Не заполнено!
+                    </div>
+                    <div class="companies__content-avatar">
+                        <img
+                            src=""
+                            alt=""
+                            class="companies__content-img"
                         />
+                    </div>
+                    <div class="companies__content-info">
+                        <h2 class="companies__content-info-title">Контрольная точка</h2>
+                        <p class="companies__content-info-text">На этой контрольной точке мы проверяем, что хотим</p>
+                    </div>
+                    <div class="companies__content-footer">
+                        <div class="companies__content-footer-link">
+                            <a class="companies__content-footer-litem" href="">Скачать QR-код</a>
+                        </div>
+                        <div class="companies__content-footer-dropholder">
+                            <button class="companies__content-footer-btn">
+                                <img 
+                                    src="/assets/images/icons/more-point-ico.svg" 
+                                    alt="" 
+                                    class="companies__content-footer-more"
+                                />
+                            </button>
+                            
+                            <ul class="companies__content-footer-dropmenu">
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#edit"></use>
+                                        </svg>
+                                        Редактировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#copy"></use>
+                                        </svg>
+                                        Дублировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#template"></use>
+                                        </svg>
+                                        Сохранить как шаблон
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#trash"></use>
+                                        </svg>
+                                        Удалить
+                                    </button>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="companies__content-item--smaller notcompl">
+                    <div class="companies__content-notaompl-alert">
+                        Не заполнено!
+                    </div>
+                    <div class="companies__content-avatar">
+                        <img
+                            src=""
+                            alt=""
+                            class="companies__content-img"
+                        />
+                    </div>
+                    <div class="companies__content-info">
+                        <h2 class="companies__content-info-title">Контрольная точка</h2>
+                        <p class="companies__content-info-text">На этой контрольной точке мы проверяем, что хотим</p>
+                    </div>
+                    <div class="companies__content-footer">
+                        <div class="companies__content-footer-link">
+                            <a class="companies__content-footer-litem" href="">Скачать QR-код</a>
+                        </div>
+                        <div class="companies__content-footer-dropholder">
+                            <button class="companies__content-footer-btn">
+                                <img 
+                                    src="/assets/images/icons/more-point-ico.svg" 
+                                    alt="" 
+                                    class="companies__content-footer-more"
+                                />
+                            </button>
+                            
+                            <ul class="companies__content-footer-dropmenu">
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#edit"></use>
+                                        </svg>
+                                        Редактировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#copy"></use>
+                                        </svg>
+                                        Дублировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#template"></use>
+                                        </svg>
+                                        Сохранить как шаблон
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#trash"></use>
+                                        </svg>
+                                        Удалить
+                                    </button>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="companies__content-item--smaller notcompl">
+                    <div class="companies__content-notaompl-alert">
+                        Не заполнено!
+                    </div>
+                    <div class="companies__content-avatar">
+                        <img
+                            src=""
+                            alt=""
+                            class="companies__content-img"
+                        />
+                    </div>
+                    <div class="companies__content-info">
+                        <h2 class="companies__content-info-title">Контрольная точка</h2>
+                        <p class="companies__content-info-text">На этой контрольной точке мы проверяем, что хотим</p>
+                    </div>
+                    <div class="companies__content-footer">
+                        <div class="companies__content-footer-link">
+                            <a class="companies__content-footer-litem" href="">Скачать QR-код</a>
+                        </div>
+                        <div class="companies__content-footer-dropholder">
+                            <button class="companies__content-footer-btn">
+                                <img 
+                                    src="/assets/images/icons/more-point-ico.svg" 
+                                    alt="" 
+                                    class="companies__content-footer-more"
+                                />
+                            </button>
+                            
+                            <ul class="companies__content-footer-dropmenu">
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#edit"></use>
+                                        </svg>
+                                        Редактировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#copy"></use>
+                                        </svg>
+                                        Дублировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#template"></use>
+                                        </svg>
+                                        Сохранить как шаблон
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#trash"></use>
+                                        </svg>
+                                        Удалить
+                                    </button>
+                                </li>   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="companies__content-item--smaller notcompl">
+                    <div class="companies__content-notaompl-alert">
+                        Не заполнено!
+                    </div>
+                    <div class="companies__content-avatar">
+                        <img
+                            src=""
+                            alt=""
+                            class="companies__content-img"
+                        />
+                    </div>
+                    <div class="companies__content-info">
+                        <h2 class="companies__content-info-title">Контрольная точка</h2>
+                        <p class="companies__content-info-text">На этой контрольной точке мы проверяем, что хотим</p>
+                    </div>
+                    <div class="companies__content-footer">
+                        <div class="companies__content-footer-link">
+                            <a class="companies__content-footer-litem" href="">Скачать QR-код</a>
+                        </div>
+                        <div class="companies__content-footer-dropholder">
+                            <button class="companies__content-footer-btn">
+                                <img 
+                                    src="/assets/images/icons/more-point-ico.svg" 
+                                    alt="" 
+                                    class="companies__content-footer-more"
+                                />
+                            </button>
+                            
+                            <ul class="companies__content-footer-dropmenu">
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#edit"></use>
+                                        </svg>
+                                        Редактировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#copy"></use>
+                                        </svg>
+                                        Дублировать
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#template"></use>
+                                        </svg>
+                                        Сохранить как шаблон
+                                    </button>
+                                </li>
+                                <li class="companies__content-footer-dropitem">
+                                    <button class="companies__content-footer-droplink" href="">
+                                        <svg class="companies__content-footer-dropico">
+                                            <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#trash"></use>
+                                        </svg>
+                                        Удалить
+                                    </button>
+                                </li>   
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

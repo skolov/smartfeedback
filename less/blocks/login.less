@@ -1,3 +1,12 @@
+.background-main{
+    width: calc(100% - 480px);
+    height: 100vh;
+    background-image: url(../../assets/images/pictures/background-main.jpg);
+    background-size: cover;
+    background-position: center;
+    float: left;
+}
+
 .login{
     width: 480px;
     height: 100vh;
@@ -22,7 +31,6 @@
         width: 310px;
         &-text{
             width: 100%;
-            font-family: 'Montserrat';
             font-style: normal;
             font-weight: 500;
             font-size: 12px;
@@ -32,12 +40,14 @@
             &-link{
                 text-decoration: none;
                 color: #4E94CA;
+                &:hover{
+                    text-decoration: underline;
+                }
             }
         }
         &-title{
             width: 100%;
 
-            font-family: 'Montserrat';
             font-style: normal;
             font-weight: 600;
             font-size: 16px;
@@ -54,11 +64,10 @@
             position: relative;
         }
         &-login, &-password{
-            width: calc(100% - 32px);
+            width: 100%;
             height: 48px;
+            box-sizing: border-box;
 
-
-            font-family: 'Montserrat';
             font-style: normal;
             font-weight: 500;
             font-size: 13px;
@@ -83,7 +92,7 @@
             position: absolute;
             cursor: pointer;
             display: block;
-            background: url(/images/icons/eyesOff.svg);
+            background: url(/assets/images/icons/eyesOff.svg);
             background-color: #F0F2F7;
             right: 0;
             top: 0;
@@ -95,6 +104,9 @@
             font-size: 13px;
             color: #4E94CA;
             text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
         }
         &-holderbtn{
             width: 100%;
@@ -115,7 +127,6 @@
         left: 0;
 
 
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -129,6 +140,9 @@
             color: #4E94CA;
             opacity: 0.5;
             text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 }
