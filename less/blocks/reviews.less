@@ -251,7 +251,7 @@
         box-sizing: border-box;
         position: relative;
         &-window{
-            height: calc(100% - 48px);
+            height: calc(100% - 72px);
             overflow-y: auto;
         }
         &-message, &-message--owner{
@@ -363,4 +363,49 @@
 
 #tab-chat, #tab-files{
     display: none;
+}
+
+@media (max-width: 500px) {
+    .review{
+        &__tabs{
+            &-item{
+                font-size: 12px;
+                margin-right: 6px;
+            }
+        }
+        &__chat{
+            padding: 10px;
+        }
+        &__content{  
+            &-form-list{
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            &-form-starline{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 20px;
+    
+                color: #0B0E2D;
+            }
+            &-form-starline-star{
+                width: 14px;
+                height: 14px;
+                background-size: 14px 14px;
+            }
+            &-star{
+                width: 20px;
+                height: 20px;
+                background-size: 20px 20px;
+            }
+            &-npsblock{
+                margin-left: 10px;
+            }
+        }
+    }
 }

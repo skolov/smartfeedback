@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <include src="../sections/head.html"></include>
+</head>
+
+<body>
+
+    <main class="main">
+        <include src="../sections/left-menu.html"></include>
+
+        <div class="companies">
+            <div class="companies__head-panel">
+                <h2 class="companies__head-panel-title">О сервисе</h2>
+                <div class="companies__head-panel-controls">
+                    <a class="companies__head-panel-link" href="">Подключить полный тариф</a>
+                    <div class="companies__head-panel-profile-container">
+                        <button class="companies__head-panel-profile profile-menu">Дмитрий Мезенин
+                            <div class="companies__head-panel-avatar">
+                                <img
+                                    src="/assets/images/icons/avatar-default.svg"
+                                    alt=""
+                                    class="companies__head-panel-avatar-img"
+                                />
+                            </div>
+                            <img 
+                                class="companies__head-panel-more profile-menu"
+                                src="/assets/images/icons/dropdown-ico.svg"
+                            />        
+                        </button>
+                    </div>
+                    <div class="companies__head-panel-dropdown-holder">
+
+                        <ul class="companies__head-panel-menu-dropdown profile-menu">
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-settings"></use>
+                                    </svg>Настройки
+                                </a>
+                            </li>
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-tariff"></use>
+                                    </svg>Тариф
+                                </a>
+                            </li>
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-exit"></use>
+                                    </svg>Выход
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="about">
+                <p class="about__foreword">
+                    Сервис позволяет получать и оперативно реагировать на обратную связь от Клиентов и покупателей. Задача сервиса - максимально упростить этот процесс, образуя прямой канал связи с Клиентами.
+                </p>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">С чего начать?</p>
+                    <p class="about__text-holder-text">Для начала работы Вам необходимо зарегистрировать свой бизнес. Для этого необходимо ввести название Компании, загрузить логотип, он будет отображаться на странице обратной связи, которую будет видеть Клиент.</p>
+                </div>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">Как сервис собирает обратную связь?</p>
+                    <p class="about__text-holder-text">Для того, чтобы оставить обратную связь Клиенту необходимо отсканировать qr-код. Перейдя по ссылке Клиент, попадает на сгенерированную сервисом страницу обратной связи, где может оценить качество услуги или продукта, оставить текстовый отзыв, прикрепить фотографию, по желанию указать свои контактные данные (телефон или e-mail).</p>
+                </div>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">Как создать страницу обратной связи?</p>
+                    <p class="about__text-holder-text">После регистрации Вашей компании в сервисе можно перейти к созданию контрольных точек (далее - КТ). КТ – это зона, которую Вы хотите контролировать и в которой Вы в дальнейшем разместите qr-код. Если сфера вашей деятельности торговля или услуги разместите qr-код в доступном для Клиента месте, если вы производитель – то на упаковке товара. Контрольная точка может быть одна или несколько. Каждая контрольная точка имеет собственную уникальную страницу обратной связи и ей соответствует уникальный qr-код.</p>
+                </div>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">Как получить qr-код со ссылкой на форму обратной связи?</p>
+                    <p class="about__text-holder-text">После создания контрольной точки (КТ) сервис предложит вам создать qr-код и оформить его в фирменном стиле во встроенном редакторе. Для удобства, редактор Вам предложит несколько шаблонов. Скачайте и разместите qr-код в доступном для Клиента месте или на упаковке продукта, если Вы производитель.</p>
+                </div>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">Как будет выглядеть страница обратной связи?</p>
+                    <p class="about__text-holder-text">
+                        После создания контрольной точки вы можете выбрать поля, которые необходимо заполнить Клиенту, обозначить поля, обязательные к заполнению. Web-форма страницы отзыва по данной КТ будет сгенерирована автоматически.
+По умолчанию страница содержит:
+                    </p>
+                    <ul class="about__text-list">
+                        <li class="about__text-list-item">
+                            Наименование КТ (например, Магазин «Ромашка» отдел «Бытовая химия» или АО «Молоко» Сыр «Голландский»)
+                        </li>
+                        <li class="about__text-list-item">
+                            Ваш логотип
+                        </li>
+                        <li class="about__text-list-item">
+                            10-бальную шкалу оценки качества
+                        </li>
+                        <li class="about__text-list-item">
+                            Поле для текстового отзыва
+                        </li>
+                        <li class="about__text-list-item">
+                            Кнопку «прикрепить фото»
+                        </li>
+                        <li class="about__text-list-item">
+                            Поле «Контактные данные», где Клиент может оставить свой телефон или почту.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">Куда будут приходить отзывы?</p>
+                    <p class="about__text-holder-text">Все отзывы будут отображаться в административной части сервиса, где вы сможете с ними ознакомиться и ответить на них. Сервис сам отправит Ваш ответ Клиенту на почту или в виде смс.</p>
+                </div>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">Как я узнаю о новых отзывах?</p>
+                    <p class="about__text-holder-text">По каждой контрольной точке можно назначить администратора и указать его почту или телефон, на который будут приходить уведомления об отзывах.</p>
+                </div>
+
+                <div class="about__text-holder">
+                    <p class="about__text-holder-title">Кто видит и может отвечать на отзывы?</p>
+                    <p class="about__text-holder-text">Отзывы видите только вы и/или назначенные вами администраторы.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <include src="../sections/scripts.html"></include>
+</body>
+
+</html>

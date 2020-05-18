@@ -1,11 +1,16 @@
 class Main {
 
+
+
     constructor() {
         this.initToggleEyeButton();
         this.initToggleProfileMenu();
         this.initCompanyDropdownMenu();
         this.initTabsReview();
+        this.initSwitchers();
     }
+
+
 
     initToggleEyeButton(){
         let eyeButton = document.querySelectorAll('.login__window-password-eye'),
@@ -13,10 +18,8 @@ class Main {
             toggleFlag = true;
 
         if(eyeButton != null) {
-
             eyeButton.forEach(element => {
                 element.onclick = () => {
-
                     passwInput = element.closest('div').querySelector('input');
                     if (toggleFlag) {
                         element.style.backgroundImage = "url(/assets/images/icons/eyesOn.svg)";
@@ -29,8 +32,9 @@ class Main {
                 }
             })
         }
-        
     }
+
+
 
 
     initToggleProfileMenu() {
@@ -43,7 +47,6 @@ class Main {
             dropMenu = document.querySelector('ul.profile-menu');
             toggleFlag = true;
         }
-
 
         if(dropButton != null && dropMenu != null) {
             dropProfileMenu.onclick = (e) => {
@@ -63,10 +66,15 @@ class Main {
     }
 
 
+
+
     initCompanyDropdownMenu(){
         const body = document.querySelector("body");
         body.onload = () => {setCompanyDropdownMenuClickHandler()}
     }
+
+
+
 
     initTabsReview(){
         let tabs = document.querySelectorAll('.review__tabs-item')
@@ -74,28 +82,53 @@ class Main {
         if (tabs != null) {
             tabs.forEach(element => {
                 element.onclick = () => {
-
                     tabs.forEach(element => {
                         let id = element.getAttribute('id'),
                             tabsPage = document.querySelector(`#tab-${id}`);
-                        console.log(id)
                         tabsPage.style.display = "none";
                         element.classList.remove('active')
 
                     })
-
                     element.classList.add('active');
-
                     let currentTabId = element.getAttribute('id');
-                    console.log(currentTabId)
                     document.getElementById(`tab-${currentTabId}`).style.display = "block";
-                    console.log(document.getElementById(`tab-${currentTabId}`))
-                    
-
                 }
             })
         }
     }
+
+
+
+
+
+
+
+    initSwitchers() {
+        let switchers = document.querySelectorAll('label.settings__panel-switch');
+
+        if(switchers != null) {
+            switchers.forEach(element => {
+                element.onclick = () => {
+                    let parent = element.closest('div.settings__panel-input-holder'),
+                    checkbox = parent.querySelector('input[type=checkbox]'),
+                    input = parent.querySelector('input.settings__panel-input');
+
+                    if (!checkbox.checked) {
+                        input.disabled = true;
+                        input.classList.add('not-active')
+                    } else {
+                        input.disabled = false;
+                        input.classList.remove('not-active')
+                    }
+                }
+            })
+        }
+    }
+
+
+
+
+
 }
 
 new Main()
@@ -106,28 +139,28 @@ function setCompanyDropdownMenuClickHandler() {
         companyDropMenus = document.querySelectorAll('ul.companies__content-footer-dropmenu');
 
 
-      companyDropBtn.forEach(function (btn) {
+    companyDropBtn.forEach(function (btn) {
         btn.onclick = function () {
-          var parent = btn.closest('div.companies__content-footer-dropholder'),
-              dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
-  
-          if (btn.classList.contains('active')) {
-            btn.classList.remove('active');
-            dropMenu.style.display = "none";
-          } else {
-            if (companyDropBtn != null && companyDropMenus != null) {
-              companyDropBtn.forEach(element => {
-                if(element.classList.contains('active')) {
-                  var parent = element.closest('div.companies__content-footer-dropholder'),
-                      dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
-                    element.classList.remove('active');
-                    dropMenu.style.display = "none";    
+            var parent = btn.closest('div.companies__content-footer-dropholder'),
+                dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
+    
+            if (btn.classList.contains('active')) {
+                btn.classList.remove('active');
+                dropMenu.style.display = "none";
+            } else {
+                if (companyDropBtn != null && companyDropMenus != null) {
+                    companyDropBtn.forEach(element => {
+                        if(element.classList.contains('active')) {
+                            var parent = element.closest('div.companies__content-footer-dropholder'),
+                                dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
+                            element.classList.remove('active');
+                            dropMenu.style.display = "none";    
+                        }
+                    })
                 }
-              })
+                btn.classList.add('active');
+                dropMenu.style.display = "block";
             }
-            btn.classList.add('active');
-            dropMenu.style.display = "block";
-          }
         };
-      });
-    }
+    });
+}

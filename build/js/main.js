@@ -14,6 +14,7 @@ function () {
     this.initToggleProfileMenu();
     this.initCompanyDropdownMenu();
     this.initTabsReview();
+    this.initSwitchers();
   }
 
   _createClass(Main, [{
@@ -91,15 +92,35 @@ function () {
             tabs.forEach(function (element) {
               var id = element.getAttribute('id'),
                   tabsPage = document.querySelector("#tab-".concat(id));
-              console.log(id);
               tabsPage.style.display = "none";
               element.classList.remove('active');
             });
             element.classList.add('active');
             var currentTabId = element.getAttribute('id');
-            console.log(currentTabId);
             document.getElementById("tab-".concat(currentTabId)).style.display = "block";
-            console.log(document.getElementById("tab-".concat(currentTabId)));
+          };
+        });
+      }
+    }
+  }, {
+    key: "initSwitchers",
+    value: function initSwitchers() {
+      var switchers = document.querySelectorAll('label.settings__panel-switch');
+
+      if (switchers != null) {
+        switchers.forEach(function (element) {
+          element.onclick = function () {
+            var parent = element.closest('div.settings__panel-input-holder'),
+                checkbox = parent.querySelector('input[type=checkbox]'),
+                input = parent.querySelector('input.settings__panel-input');
+
+            if (!checkbox.checked) {
+              input.disabled = true;
+              input.classList.add('not-active');
+            } else {
+              input.disabled = false;
+              input.classList.remove('not-active');
+            }
           };
         });
       }

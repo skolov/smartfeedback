@@ -13,22 +13,26 @@
         padding: 24px 32px;
         margin-top: 30px;
         box-sizing: border-box;
-        &-select-holder{
+        &-select-holder, &-select-holder--smaller{
             position: relative;
-            max-width: 470px;
+            width: 256px;
+            margin-right: 10px;
             &::after{
                 content: url(/assets/images/icons/dropdown-ico.svg);
                 display: block;
                 pointer-events: none;
                 transform: rotateX(180deg);
                 position: absolute;
-                bottom: 10px;
-                right: 1rem;
+                bottom: 12px;
+                right: 4px;
                 width: 20px;
                 height: 20px;
                 z-index: 1;
                 margin-top: -3px;
             }
+        }
+        &-select-holder--smaller{
+            width: 203px;
         }
         &-select-text{
             font-style: normal;
@@ -37,23 +41,19 @@
             line-height: 20px;
             margin-top: 24px;
             margin-bottom: 8px;
-            /* identical to box height, or 154% */
-
-
-            /* Primary / Black */
 
             color: #0B0E2D;
         }
         &-select{
             position: relative;
             display: block;
-            width: 100%; /* от ширины блока div */
-            padding: .75rem 2.5rem .75rem 1rem;/* отступы от текста до рамки */
-            border: 0; /* рамка */
-            border-radius: 8px;/* скругление полей формы */
-            -webkit-appearance: none;/* Chrome */
-            -moz-appearance: none;/* Firefox */
-            appearance: none;/* убираем дефолнтные стрелочки */
+            width: 100%;
+            padding: .75rem 2.5rem .75rem 1rem;
+            border: 0; 
+            border-radius: 8px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
             outline: none;    
             background: #f0f2f7;
             font-style: normal;
@@ -61,8 +61,6 @@
             font-size: 13px;
             cursor: pointer;
             line-height: 20px;
-
-
             color: #0B0E2D;
 
         }
@@ -116,6 +114,16 @@
             font-size: 13px;
             line-height: 20px;
             box-sizing: border-box;
+            &[type=password]{
+                font-family: 'Ubuntu';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 21px;
+            }
+            &:-internal-autofill-selected{
+                background-color: #f0f2f7 !important;
+            }
         }
         &-button{
             min-width: 160px;
@@ -220,8 +228,6 @@
                 right: 0;
                 bottom: 0;
                 background-color: #ccc;
-                -webkit-transition: .4s;
-                transition: .4s;
                 border-radius: 34px;
                 &:before{
                     position: absolute;
@@ -231,11 +237,13 @@
                     left: 2px;
                     top: 2px;
                     background-color: white;
-                    -webkit-transition: .4s;
-                    transition: .4s;
                     border-radius: 50%;
                 }
             }
+        }
+        &-notifications{
+            display: flex;
+            justify-content: flex-start;
         }
     }
 } 
@@ -262,12 +270,54 @@ input:checked + .settings__panel-switch-slider:before {
 
 @media (max-width: 1290px) {
     .settings{
+        width: 100%;
         &__panel{
             &-container{
                 max-height: unset;
             }
             &-input-holder--margin{
                 margin: 20px 0 0 0 ;
+            }
+        }
+    }
+}
+
+@media (max-width: 660px) {
+    .settings{
+        &__panel{
+            padding: 20px 10px;
+            &-input-holder, &-input-holder--margin{
+                width: 100%;
+                max-width: unset;
+                margin-right: 0;
+            }
+            &-input{
+                width: 100%;
+            }
+            &-delete-avatar{
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 582px) {
+    .settings{
+        padding: 10px;
+        &__panel{
+            &-link{
+                width: 100%;
+                display: block;
+                margin: 10px 0 0 0;
+            }
+            &-switch-text{
+                font-size: 12px;
+            }
+            &-notifications{
+                flex-direction: column;
+            }
+            &-select-holder, &-select-holder--smaller{
+                width: 100%;
             }
         }
     }

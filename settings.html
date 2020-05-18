@@ -202,9 +202,11 @@
                                 <p class="settings__panel-switch-text">Присылать уведомления по телефону</p>
                             </div>
                             <input 
-                                class="input settings__panel-input not-active" 
+                                disabled
+                                class="input settings__panel-input is-invalid not-active" 
                                 type="tel"
                                 name="phone"
+                                autocomplete="off"
                                 placeholder="+7 987 654-32-10"    
                             />
                         </div>
@@ -213,15 +215,19 @@
                         <div class="settings__panel-input-holder">
                             <div class="settings__panel-label-holder">
                                 <label class="settings__panel-switch">
-                                    <input type="checkbox">
+                                    <input 
+                                        type="checkbox"
+                                    />
                                     <span class="settings__panel-switch-slider"></span>
                                 </label>
                                 <p class="settings__panel-switch-text">Присылать уведомления по почте</p>
                             </div>
                             <input 
-                                class="input settings__panel-input is-invalid" 
+                                disabled
+                                class="input settings__panel-input is-invalid not-active" 
                                 type="tel"
                                 name="phone"
+                                autocomplete="off"
                                 placeholder="Your email"    
                             />
                         </div>
@@ -230,14 +236,20 @@
                     </div>
 
 
-                    <div class="settings__panel-select-holder">
-                        <p class="settings__panel-select-text">Частота уведомлений</p>
-                        <select class="settings__panel-select">
-                            <option value="">Раз в день в 14:00</option>
-                            <option value="">Раз в день в 16:00</option>
-                            <option value="">Раз в день в 18:00</option>
-                            <option value="">Раз в день в 20:00</option>
-                        </select>
+                    <div class="settings__panel-notifications">
+                        <div class="settings__panel-select-holder">
+                            <p class="settings__panel-select-text">Частота уведомлений</p>
+                            <select class="settings__panel-select">
+                                <option value="">Раз в неделю</option>
+                            </select>
+                        </div>
+    
+                        <div class="settings__panel-select-holder--smaller">
+                            <p class="settings__panel-select-text">Частота уведомлений</p>
+                            <select class="settings__panel-select">
+                                <option value="">Понедельник, 14:00</option>
+                            </select>
+                        </div>
                     </div>
 
                     <button class="button button-blue settings__panel-button">Сохранить</button>

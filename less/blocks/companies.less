@@ -17,6 +17,10 @@
         &-toplink{
             position: absolute;
             top: -20px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
         }
         &-outlink{
             font-family: 'Montserrat';
@@ -408,13 +412,12 @@
                 background-color: #F0F2F7;;
             }
             &-dropmenu{
-                width: 228px;
-                height: 176px;
                 background: #FFFFFF;
                 position: absolute;
+                min-width: 220px;
                 display: none;
-                right: 24px;
-                top: -176px;
+                right: 44px;
+                top: -214px;
                 box-shadow: 0px 8px 25px rgba(15, 21, 70, 0.15);
                 border-radius: 8px;
             }
@@ -625,8 +628,22 @@
 }
 
 
+
+
 @media (max-width: 830px) {
     .companies{
+        &__head-panel{
+            height: unset;
+            &-title{
+                line-height: 16px;
+            }
+            &-link{
+                line-height: 16px;
+            }
+            &-controls{
+                height: unset;
+            }
+        }
         &__content{
             &-item--smaller{
                 width: 100%;
@@ -645,6 +662,45 @@
     }
 }
 
+
+
+
+
+@media (max-width: 930px) {
+    .companies{
+        width: 100%;
+        &__head-panel{
+            font-size: 12px;
+            &-title{
+                font-size: 14px;
+            }
+            &-link{
+                font-size: 12px;
+                margin: 0;
+            }
+            &-profile{
+                font-size: 12px;
+            }
+        }
+        &__content{
+            &-footer{
+                padding: 15px 0 15px 10px;
+                &-litem{
+                    font-size: 11px;
+                }
+            }
+            &-info{
+                padding: 10px;
+                width: 100%;
+                height: 114px;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+
+
+
 @media (max-width: 1180px) {
     .companies{
         &__content{
@@ -657,6 +713,44 @@
                 }
                 &:nth-child(2n){
                     margin-right: 0%;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@media (max-width: 582px) {
+    .companies{
+        padding: 10px;
+        &__head-panel{
+            height: unset;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 12px 0;
+            &-toplink{
+                position: relative;
+                top: 0;
+                width: 80%;
+                text-align: center;
+            }
+            &-controls{
+                flex-direction: column;
+                height: unset;
+            }
+            &-link{
+                justify-content: center;
+            }
+        }
+        &__content{
+            &-item, &-item--smaller{
+                width: 100%;
+                margin: 0 0 10px 0;
+                &:nth-child(3n)  {
+                    margin-right: 0;
                 }
             }
         }
