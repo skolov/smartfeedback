@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+<title>Smart Feedback</title>
+<link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+    <div class="mobile__head">
+        <h1 class="mobile__head-title">Оставьте отзыв</h1>
+        <div class="mobile__head-logo">
+            <img src="[[+path]][[+logo]]" width="100%" alt="">
+        </div>
+
+        <p class="mobile__head-name-kt">БЦ Юниверсал</p>
+        <p class="mobile__head-light-text">Ресепшен</p>
+
+        <div class="mobile__head-profile">
+            <div class="mobile__head-avatar">
+                <img class="mobile__head-avatar-img" src="[[+userAvatar:default=`scrDefault`]]" alt="">
+            </div>
+            <div class="mobile__head-info">
+                <p class="mobile__head-name">Валентина Константиновна Контстантинопольская</p>
+                <p class="mobile__head-vacancy">Старший менеджер</p>
+                <button class="mobile__head-btn">
+                    <img src="/assets/images/icons/dialog-ico.svg" alt="" class="mobile__head-dialog-ico">
+                    Написать в чат
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="mobile__attachment">
+        <p class="mobile__attachment-head">
+            Прикрепить к отзыву:
+        </p>
+        <div class="mobile__attachment-buttons">       
+            <a class="button mobile__attachment-btn" href="[[~14]]?key={$.get.key}">Фото или видео</a>
+            <a class="button mobile__attachment-btn" href="#" id="selectPhoto">Аудиосообщение</a>
+            <progress value="0" max="100" id="loadFile" hidden="">загрузка..</progress>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form id="sendRating">
+        <input type="hidden" name="key" value="[[+key]]">
+        <div for="" class="rating mobile__mark">
+            <p class="mobile__attachment-head">Оставьте оценку:</p>
+    
+            <div class="form-group rating-area mobile__stars">
+                            <input type="radio" id="star_3_5" name="rating" value="5">
+                <label for="star_3_5" title="5"></label>
+                            <input type="radio" id="star_3_4" name="rating" value="4">
+                <label for="star_3_4" title="4"></label>
+                            <input type="radio" id="star_3_3" name="rating" value="3">
+                <label for="star_3_3" title="3"></label>
+                            <input type="radio" id="star_3_2" name="rating" value="2">
+                <label for="star_3_2" title="2"></label>
+                            <input type="radio" id="star_3_1" name="rating" value="1" checked="">
+                <label for="star_3_1" title="1"></label>
+            </div>
+            <div class="mobile__textarea-holder">
+                <textarea placeholder="И расскажите, что думаете об этом" name="comment" id="" cols="30" rows="10" class="mobile__textarea"></textarea>
+            </div>
+
+            <div class="mobile__mark-text">
+                Оцените по шкале от 0 до 10, какова вероятность того, что вы будете порекомендуете своим друзьям?
+            </div>
+
+            <div class="mobile__nps-rate">
+                <label>
+                    <input type="radio" name="nps" value="1"><span>1</span>
+                    <input type="radio" name="nps" value="2"><span>2</span>
+                    <input type="radio" name="nps" value="3"><span>3</span>
+                    <input type="radio" name="nps" value="4"><span>4</span>
+                    <input type="radio" name="nps" value="5"><span>5</span>
+                    <input type="radio" name="nps" value="6"><span>6</span>
+                    <input type="radio" name="nps" value="7"><span>7</span>
+                    <input type="radio" name="nps" value="8"><span>8</span>
+                    <input type="radio" name="nps" value="9"><span>9</span>
+                    <input type="radio" name="nps" value="10"><span>10</span>
+                </label>
+            </div>
+
+        </div>
+        
+        <div for="" class="rating mobile__userinfo">
+            <div class="mobile__userinfo-holder">
+
+                <p class="mobile__attachment-head">Ваши данные:</p>
+
+                <div for="" class="mobile__userinfo-input-holder">
+                    <label for="">
+                        <input type="text" placeholder="ФИО" name="contact[name]">
+                    </label>
+                </div>
+
+                <div for="" class="mobile__userinfo-input-holder">
+                    <label for="">
+                        <input type="text" placeholder="Электронная почта" name="contact[email]">
+                    </label>
+                </div>
+
+                <div for="" class="mobile__userinfo-input-holder">
+                    <label for="">
+                        <input type="text" placeholder="Телефон" name="contact[phone]">
+                    </label>
+                </div>
+
+                <div for="" class="mobile__userinfo-input-holder">
+                    <label for="">
+                        <input type="date" placeholder="Возраст" name="contact[age]">
+                    </label>
+                </div>
+
+                <div for="" class="mobile__userinfo-input-holder">
+                    <input type="radio" id="radio1" name="contact[gender]" value="male">
+                    <label for="radio1">Мужской</label>
+                    <input type="radio" id="radio2" name="contact[gender]" value="female">
+                    <label for="radio2">Женский</label>
+                </div>
+
+            </div>
+
+            <div class="mobile__agreement">
+                Отправляя отзыв вы соглашаетесь с 
+                <a class="mobile__agreement-link" href="">
+                    пользовательким соглашением
+                </a> 
+            </div>
+            
+                
+            <button class="button button-blue mobile__send-btn" type="submit">Отправить</button>
+
+            <div class="mobile__footer-image">
+                <img src="/assets/images/icons/footer-logo-mobile.png" alt="logo" class="mobile__footer-img">
+            </div>
+            
+        </div>
+    </form>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

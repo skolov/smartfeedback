@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <include src="../sections/head.html"></include>
+</head>
+
+<body>
+
+    <main class="main">
+        <include src="../sections/left-menu.html"></include>
+
+        <div class="companies">
+            <div class="companies__head-panel">
+                <h2 class="companies__head-panel-title">Мои предприятия</h2>
+                <div class="companies__head-panel-controls">
+                    <a class="companies__head-panel-link" href="">Подключить полный тариф</a>
+                    <div class="companies__head-panel-profile-container">
+                        <button class="companies__head-panel-profile profile-menu">Дмитрий Мезенин
+                            <div class="companies__head-panel-avatar">
+                                <img
+                                    src="/assets/images/icons/avatar-default.svg"
+                                    alt=""
+                                    class="companies__head-panel-avatar-img"
+                                />
+                            </div>
+                            <img 
+                                class="companies__head-panel-more profile-menu"
+                                src="/assets/images/icons/dropdown-ico.svg"
+                            />        
+                        </button>
+                    </div>
+                    <div class="companies__head-panel-dropdown-holder">
+
+                        <ul class="companies__head-panel-menu-dropdown profile-menu">
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-settings"></use>
+                                    </svg>Настройки
+                                </a>
+                            </li>
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-tariff"></use>
+                                    </svg>Тариф
+                                </a>
+                            </li>
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-exit"></use>
+                                    </svg>Выход
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+           
+
+
+        </div>
+
+
+        <div class="companies__content">
+
+
+
+            <div class="modal__back">
+                <div class="modal__window">
+                    <span class="modal__close-btn"></span>
+                    <form action="">
+                        <label class="modal__window-header">
+                            Создание предприятия
+                        </label>
+                        <p class="modal__window-text">
+                            Заполните информацию о вашем предприятии
+                        </p>
+                        <div class="modal__input-holder">
+                            <div class="modal__window-logo-company">
+                                <img 
+                                    src="/assets/images/icons/create-company.svg"
+                                    alt="logo company"
+                                    class="modal__window-img"
+                                />
+                            </div>
+                            <label
+                                class="modal__window-label"
+                            >
+                                Загрузить логотип
+                                <p class="modal__window-lighter-text">
+                                    До 5 мб. PNG, JPG
+                                </p>
+                            </label>
+                        </div>
+                        <div class="modal__input-holder">
+                            <input 
+                                type="text"
+                                placeholder="Название контрольной точки"
+                                class="input modal__input is-invalid"
+                            />
+                        </div>
+                        <div class="modal__input-holder">
+                            <textarea
+                                class="modal__textarea is-invalid"
+                                placeholder="Описание"
+                            ></textarea>
+                        </div>
+                        <button
+                            class="button button-blue modal__button"
+                        >Создать предприятие</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </main>
+
+    <include src="../sections/scripts.html"></include>
+</body>
+
+</html>
