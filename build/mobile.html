@@ -11,10 +11,21 @@
 
 <body>
 
+
+
+
+
+
+
+
+<!--
+
+
+
     <div class="mobile__head">
         <h1 class="mobile__head-title">Оставьте отзыв</h1>
         <div class="mobile__head-logo">
-            <img src="[[+path]][[+logo]]" width="100%" alt="">
+            <img src="[[+path]][[+logo]]" width = "100%" alt="">
         </div>
 
         <p class="mobile__head-name-kt">БЦ Юниверсал</p>
@@ -22,13 +33,21 @@
 
         <div class="mobile__head-profile">
             <div class="mobile__head-avatar">
-                <img class="mobile__head-avatar-img" src="[[+userAvatar:default=`scrDefault`]]" alt="">
+                <img 
+                    class="mobile__head-avatar-img"
+                    src="[[+userAvatar:default=`scrDefault`]]"
+                    alt=""
+                >
             </div>
             <div class="mobile__head-info">
                 <p class="mobile__head-name">Валентина Константиновна Контстантинопольская</p>
                 <p class="mobile__head-vacancy">Старший менеджер</p>
                 <button class="mobile__head-btn">
-                    <img src="/assets/images/icons/dialog-ico.svg" alt="" class="mobile__head-dialog-ico">
+                    <img 
+                        src="/assets/images/icons/dialog-ico.svg"
+                        alt=""
+                        class="mobile__head-dialog-ico"
+                    />
                     Написать в чат
                 </button>
             </div>
@@ -36,70 +55,121 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="mobile__attachment">
         <p class="mobile__attachment-head">
             Прикрепить к отзыву:
         </p>
+        
+        <div class="mobile__attachment-elem-holder">
+            <div id = "[[+id]]"  class="mobile__attachment-element">
+                <div class="mobile__attachment-scetch">
+                    <img 
+                        src="[[+url]]" 
+                        alt="" 
+                        width = "40"
+                        class="mobile__attachment-scetch-picture"
+                    >
+                    <img
+                        src="/assets/images/icons/photo-attach.svg"
+                        alt=""
+                        class="mobile__attachment-scetch-ico"
+                    >
+                </div>
+                <p class="mobile__attachment-thing">
+                    Изображение
+                </p>
+                <button class = "deleteMedia mobile__attachment-close" data-id="[[+id]]">
+                    <span class="mobile__attachment-close-cross"></span>
+                </button>
+            </div>
+    
+    
+    
+            <div id = "[[+id]]" class="mobile__attachment-element">            
+                <div class="mobile__attachment-scetch">
+                    <video width="40" preload="metadata">
+                        <source src="[[+url]]">
+                   </video>
+                    <img
+                        src="/assets/images/icons/video-attach.svg"
+                        alt=""
+                        class="mobile__attachment-scetch-ico"
+                    >
+                </div>
+    
+                
+                <p class="mobile__attachment-thing">
+                    Видеосообщение <span class="mobile__attachment-time">00:30</span>
+                </p>
+            
+                <button class = "deleteMedia mobile__attachment-close" data-id="[[+id]]">
+                    <span class="mobile__attachment-close-cross"></span>
+                </button>
+            </div>
+    
+    
+    
+            <div id = "audio" class="mobile__attachment-element">
+                <div class="mobile__attachment-scetch">
+                    <img
+                        src="/assets/images/icons/play-button-blue-ico.svg"
+                        alt=""
+                        class="mobile__attachment-scetch-picture"
+                    >
+                </div>
+                <p class="mobile__attachment-thing">
+                    Аудиосообщение <span class="mobile__attachment-time">00:30</span>
+                </p>
+                <audio src="[[+src]]" controls="" preload="metadata"></audio>
+                <button id = "deleteAudio" class="mobile__attachment-close">
+                    <span class="mobile__attachment-close-cross"></span>
+                </button>
+            </div>
+        </div>
+
+        
+
+
+
         <div class="mobile__attachment-buttons">       
             <a class="button mobile__attachment-btn" href="[[~14]]?key={$.get.key}">Фото или видео</a>
-            <a class="button mobile__attachment-btn" href="#" id="selectPhoto">Аудиосообщение</a>
-            <progress value="0" max="100" id="loadFile" hidden="">загрузка..</progress>
+            <a class="button mobile__attachment-btn" href="#" id = "selectPhoto">Аудиосообщение</a>
+            <progress value="0" max="100" id = "loadFile" hidden>загрузка..</progress>
         </div>
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
     <form id="sendRating">
-        <input type="hidden" name="key" value="[[+key]]">
+        <input type="hidden" name = "key" value = "[[+key]]">
         <div for="" class="rating mobile__mark">
             <p class="mobile__attachment-head">Оставьте оценку:</p>
     
             <div class="form-group rating-area mobile__stars">
                             <input type="radio" id="star_3_5" name="rating" value="5">
-                <label for="star_3_5" title="5"></label>
+                <label data-star="5" for="star_3_5" title="5"></label>
                             <input type="radio" id="star_3_4" name="rating" value="4">
-                <label for="star_3_4" title="4"></label>
+                <label data-star="4" for="star_3_4" title="4"></label>
                             <input type="radio" id="star_3_3" name="rating" value="3">
-                <label for="star_3_3" title="3"></label>
+                <label data-star="3" for="star_3_3" title="3"></label>
                             <input type="radio" id="star_3_2" name="rating" value="2">
-                <label for="star_3_2" title="2"></label>
-                            <input type="radio" id="star_3_1" name="rating" value="1" checked="">
-                <label for="star_3_1" title="1"></label>
+                <label data-star="2" for="star_3_2" title="2"></label>
+                            <input type="radio" id="star_3_1" name="rating" value="1">
+                <label data-star="1" for="star_3_1" title="1"></label>
+                <div class="mobile__stars-rate-number">
+                    
+                </div>
             </div>
             <div class="mobile__textarea-holder">
-                <textarea placeholder="И расскажите, что думаете об этом" name="comment" id="" cols="30" rows="10" class="mobile__textarea"></textarea>
+                <textarea 
+                    placeholder="И расскажите, что думаете об этом" 
+                    name="comment" 
+                    id="" 
+                    cols="30" 
+                    rows="10"
+                    class="mobile__textarea"
+                ></textarea>
             </div>
 
             <div class="mobile__mark-text">
@@ -108,54 +178,74 @@
 
             <div class="mobile__nps-rate">
                 <label>
-                    <input type="radio" name="nps" value="1"><span>1</span>
-                    <input type="radio" name="nps" value="2"><span>2</span>
-                    <input type="radio" name="nps" value="3"><span>3</span>
-                    <input type="radio" name="nps" value="4"><span>4</span>
-                    <input type="radio" name="nps" value="5"><span>5</span>
-                    <input type="radio" name="nps" value="6"><span>6</span>
-                    <input type="radio" name="nps" value="7"><span>7</span>
-                    <input type="radio" name="nps" value="8"><span>8</span>
-                    <input type="radio" name="nps" value="9"><span>9</span>
-                    <input type="radio" name="nps" value="10"><span>10</span>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="1"><span>1</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="2"><span>2</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="3"><span>3</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="4"><span>4</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="5"><span>5</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="6" checked><span>6</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="7"><span>7</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="8"><span>8</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="9"><span>9</span>
+                    </div>
+                    <div class="mobile__nps-rate-item">
+                        <input type="radio"  name="nps" value="10"><span>10</span>
+                    </div>
                 </label>
             </div>
 
         </div>
         
-        <div for="" class="rating mobile__userinfo">
+        <div for="" class = "rating mobile__userinfo">
             <div class="mobile__userinfo-holder">
 
                 <p class="mobile__attachment-head">Ваши данные:</p>
 
                 <div for="" class="mobile__userinfo-input-holder">
                     <label for="">
-                        <input type="text" placeholder="ФИО" name="contact[name]">
+                        <input type="text" placeholder = "ФИО" name = "contact[name]">
                     </label>
                 </div>
 
                 <div for="" class="mobile__userinfo-input-holder">
                     <label for="">
-                        <input type="text" placeholder="Электронная почта" name="contact[email]">
+                        <input type="text" placeholder = "Электронная почта" name = "contact[email]">
                     </label>
                 </div>
 
                 <div for="" class="mobile__userinfo-input-holder">
                     <label for="">
-                        <input type="text" placeholder="Телефон" name="contact[phone]">
+                        <input type="text" placeholder = "Телефон" name = "contact[phone]">
                     </label>
                 </div>
 
                 <div for="" class="mobile__userinfo-input-holder">
                     <label for="">
-                        <input type="date" placeholder="Возраст" name="contact[age]">
+                        <input data-input="date" type="text" placeholder = "Возраст" name = "contact[age]">
                     </label>
                 </div>
 
                 <div for="" class="mobile__userinfo-input-holder">
-                    <input type="radio" id="radio1" name="contact[gender]" value="male">
+                    <input type="radio" id="radio1" name = "contact[gender]" value = "male">
                     <label for="radio1">Мужской</label>
-                    <input type="radio" id="radio2" name="contact[gender]" value="female">
+                    <input type="radio" id="radio2" name = "contact[gender]" value = "female">
                     <label for="radio2">Женский</label>
                 </div>
 
@@ -169,14 +259,70 @@
             </div>
             
                 
-            <button class="button button-blue mobile__send-btn" type="submit">Отправить</button>
+            <button class="button button-blue mobile__send-btn" type = "submit">Отправить</button>
 
             <div class="mobile__footer-image">
-                <img src="/assets/images/icons/footer-logo-mobile.png" alt="logo" class="mobile__footer-img">
+                <img 
+                    src="/assets/images/icons/footer-logo-mobile.png"
+                    alt="logo"
+                    class="mobile__footer-img"
+                />
             </div>
             
         </div>
+       
     </form>
+
+-->
+
+
+    <!--
+     
+    <div class="mobile__send" id="finishForm">
+        <div class="mobile__send-review">
+            <h1 class="mobile__send-header" id="formTitle">Спасибо за отзыв!</h1>
+            <p class="mobile__send-text" id="formMsg">Пожалуйста, ответьте еще на несколько вопросов в нашей анкете. Это поможет нам стать лучше!</p>
+            <a class="mobile__send-link" href="#" id="showQuestionary">Заполнить анкету</a>
+        </div>
+
+
+        <div class="mobile__send-footer">
+            <img 
+                src="/assets/images/icons/footer-logo-mobile.png" 
+                alt=""
+                class="mobile__send-footer-ico"
+            >
+        </div>
+    </div>
+    -->
+
+    
+    <form id="createQuestionaryForm">
+        <input type="hidden" name="key" value="[[+key]]">
+        <h1 class="mobile__fill-header">Заполните анкету</h1>
+        <div class="mobile__form">
+            <p class="mobile__form-title">Анкета</p>
+            <a class="mobile__form-link" href="#">Не заполнять анкету</a>
+        </div>
+
+
+        <div class="mobile__form-quest">
+            <p class="form-group">Вопрос {$number} (открытый)</p>
+            <p class="form-group text-muted">{$question}</p>
+            <label for="answer_{$number}" class="form-group"><strong>Ваш ответ:</strong></label>
+            <textarea id="answer_{$number}" class="form-control form-group" name="question[{$number}]">
+                {if $sample}
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                {/if}
+            </textarea>
+        </div>
+
+        <button class="mobile__form-button" type="submit">Отправить</button>
+        <div class="mobile__form-footer">
+            <img src="/assets/images/icons/footer-logo-mobile.png" alt="" class="mobile__form-footer-ico">
+        </div>
+    </form>
+    
 
     <script src="/js/main.js"></script>
 </body>

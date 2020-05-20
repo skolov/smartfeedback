@@ -15,6 +15,10 @@ function () {
     this.initCompanyDropdownMenu();
     this.initTabsReview();
     this.initSwitchers();
+    this.initMobileDateInput();
+    this.initMobileStar();
+    this.initMobileAudioDuration();
+    this.initMobileVideoDuration();
   }
 
   _createClass(Main, [{
@@ -99,6 +103,67 @@ function () {
             var currentTabId = element.getAttribute('id');
             document.getElementById("tab-".concat(currentTabId)).style.display = "block";
           };
+        });
+      }
+    }
+  }, {
+    key: "initMobileDateInput",
+    value: function initMobileDateInput() {
+      var inputDate = document.querySelector('input[data-input=date]');
+
+      if (inputDate != null) {
+        inputDate.onfocus = function () {
+          inputDate.setAttribute('type', 'date');
+        };
+      }
+    }
+  }, {
+    key: "initMobileStar",
+    value: function initMobileStar() {
+      var mobileStars = document.querySelectorAll('label[data-star]'),
+          mobileRateBlock = document.querySelector('div.mobile__stars-rate-number');
+
+      if (mobileStars != null) {
+        mobileStars.forEach(function (element) {
+          element.onclick = function () {
+            mobileRateBlock.innerHTML = "".concat(element.getAttribute('data-star'), "/5");
+          };
+        });
+      }
+    }
+  }, {
+    key: "initMobileAudioDuration",
+    value: function initMobileAudioDuration() {
+      var audio = document.querySelectorAll('div#audio');
+
+      if (audio != null) {
+        audio.forEach(function (element) {
+          var audio = element.querySelector('audio'),
+              timeBox = audio.querySelector('span.mobile__attachment-time');
+
+          audio.onloadedmetadata = function () {
+            timeBox.innerHTML = audio.duration;
+          };
+        });
+      }
+    }
+  }, {
+    key: "initMobileVideoDuration",
+    value: function initMobileVideoDuration() {
+      var video = document.querySelectorAll('div.mobile__attachment-scetch');
+
+      if (video != null) {
+        video.forEach(function (element) {
+          var video = element.querySelector('video'),
+              timeBox;
+
+          if (video != null) {
+            timeBox = video.querySelector('span.mobile__attachment-time');
+
+            video.onloadedmetadata = function () {
+              timeBox.innerHTML = video.duration;
+            };
+          }
         });
       }
     }

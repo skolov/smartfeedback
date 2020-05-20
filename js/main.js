@@ -8,6 +8,10 @@ class Main {
         this.initCompanyDropdownMenu();
         this.initTabsReview();
         this.initSwitchers();
+        this.initMobileDateInput();
+        this.initMobileStar();
+        this.initMobileAudioDuration();
+        this.initMobileVideoDuration();
     }
 
 
@@ -99,7 +103,67 @@ class Main {
 
 
 
+    initMobileDateInput(){
+        let inputDate = document.querySelector('input[data-input=date]');
+        if (inputDate != null) {
+            inputDate.onfocus = () => {
+                inputDate.setAttribute('type', 'date')
+            }
+        }
+    }
 
+
+    initMobileStar() {
+        let mobileStars = document.querySelectorAll('label[data-star]'),
+            mobileRateBlock = document.querySelector('div.mobile__stars-rate-number');
+
+
+
+        if( mobileStars != null) {
+            mobileStars.forEach(element => {
+                element.onclick = () => {
+                    mobileRateBlock.innerHTML = `${element.getAttribute('data-star')}/5`
+                }
+            })
+        }
+    }
+
+
+    initMobileAudioDuration() {
+        let audio = document.querySelectorAll('div#audio');
+        if(audio != null) {
+            audio.forEach(element => {
+                let audio = element.querySelector('audio'),
+                    timeBox = audio.querySelector('span.mobile__attachment-time');
+
+                audio.onloadedmetadata = () => {
+                    timeBox.innerHTML = audio.duration;
+                }
+            });
+
+        }
+    }
+
+
+    initMobileVideoDuration() {
+        let video = document.querySelectorAll('div.mobile__attachment-scetch');
+        if(video != null) {
+            video.forEach(element => {
+                let video = element.querySelector('video'),
+                    timeBox;
+
+                if (video != null) {
+                    timeBox = video.querySelector('span.mobile__attachment-time');
+                    video.onloadedmetadata = () => {
+                        timeBox.innerHTML = video.duration;
+                    }
+                }
+
+               
+            });
+
+        }
+    }
 
 
 
