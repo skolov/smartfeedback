@@ -7,17 +7,6 @@
 
 <body>
 
-
-
-
-
-
-
-
-<!--
-
-
-
     <div class="mobile__head">
         <h1 class="mobile__head-title">Оставьте отзыв</h1>
         <div class="mobile__head-logo">
@@ -30,7 +19,7 @@
         <div class="mobile__head-profile">
             <div class="mobile__head-avatar">
                 <img 
-                    class="mobile__head-avatar-img"
+                    class="mobile__head-avatar-image"
                     src="[[+userAvatar:default=`scrDefault`]]"
                     alt=""
                 >
@@ -104,7 +93,6 @@
             </div>
     
     
-    
             <div id = "audio" class="mobile__attachment-element">
                 <div class="mobile__attachment-scetch">
                     <img
@@ -124,9 +112,6 @@
         </div>
 
         
-
-
-
         <div class="mobile__attachment-buttons">       
             <a class="button mobile__attachment-btn" href="[[~14]]?key={$.get.key}">Фото или видео</a>
             <a class="button mobile__attachment-btn" href="#" id = "selectPhoto">Аудиосообщение</a>
@@ -134,8 +119,6 @@
         </div>
     </div>
 
-
-  
 
     <form id="sendRating">
         <input type="hidden" name = "key" value = "[[+key]]">
@@ -235,6 +218,7 @@
                 <div for="" class="mobile__userinfo-input-holder">
                     <label for="">
                         <input data-input="date" type="text" placeholder = "Возраст" name = "contact[age]">
+                        <input class="mobile__userinfo-hidden-input" type="date">
                     </label>
                 </div>
 
@@ -269,10 +253,10 @@
        
     </form>
 
--->
 
 
-    <!--
+
+<!--    
      
     <div class="mobile__send" id="finishForm">
         <div class="mobile__send-review">
@@ -290,8 +274,17 @@
             >
         </div>
     </div>
-    -->
+-->
 
+
+<!--
+    На всякий
+    <div class="container mt-3 "  id = "finishForm" hidden>
+	    <h1 id = "formTitle"></h1>
+		<p id = "formMsg"></p>
+		<a href="#" id = "showQuestionary">Заполнить анкету</a>
+	</div>
+    
     
     <form id = "createQuestionaryForm">
         <input type="hidden" name = "key" value = "[[+key]]">
@@ -302,16 +295,89 @@
         </div>
 
 
-        <div class="mobile__form-quest">
-            <p class="form-group">Вопрос 1 (открытый)</p>
-            <p class="form-group text-muted">{$question}</p>
-            <label for="answer_{$number}" class="form-group"><strong>Ваш ответ:</strong></label>
-            <textarea id="answer_{$number}" class="form-control form-group" name="question[{$number}]">
-                {if $sample}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                {/if}
-            </textarea>
+        <div class="mobile__form-itemquest">
+            <p class="form-group mobile__form-type-quest">Вопрос 1 (открытый)</p>
+            <p class="form-group text-muted mobile__form-quest">1. Что Вам понравилось в нашем кафе?</p>
+            <label for="answer_{$number}" class="form-group mobile__form-answer">Ваш ответ:</label>
+            <textarea id="answer_{$number}" class="form-control form-group mobile__form-textarea" name="question[{$number}]"></textarea>
         </div>
+
+
+        <div class="mobile__form-itemquest">
+            <p class="form-group mobile__form-type-quest">Вопрос 2 (закрытый)</p>
+            <p class="form-group text-muted mobile__form-quest">2. Понравилось ли Вам у нас?</p>
+            <label for="answer_{$number}" class="form-group mobile__form-answer">Ваш ответ:</label>
+
+            <div class="form-group row">
+                <div class="col mobile__form-radioitem">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question[{$number}]" id="answer_{$number}_1" value="1" checked>
+                        <label class="form-check-label" for="answer_{$number}_1">Да</label>
+                    </div>
+                </div>
+                <div class="col mobile__form-radioitem">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question[{$number}]" id="answer_{$number}_2" value="2">
+                        <label class="form-check-label" for="answer_{$number}_2">Нет</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mobile__form-itemquest">
+            <p class="form-group mobile__form-type-quest">Вопрос 3 (оценка)</p>
+            <p class="form-group text-muted mobile__form-quest">Оцените наше кафе</p>
+            <p class="form-group mobile__form-answer">Ваш ответ:</p>
+
+            <div class="form-group rating-area mobile__form-stars">
+                <input type="radio" id="1" name="question[{$number}]" value="{$j}">
+                <label for="1" title="{$j}"></label>
+                <input type="radio" id="2" name="question[{$number}]" value="{$j}">
+                <label for="2" title="{$j}"></label>
+                <input type="radio" id="3" name="question[{$number}]" value="{$j}">
+                <label for="3" title="{$j}"></label>
+                <input type="radio" id="4" name="question[{$number}]" value="{$j}">
+                <label for="4" title="{$j}"></label>
+                <input type="radio" id="5" name="question[{$number}]" value="{$j}">
+                <label for="5" title="{$j}"></label>
+                <input type="radio" id="6" name="question[{$number}]" value="{$j}">
+                <label for="6" title="{$j}"></label>
+                <input type="radio" id="7" name="question[{$number}]" value="{$j}">
+                <label for="7" title="{$j}"></label>
+                <input type="radio" id="8" name="question[{$number}]" value="{$j}">
+                <label for="8" title="{$j}"></label>
+                <input type="radio" id="9" name="question[{$number}]" value="{$j}">
+                <label for="9" title="{$j}"></label>
+                <input type="radio" id="10" name="question[{$number}]" value="{$j}">
+                <label for="10" title="{$j}"></label>
+            </div>
+
+        </div>
+
+
+        <div class="mobile__form-itemquest">
+            <p class="form-group mobile__form-type-quest">Вопрос 4 (чек-лист)</p>
+            <p class="form-group text-muted mobile__form-quest">Отметьте, что у нас хорошего.</p>
+            <p class="form-group mobile__form-answer">Ваш ответ:</p>
+
+            <div class="form-check{if $value@last} form-group{/if} mobile__form-checklist">
+                <div class="mobile__form-checklist-item">
+                    <input class="form-check-input" type="checkbox" name="question[{$number}][{$i}]" value="1" id="1">
+                    <label class="form-check-label text-muted" for="1">Кухня.</label>
+                </div>
+                <div class="mobile__form-checklist-item">
+                    <input class="form-check-input" type="checkbox" name="question[{$number}][{$i}]" value="2" id="2">
+                    <label class="form-check-label text-muted" for="2">Музыка.</label>
+                </div>
+                <div class="mobile__form-checklist-item">
+                    <input class="form-check-input" type="checkbox" name="question[{$number}][{$i}]" value="3" id="3">
+                    <label class="form-check-label text-muted" for="3">Обслуживание.</label>
+                </div>
+            </div>
+
+        </div>
+
 
         <button class="mobile__form-button" type = "submit">Отправить</button>
         <div class="mobile__form-footer">
@@ -322,8 +388,78 @@
             />
         </div>
     </form>
-    
+-->
 
+
+
+
+
+
+
+
+    <!--
+
+
+        <div class="mobile__record">
+            <a href="[[~13]]?key={$.get.key}" class="mobile__record-btn-back">
+                <img
+                    src="/assets/images/icons/back-arrow.svg"
+                    class="mobile__record-btn-back-ico"
+                    alt="arrow-back"
+                />
+                Аудиосообщение
+            </a>
+
+            <div class="mobile__record-window">
+
+                <div class="mobile__record-content-holder">
+                    <div class="mobile__record-text">
+                        Удерживайте кнопку </br>
+                        для записи аудиосообщения
+                    </div>
+                </div>
+
+                <div class="mobile__record-ico-holder">
+                    <img
+                        src="/assets/images/icons/micro-icon.svg"
+                        alt=""
+                        class="mobile__record-image"
+                    >
+                </div>
+                
+            </div>
+
+            <div class="mobile__record-footer">
+
+                <button id="start" class="mobile__record-btn-record">
+                    <img
+                        src="/assets/images/icons/micro-small-icon.svg"
+                        alt=""
+                        class="mobile__record-btn-record-ico"
+                    >
+                </button>
+
+                <button id="stop" hidden>Остановить</button>
+
+                <div id="messages">
+                    <audio src="[[+src]]" controls=""></audio>
+                </div>
+        
+        
+                <button class="mobile__record-delete-record">Удалить запись</button>
+                <button id = "send" class="mobile__record-attach-btn">Прикрепить к отзыву</button>
+            
+
+                <form name="clockform" hidden>
+                    <input name="clock" size="12" maxlength="12" value="00:00:00.00" style = "border: 0;">
+                    <input name="label" size="12" maxlength="40" value="" type = "hidden">
+                </form>
+            </div>
+
+        </div>
+
+    -->
+    
     <include src="../sections/scripts.html"></include>
 </body>
 

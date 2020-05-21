@@ -104,10 +104,18 @@ class Main {
 
 
     initMobileDateInput(){
-        let inputDate = document.querySelector('input[data-input=date]');
-        if (inputDate != null) {
-            inputDate.onfocus = () => {
-                inputDate.setAttribute('type', 'date')
+        let inputDate = document.querySelector('input[data-input=date]'),
+            hiddenInputDate = document.querySelector('input[data-input=date] + input');
+
+        if (inputDate != null && hiddenInputDate != null) {
+            hiddenInputDate.onchange = () => {
+                let value = this.getHumanlyDate(hiddenInputDate.value)
+                if (value) {
+                    inputDate.value = value
+                } else {
+                    inputDate.setAttribute('placeholder', 'Возраст')
+                }
+                
             }
         }
     }
@@ -187,6 +195,37 @@ class Main {
                 }
             })
         }
+    }
+
+
+
+
+
+    getHumanlyDate(value) {
+        let dateParts = value.split('-'),
+            mounth = {
+                '01' : 'Января',
+                '02' : 'Февраля',
+                '03' : 'Марта',
+                '04' : 'Апреля',
+                '05' : 'Мая',
+                '06' : 'Июня',
+                '07' : 'Июля',
+                '08' : 'Августа',
+                '09' : 'Сентября',
+                '10' : 'Октября',
+                '11' : 'Ноября',
+                '12' : 'Декабря'
+            };
+
+        if (
+            dateParts[0] != undefined && 
+            dateParts[1] != underfined && 
+            dateParts[2] != underfined
+        ) {
+            return dateParts[2] + ' ' + mounth[dateParts[1]] + ' ' + dateParts[0];
+        } 
+        return false;
     }
 
 

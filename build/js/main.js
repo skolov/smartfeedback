@@ -109,11 +109,20 @@ function () {
   }, {
     key: "initMobileDateInput",
     value: function initMobileDateInput() {
-      var inputDate = document.querySelector('input[data-input=date]');
+      var _this = this;
 
-      if (inputDate != null) {
-        inputDate.onfocus = function () {
-          inputDate.setAttribute('type', 'date');
+      var inputDate = document.querySelector('input[data-input=date]'),
+          hiddenInputDate = document.querySelector('input[data-input=date] + input');
+
+      if (inputDate != null && hiddenInputDate != null) {
+        hiddenInputDate.onchange = function () {
+          var value = _this.getHumanlyDate(hiddenInputDate.value);
+
+          if (value) {
+            inputDate.value = value;
+          } else {
+            inputDate.setAttribute('placeholder', 'Возраст');
+          }
         };
       }
     }
@@ -189,6 +198,31 @@ function () {
           };
         });
       }
+    }
+  }, {
+    key: "getHumanlyDate",
+    value: function getHumanlyDate(value) {
+      var dateParts = value.split('-'),
+          mounth = {
+        '01': 'Января',
+        '02': 'Февраля',
+        '03': 'Марта',
+        '04': 'Апреля',
+        '05': 'Мая',
+        '06': 'Июня',
+        '07': 'Июля',
+        '08': 'Августа',
+        '09': 'Сентября',
+        '10': 'Октября',
+        '11': 'Ноября',
+        '12': 'Декабря'
+      };
+
+      if (dateParts[0] != undefined && dateParts[1] != underfined && dateParts[2] != underfined) {
+        return dateParts[2] + ' ' + mounth[dateParts[1]] + ' ' + dateParts[0];
+      }
+
+      return false;
     }
   }]);
 
