@@ -7,6 +7,7 @@
 
 <body>
 
+<!--   
     <div class="mobile__head">
         <h1 class="mobile__head-title">Оставьте отзыв</h1>
         <div class="mobile__head-logo">
@@ -252,6 +253,7 @@
         </div>
        
     </form>
+-->
 
 
 
@@ -397,7 +399,7 @@
 
 
 
-    <!--
+    
 
 
         <div class="mobile__record">
@@ -412,19 +414,52 @@
 
             <div class="mobile__record-window">
 
-                <div class="mobile__record-content-holder">
+                <div class="mobile__record-content-holder" style="display: none;">
                     <div class="mobile__record-text">
                         Удерживайте кнопку </br>
                         для записи аудиосообщения
                     </div>
                 </div>
 
-                <div class="mobile__record-ico-holder">
+                <div class="mobile__record-player-holder">
+                    <div class="mobile__record-player">
+                        <div id="messages">
+                            <audio src="[[+src]]" controls=""></audio>
+                        </div>
+
+                        <div class="mobile__record-player-central">
+                            <button class="mobile__record-play-btn">
+                                <img
+                                    src="/assets/images/icons/play-button-blue-ico.svg"
+                                    alt=""
+                                    class="mobile__record-play-btn-ico"
+                                >
+                            </button>
+                            <div class="mobile__record-timer">00:00</div>
+                        </div>
+
+                        <div class="mobile__record-player-line">
+                            <div class="mobile__record-player-line-back"></div>
+                            <span class="mobile__record-player-line-pointer"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile__record-ico-holder" style="display: flex;">
                     <img
                         src="/assets/images/icons/micro-icon.svg"
                         alt=""
                         class="mobile__record-image"
                     >
+                </div>
+
+
+                <div class="mobile__record-form-holder" style="display: none;">
+                    <form name="clockform">
+                        <div class="mobile__record-text">Идет запись...</div>
+                        <input class="mobile__record-time-counter" name="clock" size="12" maxlength="12" value="00:00" style = "border: 0;">
+                        <input name="label" size="12" maxlength="40" value="" type = "hidden">
+                    </form>
                 </div>
                 
             </div>
@@ -439,26 +474,18 @@
                     >
                 </button>
 
-                <button id="stop" hidden>Остановить</button>
-
-                <div id="messages">
-                    <audio src="[[+src]]" controls=""></audio>
-                </div>
-        
+                <button id="stop" hidden>Остановить</button>       
         
                 <button class="mobile__record-delete-record">Удалить запись</button>
                 <button id = "send" class="mobile__record-attach-btn">Прикрепить к отзыву</button>
             
 
-                <form name="clockform" hidden>
-                    <input name="clock" size="12" maxlength="12" value="00:00:00.00" style = "border: 0;">
-                    <input name="label" size="12" maxlength="40" value="" type = "hidden">
-                </form>
+                
             </div>
 
         </div>
 
-    -->
+    
     
     <include src="../sections/scripts.html"></include>
 </body>

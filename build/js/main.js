@@ -19,6 +19,7 @@ function () {
     this.initMobileStar();
     this.initMobileAudioDuration();
     this.initMobileVideoDuration();
+    this.catchHandlerTouch();
   }
 
   _createClass(Main, [{
@@ -218,11 +219,21 @@ function () {
         '12': 'Декабря'
       };
 
-      if (dateParts[0] != undefined && dateParts[1] != underfined && dateParts[2] != underfined) {
+      if (dateParts[0] != undefined && dateParts[1] != undefined && dateParts[2] != undefined) {
         return dateParts[2] + ' ' + mounth[dateParts[1]] + ' ' + dateParts[0];
       }
 
       return false;
+    }
+  }, {
+    key: "catchHandlerTouch",
+    value: function catchHandlerTouch() {
+      var audioBtn = document.querySelector('button#start');
+
+      if (audioBtn != null) {
+        audioBtn.addEventListener("touchstart", function () {}, false);
+        audioBtn.addEventListener("touchend", function () {}, false);
+      }
     }
   }]);
 

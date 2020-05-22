@@ -2944,6 +2944,10 @@ input:checked + .settings__panel-switch-slider:before {
   color: #0B0E2D;
 }
 .mobile__record {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -2966,6 +2970,8 @@ input:checked + .settings__panel-switch-slider:before {
   position: absolute;
   color: #0B0E2D;
   background: #fff;
+  z-index: 100;
+  text-decoration: none;
 }
 .mobile__record-btn-back-ico {
   width: 24px;
@@ -2983,7 +2989,9 @@ input:checked + .settings__panel-switch-slider:before {
   align-items: center;
 }
 .mobile__record-content-holder,
-.mobile__record-ico-holder {
+.mobile__record-ico-holder,
+.mobile__record-form-holder,
+.mobile__record-player-holder {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -2992,8 +3000,79 @@ input:checked + .settings__panel-switch-slider:before {
   align-items: center;
   z-index: 2;
 }
+.mobile__record-player-holder {
+  display: none;
+}
+.mobile__record-player-holder audio {
+  visibility: hidden;
+  position: absolute;
+  z-index: 0;
+}
+.mobile__record-player {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobile__record-player-central {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mobile__record-play-btn {
+  width: 44px;
+  height: 44px;
+  background: none;
+  box-sizing: unset;
+  margin-right: 15px;
+  padding: 0;
+  border: 0;
+  float: left;
+}
+.mobile__record-play-btn-ico {
+  width: 44px;
+  height: 44px;
+}
+.mobile__record-timer {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 64px;
+  color: #0B0E2D;
+}
+.mobile__record-player-line {
+  width: 190px;
+  height: 4px;
+  margin-top: 20px;
+  border-radius: 2px;
+  background: #9BA6BC;
+  position: relative;
+}
+.mobile__record-player-line-back {
+  width: 90px;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #4E94CA;
+}
+.mobile__record-player-line-pointer {
+  width: 16px;
+  height: 16px;
+  display: block;
+  border-radius: 8px;
+  background: #ffffff;
+  position: relative;
+  box-sizing: border-box;
+  border: 4px solid #4E94CA;
+  position: absolute;
+  top: -6px;
+  left: 82px;
+}
 .mobile__record-ico-holder {
   z-index: 1;
+  display: none;
 }
 .mobile__record-text {
   width: 100%;
@@ -3006,15 +3085,20 @@ input:checked + .settings__panel-switch-slider:before {
   text-align: center;
   color: #0B0E2D;
 }
+.mobile__record-time-counter {
+  background: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 64px;
+  text-align: center;
+  color: #0B0E2D;
+}
 .mobile__record-footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-  z-index: 3;
-}
-.mobile__record-footer audio {
-  visibility: hidden;
-  position: absolute;
+  z-index: 101;
 }
 .mobile__record-btn-record {
   width: 64px;
@@ -3027,6 +3111,11 @@ input:checked + .settings__panel-switch-slider:before {
   align-items: center;
   outline: none;
   margin: 32px auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 50;
 }
 .mobile__record-btn-record:focus {
   outline: none;

@@ -12,6 +12,7 @@ class Main {
         this.initMobileStar();
         this.initMobileAudioDuration();
         this.initMobileVideoDuration();
+        this.catchHandlerTouch();
     }
 
 
@@ -220,14 +221,27 @@ class Main {
 
         if (
             dateParts[0] != undefined && 
-            dateParts[1] != underfined && 
-            dateParts[2] != underfined
+            dateParts[1] != undefined && 
+            dateParts[2] != undefined
         ) {
             return dateParts[2] + ' ' + mounth[dateParts[1]] + ' ' + dateParts[0];
         } 
         return false;
     }
 
+
+
+    catchHandlerTouch() {
+        let audioBtn = document.querySelector('button#start');
+
+        if (audioBtn != null) {
+            audioBtn.addEventListener("touchstart", () => {
+            }, false);
+
+            audioBtn.addEventListener("touchend", () => {
+            }, false);
+        } 
+    }
 
 
 
