@@ -60,6 +60,9 @@
 </div>
 
         <div class="companies">
+
+            
+
             <div class="companies__head-panel">
                 <h2 class="companies__head-panel-title">Мои предприятия</h2>
                 <div class="companies__head-panel-controls">
@@ -111,6 +114,7 @@
         <div class="companies__content">
 
 
+<!--
 
             <div class="modal__back">
                 <div class="modal__window">
@@ -124,9 +128,15 @@
                         </p>
                         <div class="modal__input-holder">
                             <div class="modal__window-logo-company">
-                                <img src="/assets/images/icons/create-company.svg" alt="logo company" class="modal__window-img">
+                                <img 
+                                    src="/assets/images/icons/create-company.svg"
+                                    alt="logo company"
+                                    class="modal__window-img"
+                                />
                             </div>
-                            <label class="modal__window-label">
+                            <label
+                                class="modal__window-label"
+                            >
                                 Загрузить логотип
                                 <p class="modal__window-lighter-text">
                                     До 5 мб. PNG, JPG
@@ -134,17 +144,92 @@
                             </label>
                         </div>
                         <div class="modal__input-holder">
-                            <input type="text" placeholder="Название контрольной точки" class="input modal__input is-invalid">
+                            <input 
+                                type="text"
+                                placeholder="Название контрольной точки"
+                                class="input modal__input is-invalid"
+                            />
                         </div>
                         <div class="modal__input-holder">
-                            <textarea class="modal__textarea is-invalid" placeholder="Описание"></textarea>
+                            <textarea
+                                class="modal__textarea is-invalid"
+                                placeholder="Описание"
+                            ></textarea>
                         </div>
-                        <button class="button button-blue modal__button">Создать предприятие</button>
+                        <button
+                            class="button button-blue modal__window-button"
+                        >Создать предприятие</button>
                     </form>
                 </div>
             </div>
 
+        -->
 
+
+<!--
+
+    
+            <div class="modal__back">
+                <div class="modal__window">
+                    <span class="modal__close-btn"></span>
+
+                    <form action="">
+                        <label for="" class="modal__window-header">
+                            Удалить «The Real Estate?»
+                        </label>
+                        <p class="modal__window-text">
+                            Удаляя предприятие вы удаляте и все контрольные точки
+                        </p>
+                        <div class="modal__window-btn-holder">
+                            <button class="button button-blue modal__window-button--small">Удалить</button>
+                            <button class="button modal__window-button-white">Оставить</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+-->
+
+
+
+
+
+
+            <div class="modal__back">
+                <div class="modal__window">
+                    <span class="modal__close-btn"></span>
+
+                    <form action="">
+                        <label for="" class="modal__window-header">
+                            Скачивание QR-кода
+                        </label>
+                        <p class="modal__window-text--muted">
+                            Предприятие: БЦ Юниверсал
+                        </p>
+                        <p class="modal__window-text--muted">
+                            Контрольная точка: Тестовая
+                        </p>
+                        <div class="modal__window-qr-holder">
+                            <img src="/assets/images/pictures/qr-code.png" alt="" class="modal__window-qr-holder-img">
+                        </div>
+                        <div class="modal__window-select-holder">
+                            <select class="modal__window-select" name="" id="">
+                                <option value="">svg</option>
+                                <option value="">png</option>
+                                <option value="">jpeg</option>
+                            </select>
+                        </div>
+                        <div class="modal__window-select-holder">
+                            <select class="modal__window-select" name="" id="">
+                                <option value="">512×512 пикселей</option>
+                                <option value="">256×256 пикселей</option>
+                                <option value="">128×128 пикселей</option>
+                            </select>
+                        </div>
+                        <button class="button button-blue modal__window-button">Скачать</button>
+                    </form>
+                </div>
+            </div>
 
 
         </div>

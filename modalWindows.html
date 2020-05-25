@@ -11,6 +11,9 @@
         <include src="../sections/left-menu.html"></include>
 
         <div class="companies">
+
+            
+
             <div class="companies__head-panel">
                 <h2 class="companies__head-panel-title">Мои предприятия</h2>
                 <div class="companies__head-panel-controls">
@@ -69,6 +72,7 @@
         <div class="companies__content">
 
 
+<!--
 
             <div class="modal__back">
                 <div class="modal__window">
@@ -111,13 +115,83 @@
                             ></textarea>
                         </div>
                         <button
-                            class="button button-blue modal__button"
+                            class="button button-blue modal__window-button"
                         >Создать предприятие</button>
                     </form>
                 </div>
             </div>
 
+        -->
 
+
+<!--
+
+    
+            <div class="modal__back">
+                <div class="modal__window">
+                    <span class="modal__close-btn"></span>
+
+                    <form action="">
+                        <label for="" class="modal__window-header">
+                            Удалить «The Real Estate?»
+                        </label>
+                        <p class="modal__window-text">
+                            Удаляя предприятие вы удаляте и все контрольные точки
+                        </p>
+                        <div class="modal__window-btn-holder">
+                            <button class="button button-blue modal__window-button--small">Удалить</button>
+                            <button class="button modal__window-button-white">Оставить</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+-->
+
+
+
+
+
+
+            <div class="modal__back">
+                <div class="modal__window">
+                    <span class="modal__close-btn"></span>
+
+                    <form action="">
+                        <label for="" class="modal__window-header">
+                            Скачивание QR-кода
+                        </label>
+                        <p class="modal__window-text--muted">
+                            Предприятие: БЦ Юниверсал
+                        </p>
+                        <p class="modal__window-text--muted">
+                            Контрольная точка: Тестовая
+                        </p>
+                        <div class="modal__window-qr-holder">
+                            <img
+                                src="/assets/images/pictures/qr-code.png"
+                                alt=""
+                                class="modal__window-qr-holder-img"
+                            >
+                        </div>
+                        <div class="modal__window-select-holder">
+                            <select class="modal__window-select" name="" id="">
+                                <option value="">svg</option>
+                                <option value="">png</option>
+                                <option value="">jpeg</option>
+                            </select>
+                        </div>
+                        <div class="modal__window-select-holder">
+                            <select class="modal__window-select" name="" id="">
+                                <option value="">512×512 пикселей</option>
+                                <option value="">256×256 пикселей</option>
+                                <option value="">128×128 пикселей</option>
+                            </select>
+                        </div>
+                        <button class="button button-blue modal__window-button">Скачать</button>
+                    </form>
+                </div>
+            </div>
 
 
         </div>

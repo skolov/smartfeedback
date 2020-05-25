@@ -19,7 +19,7 @@ function () {
     this.initMobileStar();
     this.initMobileAudioDuration();
     this.initMobileVideoDuration();
-    this.catchHandlerTouch();
+    this.initModalWindows();
   }
 
   _createClass(Main, [{
@@ -201,6 +201,28 @@ function () {
       }
     }
   }, {
+    key: "initModalWindows",
+    value: function initModalWindows() {
+      var windows = document.querySelectorAll('div.modal__window');
+
+      if (windows !== null) {
+        windows.forEach(function (element) {
+          var closeBtn = element.querySelector('span.modal__close-btn'),
+              backWall = element.closest('div.modal__back');
+
+          closeBtn.onclick = function () {
+            backWall.style.display = "none";
+          };
+
+          backWall.onmouseup = function (e) {
+            if (!element.contains(e.target)) {
+              backWall.style.display = "none";
+            }
+          };
+        });
+      }
+    }
+  }, {
     key: "getHumanlyDate",
     value: function getHumanlyDate(value) {
       var dateParts = value.split('-'),
@@ -225,16 +247,6 @@ function () {
 
       return false;
     }
-  }, {
-    key: "catchHandlerTouch",
-    value: function catchHandlerTouch() {
-      var audioBtn = document.querySelector('button#start');
-
-      if (audioBtn != null) {
-        audioBtn.addEventListener("touchstart", function () {}, false);
-        audioBtn.addEventListener("touchend", function () {}, false);
-      }
-    }
   }]);
 
   return Main;
@@ -245,31 +257,40 @@ new Main();
 function setCompanyDropdownMenuClickHandler() {
   var companyDropBtn = document.querySelectorAll('button.companies__content-footer-btn'),
       companyDropMenus = document.querySelectorAll('ul.companies__content-footer-dropmenu');
-  companyDropBtn.forEach(function (btn) {
-    btn.onclick = function () {
-      var parent = btn.closest('div.companies__content-footer-dropholder'),
+  companyDropBtn.forEach(function (oneBtn) {
+    oneBtn.onclick = function () {
+      var parent = oneBtn.closest('div.companies__content-footer-dropholder'),
           dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
-
-      if (btn.classList.contains('active')) {
-        btn.classList.remove('active');
-        dropMenu.style.display = "none";
-      } else {
-        if (companyDropBtn != null && companyDropMenus != null) {
-          companyDropBtn.forEach(function (element) {
-            if (element.classList.contains('active')) {
-              var parent = element.closest('div.companies__content-footer-dropholder'),
-                  dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
-              element.classList.remove('active');
-              dropMenu.style.display = "none";
-            }
-          });
-        }
-
-        btn.classList.add('active');
-        dropMenu.style.display = "block";
+      oneBtn.classList.toggle('active');
+      /*
+        btn.classList.toggle('companies__content-footer-btn active')
+      console.log('Has class')
+      dropMenu.style.display = "none";
+            if (companyDropBtn != null && companyDropMenus != null) {
+          companyDropBtn.forEach(element => {
+              if(element.classList.contains('active')) {
+                  var parent = element.closest('div.companies__content-footer-dropholder'),
+                      dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
+                  element.classList.remove('active');
+                  dropMenu.style.display = "none";
+              }
+          })
       }
+      dropMenu.style.display = 'block';
+        */
     };
   });
+}
+
+function initDocumentEventListener() {
+  document.addEventListener('mouseup', function (e) {
+    companyDropMenus.forEach(function (oneMenu) {
+      if (!oneMenu.contains(e.target)) {}
+    });
+    companyDropBtn.forEach(function (oneBtn) {
+      if (oneBtn.classList.contains('active')) oneBtn.classList.remove('active');
+    });
+  }, false);
 }
 /*
 

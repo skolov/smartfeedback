@@ -12,7 +12,7 @@ class Main {
         this.initMobileStar();
         this.initMobileAudioDuration();
         this.initMobileVideoDuration();
-        this.catchHandlerTouch();
+        this.initModalWindows();
     }
 
 
@@ -126,8 +126,6 @@ class Main {
         let mobileStars = document.querySelectorAll('label[data-star]'),
             mobileRateBlock = document.querySelector('div.mobile__stars-rate-number');
 
-
-
         if( mobileStars != null) {
             mobileStars.forEach(element => {
                 element.onclick = () => {
@@ -144,12 +142,10 @@ class Main {
             audio.forEach(element => {
                 let audio = element.querySelector('audio'),
                     timeBox = audio.querySelector('span.mobile__attachment-time');
-
                 audio.onloadedmetadata = () => {
                     timeBox.innerHTML = audio.duration;
                 }
             });
-
         }
     }
 
@@ -160,17 +156,13 @@ class Main {
             video.forEach(element => {
                 let video = element.querySelector('video'),
                     timeBox;
-
                 if (video != null) {
                     timeBox = video.querySelector('span.mobile__attachment-time');
                     video.onloadedmetadata = () => {
                         timeBox.innerHTML = video.duration;
                     }
                 }
-
-               
             });
-
         }
     }
 
@@ -198,6 +190,26 @@ class Main {
         }
     }
 
+
+    initModalWindows() {
+        let windows = document.querySelectorAll('div.modal__window');
+        if (windows !== null) {
+            windows.forEach(element => {
+                let closeBtn = element.querySelector('span.modal__close-btn'),
+                    backWall = element.closest('div.modal__back');
+
+                closeBtn.onclick = () => {
+                    backWall.style.display = "none";
+                }
+
+                backWall.onmouseup = e => {
+                    if (!element.contains(e.target)) {
+                        backWall.style.display = "none";
+                    } 
+                }
+            })
+        }
+    }
 
 
 
@@ -230,22 +242,6 @@ class Main {
     }
 
 
-
-    catchHandlerTouch() {
-        let audioBtn = document.querySelector('button#start');
-
-        if (audioBtn != null) {
-            audioBtn.addEventListener("touchstart", () => {
-            }, false);
-
-            audioBtn.addEventListener("touchend", () => {
-            }, false);
-        } 
-    }
-
-
-
-
 }
 
 new Main()
@@ -256,30 +252,56 @@ function setCompanyDropdownMenuClickHandler() {
         companyDropMenus = document.querySelectorAll('ul.companies__content-footer-dropmenu');
 
 
-    companyDropBtn.forEach(function (btn) {
-        btn.onclick = function () {
-            var parent = btn.closest('div.companies__content-footer-dropholder'),
-                dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
+
+
     
-            if (btn.classList.contains('active')) {
-                btn.classList.remove('active');
+
+    companyDropBtn.forEach(function (oneBtn) {
+
+        oneBtn.onclick = function () {
+            var parent = oneBtn.closest('div.companies__content-footer-dropholder'),
+                dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
+            oneBtn.classList.toggle('active'); 
+                /*
+
+                btn.classList.toggle('companies__content-footer-btn active')
+                console.log('Has class')
                 dropMenu.style.display = "none";
-            } else {
+    
                 if (companyDropBtn != null && companyDropMenus != null) {
                     companyDropBtn.forEach(element => {
                         if(element.classList.contains('active')) {
                             var parent = element.closest('div.companies__content-footer-dropholder'),
                                 dropMenu = parent.querySelector('ul.companies__content-footer-dropmenu');
                             element.classList.remove('active');
-                            dropMenu.style.display = "none";    
+                            dropMenu.style.display = "none";
                         }
                     })
                 }
-                btn.classList.add('active');
-                dropMenu.style.display = "block";
-            }
+                dropMenu.style.display = 'block';
+
+                */
         };
+        
     });
+}
+
+
+
+
+function initDocumentEventListener() {
+    document.addEventListener('mouseup', e => {
+        companyDropMenus.forEach(oneMenu => {
+            if (!oneMenu.contains(e.target)) {
+
+            }
+        })
+
+        companyDropBtn.forEach(oneBtn => {
+            if (oneBtn.classList.contains('active')) oneBtn.classList.remove('active')
+        })
+
+    }, false)
 }
 
 
