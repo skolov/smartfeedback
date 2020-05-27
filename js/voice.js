@@ -15,7 +15,7 @@ navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
 	});
 
 
-    document.querySelector('#start').addEventListener('click', function(){
+    document.querySelector('#start').addEventListener('touchstart', function(){
         mediaRecorder.start();
 		document.getElementById('send').hidden = true;
 		document.querySelector('div.mobile__record-ico-holder').style.display = 'flex';

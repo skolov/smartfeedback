@@ -22,6 +22,7 @@ function () {
     this.initModalWindows();
     this.initDocumentEventListener();
     this.initCounterTaxtarea();
+    this.initGraphToggle();
   }
 
   _createClass(Main, [{
@@ -252,20 +253,15 @@ function () {
   }, {
     key: "initDocumentEventListener",
     value: function initDocumentEventListener() {
-      document.addEventListener('mouseup', function (e) {
-        document.querySelectorAll('ul.companies__content-footer-dropmenu').forEach(function (oneMenu) {
-          if (!oneMenu.contains(e.target)) {
-            oneMenu.style.display = 'none';
-          }
-        });
-
-        if (!document.querySelector("ul.companies__head-panel-menu-dropdown").contains(e.target) && !document.querySelector('button.companies__head-panel-profile').contains(e.target)) {
+      window.onkeyup = function (e) {
+        if (e.keyCode === 27) {
           closeProfileMenu();
+          closeDropMenus();
         }
+      };
 
-        document.querySelectorAll('button.companies__content-footer-btn').forEach(function (oneBtn) {
-          if (!oneBtn.contains(e.target)) oneBtn.classList.remove('active');
-        });
+      document.addEventListener('mouseup', function (e) {
+        closeDropMenus(e);
       }, false);
 
       function closeProfileMenu() {
@@ -282,6 +278,33 @@ function () {
             dropProfileMenu.classList.remove('active');
           }
         }
+      }
+
+      function closeDropMenus(e) {
+        var dropMenus = document.querySelectorAll('ul.companies__content-footer-dropmenu'),
+            headPanel = document.querySelector('ul.companies__head-panel-menu-dropdown'),
+            allButtons = document.querySelectorAll('button.companies__content-footer-btn');
+
+        if (e === undefined) {
+          dropMenus.forEach(function (oneMenu) {
+            oneMenu.style.display = 'none';
+          });
+          allButtons.forEach(function (oneButton) {
+            oneButton.classList.remove('active');
+          });
+          closeProfileMenu();
+          return;
+        }
+
+        dropMenus.forEach(function (oneMenu) {
+          if (!oneMenu.contains(e.target)) {
+            oneMenu.style.display = 'none';
+          }
+        });
+        if (!headPanel.contains(e.target) && !document.querySelector('button.companies__head-panel-profile').contains(e.target)) closeProfileMenu();
+        allButtons.forEach(function (oneBtn) {
+          if (!oneBtn.contains(e.target)) oneBtn.classList.remove('active');
+        });
       }
     }
   }, {
@@ -308,6 +331,41 @@ function () {
       }
 
       return false;
+    }
+  }, {
+    key: "initGraphToggle",
+    value: function initGraphToggle() {
+      var barcharts = document.querySelectorAll('div[data-graph-type=barchart]'),
+          allGraphItem = document.querySelectorAll('div.graphs__item');
+
+      if (barcharts !== null) {
+        barcharts.forEach(function (item) {
+          item.style.display = 'none';
+        });
+      }
+
+      if (allGraphItem !== null) {
+        allGraphItem.forEach(function (graphItem) {
+          var allToggleBtn = graphItem.querySelectorAll('div.graphs__item-toggle');
+          allToggleBtn.forEach(function (toggleBtn) {
+            toggleBtn.onclick = function () {
+              allToggleBtn.forEach(function (toglleBtn) {
+                toglleBtn.classList.remove('active');
+              });
+              toggleBtn.classList.add('active');
+              var type = toggleBtn.getAttribute('data-btn-type'),
+                  graphs = graphItem.querySelectorAll('div.graphs__item-graph');
+              graphs.forEach(function (e) {
+                if (e.getAttribute('data-graph-type') == type) {
+                  e.style.display = 'block';
+                } else {
+                  e.style.display = 'none';
+                }
+              });
+            };
+          });
+        });
+      }
     }
   }]);
 

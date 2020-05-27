@@ -1,7 +1,5 @@
 class Main {
-
-
-
+    
     constructor() {
         this.initToggleEyeButton();
         this.initToggleProfileMenu();   
@@ -14,7 +12,9 @@ class Main {
         this.initMobileVideoDuration();
         this.initModalWindows();
         this.initDocumentEventListener();
-        this.initCounterTaxtarea()
+        this.initCounterTaxtarea();
+
+        this.initGraphToggle();
     }
 
 
@@ -247,27 +247,15 @@ class Main {
     
 
     initDocumentEventListener() {
-        document.addEventListener('mouseup', e => {
 
-            document.querySelectorAll('ul.companies__content-footer-dropmenu').forEach(oneMenu => {
-                if (!oneMenu.contains(e.target)) {
-                    oneMenu.style.display = 'none';
-                }
-            })
-
-            if (
-                !document.querySelector("ul.companies__head-panel-menu-dropdown").contains(e.target) &&
-                !document.querySelector('button.companies__head-panel-profile').contains(e.target)
-            ) {
-                closeProfileMenu()
+        window.onkeyup = (e) => {
+            if (e.keyCode === 27) {
+                closeProfileMenu();
+                closeDropMenus();
             }
+        }
 
-            document.querySelectorAll('button.companies__content-footer-btn').forEach(oneBtn => {
-                if (!oneBtn.contains(e.target)) oneBtn.classList.remove('active')
-            })
-
-        }, false)
-
+        document.addEventListener('mouseup', e => {closeDropMenus(e)} , false)
 
         function closeProfileMenu() {
             let dropProfileMenu = document.querySelector('button.profile-menu'),
@@ -283,13 +271,47 @@ class Main {
                     dropProfileMenu.classList.remove('active');
                 }
             }
+        }
 
+
+        function closeDropMenus(e) {
+
+            let dropMenus = document.querySelectorAll('ul.companies__content-footer-dropmenu'),
+                headPanel = document.querySelector('ul.companies__head-panel-menu-dropdown'),
+                allButtons = document.querySelectorAll('button.companies__content-footer-btn');
+
+            if(e === undefined) {
+                dropMenus.forEach(oneMenu => {
+                    oneMenu.style.display = 'none';
+                });
+                allButtons.forEach(oneButton => {
+                    oneButton.classList.remove('active');
+                });
+                closeProfileMenu();
+                return;
+            }
+
+            dropMenus.forEach(oneMenu => {
+                if (!oneMenu.contains(e.target)) {
+                    oneMenu.style.display = 'none';
+                }
+            })
+
+            if (
+                !headPanel.contains(e.target) &&
+                !document.querySelector('button.companies__head-panel-profile').contains(e.target)
+            ) closeProfileMenu();
+
+            allButtons.forEach(oneBtn => {
+                if (!oneBtn.contains(e.target)) oneBtn.classList.remove('active')
+            })
         }
     }
 
 
 
     getHumanlyDate(value) {
+
         let dateParts = value.split('-'),
             mounth = {
                 '01' : 'Января',
@@ -312,9 +334,56 @@ class Main {
             dateParts[2] != undefined
         ) {
             return dateParts[2] + ' ' + mounth[dateParts[1]] + ' ' + dateParts[0];
-        } 
+        }
+
         return false;
     }
+
+
+
+
+    initGraphToggle () {
+        let barcharts = document.querySelectorAll('div[data-graph-type=barchart]'),
+            allGraphItem = document.querySelectorAll('div.graphs__item');
+    
+        if (barcharts !== null) {
+            barcharts.forEach(item => {
+                item.style.display = 'none';
+            })
+        }
+
+        if (allGraphItem !== null) {
+            allGraphItem.forEach(graphItem => {
+                let allToggleBtn = graphItem.querySelectorAll('div.graphs__item-toggle');
+                allToggleBtn.forEach(toggleBtn => {
+                    toggleBtn.onclick = () => {
+
+                        allToggleBtn.forEach(toglleBtn => {
+                            toglleBtn.classList.remove('active')
+                        });
+
+                        toggleBtn.classList.add('active')
+
+
+
+                        let type = toggleBtn.getAttribute('data-btn-type'),
+                            graphs = graphItem.querySelectorAll('div.graphs__item-graph');
+                        graphs.forEach(e => {
+                            if (e.getAttribute('data-graph-type') == type) {
+                                e.style.display = 'block';
+                            } else {
+                                e.style.display = 'none';
+                            }
+                        })
+                    }
+                });
+            })
+        }
+    }
+
+
+
+
 
 
 }
