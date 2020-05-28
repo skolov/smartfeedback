@@ -4,6 +4,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+var analiticsArray = [];
+
 var Main =
 /*#__PURE__*/
 function () {
@@ -23,6 +25,7 @@ function () {
     this.initDocumentEventListener();
     this.initCounterTaxtarea();
     this.initGraphToggle();
+    this.initFinderLists();
   }
 
   _createClass(Main, [{
@@ -365,6 +368,78 @@ function () {
             };
           });
         });
+      }
+    }
+  }, {
+    key: "initFinderLists",
+    value: function initFinderLists() {
+      var lists = document.querySelectorAll('ul.graphs__panel-list');
+
+      if (lists !== null) {
+        lists.forEach(function (oneList) {
+          var firstItem = oneList.querySelector('li.graphs__panel-list-item:first-child'),
+              items = oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)');
+          items.forEach(function (item) {
+            item.onclick = function () {
+              checkEmptiness(oneList);
+              getValuesOfChecked(oneList);
+              console.log('Я срабатываю раз');
+            };
+          });
+
+          firstItem.onmouseenter = function () {
+            oneList.style.backgroundColor = '#F0F2F7';
+          };
+
+          firstItem.onmouseleave = function () {
+            oneList.style.backgroundColor = '#ffffff';
+          };
+
+          firstItem.onclick = function () {
+            if (firstItem.querySelector('input.graphs__panel-checkbox').checked) {
+              oneList.querySelectorAll('input.graphs__panel-checkbox').forEach(function (element) {
+                element.checked = true;
+              });
+            } else {
+              oneList.querySelectorAll('input.graphs__panel-checkbox').forEach(function (element) {
+                element.checked = false;
+              });
+            }
+          };
+        });
+      }
+
+      function checkEmptiness(oneList) {
+        var items = oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)'),
+            firstItem = oneList.querySelector('li.graphs__panel-list-item:first-child'),
+            flagAllchecked = true;
+        items.forEach(function (oneItem) {
+          if (!oneItem.querySelector('input.graphs__panel-checkbox').checked) {
+            firstItem.querySelector('input.graphs__panel-checkbox').checked = false;
+            flagAllchecked = false;
+          }
+        });
+
+        if (flagAllchecked) {
+          firstItem.querySelector('input.graphs__panel-checkbox').checked = true;
+        }
+      }
+
+      function getValuesOfChecked(oneList) {
+        oneList.querySelectorAll('li.graphs__panel-list-item label').forEach(function (element) {
+          console.log(element.innerText);
+        });
+        /*
+                    oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)').forEach(item => {
+                        if(item.querySelector('input.graphs__panel-checkbox').checked) {
+                            let e = oneList.querySelector('li.graphs__panel-list-item:first-child label');
+                            analiticsArray.push(e.textContent)
+                            return
+                        }
+                    })
+                    console.log(analiticsArray)
+        
+        */
       }
     }
   }]);

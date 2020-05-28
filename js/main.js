@@ -1,3 +1,5 @@
+var analiticsArray = [];
+
 class Main {
     
     constructor() {
@@ -15,6 +17,7 @@ class Main {
         this.initCounterTaxtarea();
 
         this.initGraphToggle();
+        this.initFinderLists();
     }
 
 
@@ -364,8 +367,6 @@ class Main {
 
                         toggleBtn.classList.add('active')
 
-
-
                         let type = toggleBtn.getAttribute('data-btn-type'),
                             graphs = graphItem.querySelectorAll('div.graphs__item-graph');
                         graphs.forEach(e => {
@@ -378,6 +379,80 @@ class Main {
                     }
                 });
             })
+        }
+    }
+
+
+
+
+    initFinderLists () {
+        let lists = document.querySelectorAll('ul.graphs__panel-list');
+        if (lists !== null) {
+            lists.forEach(oneList => {
+
+                let firstItem = oneList.querySelector('li.graphs__panel-list-item:first-child'),
+                    items = oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)');
+
+                items.forEach(item => {
+                    item.onclick = () => {
+                        checkEmptiness(oneList);
+                        getValuesOfChecked(oneList);
+                        console.log('Я срабатываю раз')
+                    }
+                })
+
+                firstItem.onmouseenter = () => {oneList.style.backgroundColor = '#F0F2F7'};
+                firstItem.onmouseleave = () => {oneList.style.backgroundColor = '#ffffff'};
+
+                firstItem.onclick = () => {
+                    if (firstItem.querySelector('input.graphs__panel-checkbox').checked) {
+                        oneList.querySelectorAll('input.graphs__panel-checkbox').forEach(element => {
+                            element.checked = true;
+                        });                      
+                    } else {
+                        oneList.querySelectorAll('input.graphs__panel-checkbox').forEach(element => {
+                            element.checked = false;
+                        })
+                    }
+                }
+                
+            });
+        }
+
+
+        function checkEmptiness(oneList) {
+            let items = oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)'),
+                firstItem = oneList.querySelector('li.graphs__panel-list-item:first-child'),
+                flagAllchecked = true;
+        
+            items.forEach(oneItem => {
+                if(!oneItem.querySelector('input.graphs__panel-checkbox').checked) {
+                    firstItem.querySelector('input.graphs__panel-checkbox').checked = false;
+                    flagAllchecked = false; 
+                } 
+            })
+
+            if(flagAllchecked) {
+                firstItem.querySelector('input.graphs__panel-checkbox').checked = true;
+            }
+        }
+
+
+        function getValuesOfChecked(oneList) {
+            oneList.querySelectorAll('li.graphs__panel-list-item label').forEach(element => {
+                console.log(element.innerText)
+            })
+/*
+            oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)').forEach(item => {
+                if(item.querySelector('input.graphs__panel-checkbox').checked) {
+                    let e = oneList.querySelector('li.graphs__panel-list-item:first-child label');
+                    analiticsArray.push(e.textContent)
+                    return
+                }
+            })
+            console.log(analiticsArray)
+
+*/
         }
     }
 

@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <title>Smart Feedback</title>
 <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
 <body>
@@ -117,56 +118,97 @@
                     <div class="graphs__panel-content">
                         <ul class="graphs__panel-list">
                             <li class="graphs__panel-list-item">
-                                <input id="1" class="graphs__panel-checkbox" type="checkbox">
                                 <label for="1">
+                                    <input id="1" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
                                     БЦ Юниверсал
                                 </label>
                             </li>
                             <li class="graphs__panel-list-item">
-                                <input id="2" class="graphs__panel-checkbox" type="checkbox">
                                 <label for="2">
+                                    <input id="2" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
                                     Контрольная точка 1
                                 </label>
                             </li>
                             <li class="graphs__panel-list-item">
-                                <input id="3" class="graphs__panel-checkbox" type="checkbox">
                                 <label for="3">
+                                    <input id="3" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
                                     Контрольная точка 2
                                 </label>
                             </li>
                             <li class="graphs__panel-list-item">
-                                <input id="4" class="graphs__panel-checkbox" type="checkbox">
                                 <label for="4">
+                                    <input id="4" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
                                     Контрольная точка 3
                                 </label>
                             </li>
                         </ul>
+
                         <ul class="graphs__panel-list">
                             <li class="graphs__panel-list-item">
-                                <input id="1" class="graphs__panel-checkbox" type="checkbox" checked="">
-                                <label for="1">
-                                    БЦ Юниверсал
+                                <label for="5">
+                                    <input id="5" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
+                                    The Real Estate
                                 </label>
                             </li>
                             <li class="graphs__panel-list-item">
-                                <input id="2" class="graphs__panel-checkbox" type="checkbox">
-                                <label for="2">
+                                <label for="6">
+                                    <input id="6" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
                                     Контрольная точка 1
                                 </label>
                             </li>
                             <li class="graphs__panel-list-item">
-                                <input id="3" class="graphs__panel-checkbox" type="checkbox">
-                                <label for="3">
+                                <label for="7">
+                                    <input id="7" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
                                     Контрольная точка 2
                                 </label>
                             </li>
                             <li class="graphs__panel-list-item">
-                                <input id="4" class="graphs__panel-checkbox" type="checkbox">
-                                <label for="4">
+                                <label for="8">
+                                    <input id="8" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
                                     Контрольная точка 3
                                 </label>
                             </li>
                         </ul>
+
+                        <ul class="graphs__panel-list">
+                            <li class="graphs__panel-list-item">
+                                <label for="9">
+                                    <input id="9" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
+                                    Global Агентство
+                                </label>
+                            </li>
+                            <li class="graphs__panel-list-item">
+                                <label for="10">
+                                    <input id="10" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
+                                    Контрольная точка 1
+                                </label>
+                            </li>
+                            <li class="graphs__panel-list-item">
+                                <label for="11">
+                                    <input id="11" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
+                                    Контрольная точка 2
+                                </label>
+                            </li>
+                            <li class="graphs__panel-list-item">
+                                <label for="12">
+                                    <input id="12" class="graphs__panel-checkbox" type="checkbox">
+                                    <span class="graphs__panel-custom-check"></span>
+                                    Контрольная точка 3
+                                </label>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
 
@@ -181,7 +223,9 @@
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
+                            <div class="graphs__container" id="chart_3">
 
+</div>
                         </div>
                     </div>
                 </div>
@@ -195,6 +239,9 @@
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
+                            <div class="graphs__container" id="chart_4">
+
+</div>
 
                         </div>
                     </div>
@@ -214,10 +261,14 @@
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
+                            <div class="graphs__container" id="chart_1">
 
+</div>
                         </div>
                         <div data-graph-type="barchart" class="graphs__item-graph">
+                            <div class="graphs__container" id="chart_2">
 
+</div>
                         </div>
                     </div>
                 </div>
@@ -236,9 +287,15 @@
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
+                            <div class="graphs__container" id="chart_5">
+
+</div>
 
                         </div>
                         <div data-graph-type="barchart" class="graphs__item-graph">
+                            <div class="graphs__container" id="chart_6">
+
+</div>
 
                         </div>
                     </div>
@@ -250,6 +307,7 @@
     </main>
 
     <script src="/js/main.js"></script>
+<script src="/js/graphs.js"></script>
 </body>
 
 </html>

@@ -2505,6 +2505,7 @@ input:checked + .settings__panel-switch-slider:before {
 .graphs__item-header {
   margin: 0 0 14px 0;
   width: 100%;
+  min-height: 54px;
   position: relative;
 }
 .graphs__item-title {
@@ -2568,6 +2569,32 @@ input:checked + .settings__panel-switch-slider:before {
   background: #ffffff;
   border-radius: 8px 8px 0px 8px;
 }
+.graphs__panel-custom-check {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  border: 2px solid #9BA6BC;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  position: relative;
+}
+.graphs__panel-custom-check:after {
+  content: '\2713';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -2px;
+  left: -2px;
+  border-radius: 4px;
+  background: #4E94CA;
+  color: #fff;
+  justify-content: center;
+  font-weight: 500;
+  align-items: center;
+  display: none;
+}
 .graphs__panel-calendar {
   width: 252px;
   height: 48px;
@@ -2610,7 +2637,7 @@ input:checked + .settings__panel-switch-slider:before {
 .graphs__panel-content {
   width: 100%;
   box-sizing: border-box;
-  padding: 24px;
+  padding: 20px 16px;
   background: #ffffff;
   border-radius: 0 0 8px 8px;
   box-shadow: 0px 8px 25px rgba(15, 21, 70, 0.15);
@@ -2619,17 +2646,51 @@ input:checked + .settings__panel-switch-slider:before {
 }
 .graphs__panel-list {
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   display: block;
+  box-sizing: border-box;
+  border-radius: 4px;
+  max-width: 330px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: #ffffff;
 }
 .graphs__panel-list-item {
-  display: flex;
-  align-items: center;
+  display: block;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  padding: 2px;
+  border-radius: 4px;
   color: #0B0E2D;
+}
+.graphs__panel-list-item:hover {
+  background: #F0F2F7;
+}
+.graphs__panel-list-item label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.graphs__panel-list-item:first-child {
+  color: #0B0E2D;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+}
+.graphs__panel-checkbox {
+  display: none;
+}
+.graphs__panel-checkbox:checked + span::after {
+  display: flex;
+}
+.graphs .apexcharts-menu-icon {
+  display: none;
 }
 .mobile__head {
   width: 100%;
