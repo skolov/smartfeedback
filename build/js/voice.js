@@ -235,8 +235,7 @@ function getNormalDate(inputTime) {
   var tempData = '02:22:00',
       arr = tempData.split('.');
   /*
-  
-  if (inputTime !== Infinity) {
+  	if (inputTime !== Infinity) {
   	console.log(typeof(inputTime));
   	console.log(inputTime);
   	console.log(inputTime.toString().split('.'))
@@ -247,12 +246,10 @@ function getNormalDate(inputTime) {
   	arr[1] = Math.floor(arr[1]/100);
   	if(arr[1] < 10) arr[1] = '0' + arr[1];
   
-  
   	console.log(arr[0] + ':' + arr[1]);
   	
   }
-  
-  */
+  	*/
 
   return '00:00';
 }

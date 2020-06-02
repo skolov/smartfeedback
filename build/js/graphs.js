@@ -1,8 +1,35 @@
-// Желтый
-var options_1 = {
+var data = {
+  marks_graph: {
+    x: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
+    y: [10, 41, 35, 51, 49, 62, 69, 91, 148, 104, 113, 87, 65, 45, 153]
+  },
+  marks_bars: {
+    x: ['1', '2', '3', '4', '5'],
+    y: [10, 200, 300, 400, 50]
+  },
+  review: {
+    x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
+    y: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+  },
+  occupancy: {
+    y: {
+      _1: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213],
+      _2: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+    },
+    x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+  },
+  nps_graph: {
+    y: [1, 2, 2, 3, 2, 4, 5, 6, 5, 7, 8, 7, 9, 10, 10],
+    x: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+  },
+  nps_bars: {
+    y: [10, 50, 130, 180, 160, 250, 390, 280, 390, 280],
+    x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+  }
+};
+var marks_graph = {
   series: [{
-    name: "Desktops",
-    data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 104, 113, 87, 65, 45, 153]
+    data: data.marks_graph.y
   }],
   chart: {
     height: 246,
@@ -19,7 +46,7 @@ var options_1 = {
     colors: '#FAC700'
   },
   xaxis: {
-    categories: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
+    categories: data.marks_graph.x,
     labels: {
       show: true,
       style: {
@@ -38,13 +65,9 @@ var options_1 = {
     enabled: false
   }
 };
-var chart_1 = new ApexCharts(document.querySelector("#chart_1"), options_1);
-chart_1.render(); // Синий
-
-var options_2 = {
+var marks_bars = {
   series: [{
-    name: 'Net Profit',
-    data: [10, 200, 300, 400, 50]
+    data: data.marks_bars.y
   }],
   chart: {
     type: 'bar',
@@ -66,7 +89,7 @@ var options_2 = {
     width: 2
   },
   xaxis: {
-    categories: ['1', '2', '3', '4', '5'],
+    categories: data.marks_bars.x,
     labels: {
       show: true,
       style: {
@@ -87,13 +110,9 @@ var options_2 = {
     enabled: false
   }
 };
-var chart_2 = new ApexCharts(document.querySelector("#chart_2"), options_2);
-chart_2.render(); // Фиолетовый
-
-var options_3 = {
+var review = {
   series: [{
-    name: 'Net Profit',
-    data: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+    data: data.review.y
   }],
   chart: {
     type: 'bar',
@@ -115,7 +134,7 @@ var options_3 = {
     width: 2
   },
   xaxis: {
-    categories: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
+    categories: data.review.x,
     labels: {
       show: true,
       style: {
@@ -136,14 +155,11 @@ var options_3 = {
     enabled: false
   }
 };
-var chart_3 = new ApexCharts(document.querySelector("#chart_3"), options_3);
-chart_3.render(); // Зелено-красный
-
-var options_4 = {
+var occupancy = {
   series: [{
-    data: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+    data: data.occupancy.y._1
   }, {
-    data: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+    data: data.occupancy.y._2
   }],
   chart: {
     type: 'bar',
@@ -166,7 +182,7 @@ var options_4 = {
     colors: ['transparent']
   },
   xaxis: {
-    categories: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+    categories: data.occupancy.x
   },
   fill: {
     opacity: 1
@@ -185,13 +201,9 @@ var options_4 = {
     showForZeroSeries: false
   }
 };
-var chart_4 = new ApexCharts(document.querySelector("#chart_4"), options_4);
-chart_4.render(); // Градиент
-
-var options_5 = {
+var nps_graph = {
   series: [{
-    name: "Desktops",
-    data: [1, 2, 2, 3, 2, 4, 5, 6, 5, 7, 8, 7, 9, 10, 10]
+    data: data.nps_graph.y
   }],
   chart: {
     height: 246,
@@ -208,7 +220,7 @@ var options_5 = {
     colors: '#c5ff91'
   },
   xaxis: {
-    categories: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
+    categories: data.nps_graph.x,
     labels: {
       show: true,
       style: {
@@ -239,20 +251,13 @@ var options_5 = {
     }
   }
 };
-var chart_5 = new ApexCharts(document.querySelector("#chart_5"), options_5);
-chart_5.render(); // Адище
-
-var options_6 = {
+var nps_bars = {
   series: [{
-    data: [10, 50, 130, 180, 160, 250, 390, 280, 390, 280]
+    data: data.nps_bars.y
   }],
   chart: {
     height: 246,
-    type: 'bar',
-    events: {
-      click: function click(chart, w, e) {// console.log(chart, w, e)
-      }
-    }
+    type: 'bar'
   },
   colors: ['#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#EBD380', '#EBD380', '#95DEBF', '#95DEBF'],
   plotOptions: {
@@ -269,7 +274,7 @@ var options_6 = {
     show: false
   },
   xaxis: {
-    categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    categories: data.nps_bars.x,
     labels: {
       show: true,
       style: {
@@ -288,6 +293,16 @@ var options_6 = {
     enabled: false
   }
 };
-var chart_6 = new ApexCharts(document.querySelector("#chart_6"), options_6);
-chart_6.render();
+var nps_bars = new ApexCharts(document.querySelector("#nps_bars"), nps_bars);
+var marks_graph = new ApexCharts(document.querySelector("#marks_graph"), marks_graph);
+var marks_bars = new ApexCharts(document.querySelector("#marks_bars"), marks_bars);
+var nps_graph = new ApexCharts(document.querySelector("#nps_graph"), nps_graph);
+var occupancy = new ApexCharts(document.querySelector("#occupancy"), occupancy);
+var review = new ApexCharts(document.querySelector("#review"), review);
+nps_bars.render();
+marks_graph.render();
+marks_bars.render();
+nps_graph.render();
+occupancy.render();
+review.render();
 //# sourceMappingURL=graphs.js.map

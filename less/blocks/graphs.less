@@ -55,7 +55,14 @@
             background: #F0F2F7;
             border-radius: 4px;
             margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            &-ico{
+                width: 24px;
+                height: 24px;
+            }
         }
         &-body{
             width: 100%;
@@ -81,7 +88,31 @@
         display: flex;
         justify-content: flex-start;
         background: #ffffff;
-        border-radius: 8px 8px 0px 8px;
+        border-radius: 8px;
+
+        &-chose-date{
+            background: none;
+            outline: none;
+            border: 0;
+            font-family: 'Montserrat',sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
+
+            color: #0F1546;
+            appearance: none;
+            height: 48px;
+            position: absolute;
+            width: 210px;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            z-index: 2;
+            &:focus{
+                outline: none;
+            }
+        }
 
         &-custom-check{
             display: block;
@@ -118,6 +149,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
 
             font-style: normal;
             font-weight: 500;
@@ -126,14 +158,46 @@
             box-sizing: border-box;
             padding: 0 16px 0 24px;
             float: left;
-
             color: #0F1546;
+            &-ico{
+                position: absolute;
+                right: 16px;
+            }
         }
 
         &-search{
             width: calc(100% - 252px);
             height: 48px;
             border-radius: 8px;
+            position: relative;
+            &-close{
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                width: 15px;
+                height: 15px;
+                z-index: 5;
+                opacity: .5;
+                cursor: pointer;
+                &:hover {
+                    opacity: 1;
+                }
+                &:before, &:after {
+                    position: absolute;
+                    left: 7px;
+                    content: ' ';
+                    height: 15px;
+                    width: 2px;
+                    background-color: #333;
+                }
+                &:before {
+                    transform: rotate(45deg);
+                }
+                &:after {
+                    transform: rotate(-45deg);
+                }
+            }
         }
         &-input{
             width: 100%;
@@ -142,6 +206,7 @@
             width: 100%;
             height: 48px;
             border: 0;
+            border-radius: 8px;
             background: #ffffff;
             outline: none;
 
@@ -163,6 +228,9 @@
             width: 100%;
             box-sizing: border-box;
             padding: 20px 16px;
+            max-height: 352px;
+            overflow-y: auto;
+            display: none;
             background: #ffffff;
             border-radius: 0 0 8px 8px;
             box-shadow: 0px 8px 25px rgba(15, 21, 70, 0.15);
@@ -195,6 +263,7 @@
                     align-items: center;
                     cursor: pointer;
                     position: relative;
+                    margin: 0;
                 }
                 &:first-child{
                     color: #0B0E2D;
@@ -214,5 +283,16 @@
     }
     .apexcharts-menu-icon{
         display: none;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .graphs{
+        width: 100%;
+        &__item{
+            width: 100%;
+            margin: 0 0 10px 0;
+        }
     }
 }

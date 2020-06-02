@@ -234,14 +234,18 @@ class Main {
                 let closeBtn = element.querySelector('span.modal__close-btn'),
                     backWall = element.closest('div.modal__back');
 
-                closeBtn.onclick = () => {
-                    backWall.style.display = "none";
-                }
+                if (backWall !== null && closeBtn !== null) {
 
-                backWall.onmouseup = e => {
-                    if (!element.contains(e.target)) {
+                    closeBtn.onclick = () => {
                         backWall.style.display = "none";
-                    } 
+                    }
+    
+                    backWall.onmouseup = e => {
+                        if (!element.contains(e.target)) {
+                            backWall.style.display = "none";
+                        } 
+                    }
+                    
                 }
             })
         }
@@ -255,6 +259,7 @@ class Main {
             if (e.keyCode === 27) {
                 closeProfileMenu();
                 closeDropMenus();
+                closeContentGraphs();
             }
         }
 
@@ -277,11 +282,18 @@ class Main {
         }
 
 
+        function closeContentGraphs () {
+            document.querySelector('div.graphs__panel-content').style.display = 'none';
+            document.querySelector('div.graphs__panel').style.borderRadius = '8px';
+        }
+
+
         function closeDropMenus(e) {
 
             let dropMenus = document.querySelectorAll('ul.companies__content-footer-dropmenu'),
                 headPanel = document.querySelector('ul.companies__head-panel-menu-dropdown'),
-                allButtons = document.querySelectorAll('button.companies__content-footer-btn');
+                allButtons = document.querySelectorAll('button.companies__content-footer-btn'),
+                graphsContent = document.querySelector('div.graphs__panel-content');
 
             if(e === undefined) {
                 dropMenus.forEach(oneMenu => {
@@ -294,20 +306,32 @@ class Main {
                 return;
             }
 
-            dropMenus.forEach(oneMenu => {
-                if (!oneMenu.contains(e.target)) {
-                    oneMenu.style.display = 'none';
-                }
-            })
 
-            if (
-                !headPanel.contains(e.target) &&
-                !document.querySelector('button.companies__head-panel-profile').contains(e.target)
-            ) closeProfileMenu();
+            if(graphsContent !== null) {
+                if(!graphsContent.contains(e.target)) closeContentGraphs()
+            }
 
-            allButtons.forEach(oneBtn => {
-                if (!oneBtn.contains(e.target)) oneBtn.classList.remove('active')
-            })
+
+            if (dropMenus !== null ){
+                dropMenus.forEach(oneMenu => {
+                    if (!oneMenu.contains(e.target)) {
+                        oneMenu.style.display = 'none';
+                    }
+                })
+            }
+
+            if (headPanel !== null && document.querySelector('button.companies__head-panel-profile') !== null) {
+                if (
+                    !headPanel.contains(e.target) &&
+                    !document.querySelector('button.companies__head-panel-profile').contains(e.target)
+                ) closeProfileMenu();
+            }
+
+            if (allButtons !== null) {
+                allButtons.forEach(oneBtn => {
+                    if (!oneBtn.contains(e.target)) oneBtn.classList.remove('active')
+                })
+            }
         }
     }
 
@@ -383,28 +407,63 @@ class Main {
     }
 
 
-
-
     initFinderLists () {
-        let lists = document.querySelectorAll('ul.graphs__panel-list');
+        let lists = document.querySelectorAll('ul.graphs__panel-list'),
+            input = document.querySelector('input.graphs__panel-input'),
+            closeBtn = document.querySelector('span.graphs__panel-search-close');
+    
+    
+    
+        if(input !== null) {
+            input.onclick = () => {
+                let content = document.querySelector('div.graphs__panel-content');
+                if (content !== null) {
+                    content.style.display = 'block';
+                    document.querySelector('div.graphs__panel').style.borderRadius = '8px 0 0 8px';
+                }
+            }
+        }
+    
+    
+        if(closeBtn !== null) {
+            closeBtn.onclick = () => {
+                let content = document.querySelector('div.graphs__panel-content'),
+                    checkBoxes = document.querySelectorAll('input.graphs__panel-checkbox');
+    
+                if (checkBoxes !== null) {
+                    checkBoxes.forEach(e => {
+                        e.checked = false;
+                    })
+                } else {
+                    console.log('not found')
+                } 
+                analiticsArray = [];
+                addToline()
+                if (content !== null) {
+                    content.style.display = 'none';
+                    document.querySelector('div.graphs__panel').style.borderRadius = '8px';
+                }
+            }
+        }
+        
+            
         if (lists !== null) {
             lists.forEach(oneList => {
-
+    
                 let firstItem = oneList.querySelector('li.graphs__panel-list-item:first-child'),
-                    items = oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)');
-
+                    items = oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child) label input');
+    
+    
                 items.forEach(item => {
                     item.onclick = () => {
                         checkEmptiness(oneList);
                         getValuesOfChecked(oneList);
-                        console.log('Я срабатываю раз')
                     }
                 })
-
+    
                 firstItem.onmouseenter = () => {oneList.style.backgroundColor = '#F0F2F7'};
                 firstItem.onmouseleave = () => {oneList.style.backgroundColor = '#ffffff'};
-
-                firstItem.onclick = () => {
+                firstItem.querySelector('label input').onclick = () => {
                     if (firstItem.querySelector('input.graphs__panel-checkbox').checked) {
                         oneList.querySelectorAll('input.graphs__panel-checkbox').forEach(element => {
                             element.checked = true;
@@ -414,12 +473,12 @@ class Main {
                             element.checked = false;
                         })
                     }
+                    getValuesOfChecked(oneList);
                 }
-                
             });
         }
-
-
+    
+    
         function checkEmptiness(oneList) {
             let items = oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)'),
                 firstItem = oneList.querySelector('li.graphs__panel-list-item:first-child'),
@@ -431,36 +490,46 @@ class Main {
                     flagAllchecked = false; 
                 } 
             })
-
+    
             if(flagAllchecked) {
                 firstItem.querySelector('input.graphs__panel-checkbox').checked = true;
             }
         }
-
-
+    
+    
         function getValuesOfChecked(oneList) {
+            let checked = false;
             oneList.querySelectorAll('li.graphs__panel-list-item label').forEach(element => {
-                console.log(element.innerText)
-            })
-/*
-            oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child)').forEach(item => {
-                if(item.querySelector('input.graphs__panel-checkbox').checked) {
-                    let e = oneList.querySelector('li.graphs__panel-list-item:first-child label');
-                    analiticsArray.push(e.textContent)
-                    return
+                if (element.querySelector('input').checked) {
+                    if (!analiticsArray.includes(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText)) {
+                        analiticsArray.push(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
+                    }
+                    checked = true;
                 }
             })
-            console.log(analiticsArray)
-
-*/
+    
+            if (!checked) {
+                let index = analiticsArray.indexOf(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
+                analiticsArray.splice(index, 1)
+            }
+    
+            addToline();
+        }
+    
+    
+        function addToline() {
+            let line = document.querySelector('input.graphs__panel-input'),
+                string = '';
+            
+            string = analiticsArray.join(', ')
+    
+            line.value = string;
         }
     }
 
 
 
-
-
-
+    
 }
 
 new Main()

@@ -40,6 +40,12 @@
             </a>
         </li>
 
+        <li class="left-menu__main-menu-item">
+            <a class="left-menu__main-menu-link" href="">
+                <img src="/assets/images/icons/left-menu-chat.svg" alt="Шаблоны" class="left-menu__main-menu-icon"> Чат
+            </a>
+        </li>
+
     </ul>
 
     <ul class="left-menu__footer">
@@ -109,12 +115,26 @@
             <div class="graphs__panel">
 
                 <div class="graphs__panel-calendar">
-                    1 апр – 30 апр 2019
+                    <select class="graphs__panel-chose-date">
+                        <option>1 янв – 31 янв 2020</option>
+                        <option>1 фев – 29 фев 2020</option>
+                        <option>1 мар – 31 мар 2020</option>
+                        <option>1 апр – 30 апр 2020</option>
+                        <option>1 мая – 30 мая 2020</option>
+                        <option>1 июня – 30 июня 2020</option>
+                        <option>1 июля – 31 июля 2020</option>
+                        <option>1 авг – 31 авг 2020</option>
+                        <option>1 сен – 30 сен 2020</option>
+                        <option>1 окт – 31 окт 2020</option>
+                        <option>1 ноя – 30 ноя 2020</option>
+                        <option>1 дек – 31 дек 2020</option>
+                    </select>
                     <img src="/assets/images/icons/date-calend.svg" alt="" class="graphs__panel-calendar-ico">
                 </div>
 
                 <div class="graphs__panel-search">
-                    <input type="text" class="graphs__panel-input" name="search" placeholder="Предприятия и КТ">
+                    <span class="graphs__panel-search-close"></span>
+                    <input type="text" class="graphs__panel-input" name="search" placeholder="Предприятия и КТ" autocomplete="off">
                     <div class="graphs__panel-content">
                         <ul class="graphs__panel-list">
                             <li class="graphs__panel-list-item">
@@ -223,9 +243,9 @@
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
-                            <div class="graphs__container" id="chart_3">
+                            <div class="graphs__container" id="review">
 
-</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -239,10 +259,9 @@
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
-                            <div class="graphs__container" id="chart_4">
+                            <div class="graphs__container" id="occupancy">
 
-</div>
-
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -255,20 +274,28 @@
                         <h2 class="graphs__item-title">Оценки</h2>
                         <p class="graphs__item-text">Средняя оценка — 3.1</p>
                         <div class="graphs__item-holder-toggle">
-                            <div data-btn-type="curve" class="graphs__item-toggle active"></div>
-                            <div data-btn-type="barchart" class="graphs__item-toggle"></div>
+                            <div data-btn-type="curve" class="graphs__item-toggle active">
+                                <svg class="graphs__item-toggle-ico">
+                                    <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#graph-blue-ico"></use>
+                                </svg>
+                            </div>
+                            <div data-btn-type="barchart" class="graphs__item-toggle">
+                                <svg class="graphs__item-toggle-ico">
+                                    <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#bars-blue-ico"></use>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
-                            <div class="graphs__container" id="chart_1">
+                            <div class="graphs__container" id="marks_graph">
 
-</div>
+                            </div>
                         </div>
                         <div data-graph-type="barchart" class="graphs__item-graph">
-                            <div class="graphs__container" id="chart_2">
+                            <div class="graphs__container" id="marks_bars">
 
-</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -281,22 +308,28 @@
                         <h2 class="graphs__item-title">NPS</h2>
                         <p class="graphs__item-text">Средняя оценка — 3.1</p>
                         <div class="graphs__item-holder-toggle">
-                            <div data-btn-type="curve" class="graphs__item-toggle active"></div>
-                            <div data-btn-type="barchart" class="graphs__item-toggle"></div>
+                            <div data-btn-type="curve" class="graphs__item-toggle active">
+                                <svg class="graphs__item-toggle-ico">
+                                    <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#graph-blue-ico"></use>
+                                </svg>
+                            </div>
+                            <div data-btn-type="barchart" class="graphs__item-toggle">
+                                <svg class="graphs__item-toggle-ico">
+                                    <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#bars-blue-ico"></use>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div class="graphs__item-body">
                         <div data-graph-type="curve" class="graphs__item-graph">
-                            <div class="graphs__container" id="chart_5">
+                            <div class="graphs__container" id="nps_graph">
 
-</div>
-
+                            </div>
                         </div>
                         <div data-graph-type="barchart" class="graphs__item-graph">
-                            <div class="graphs__container" id="chart_6">
+                            <div class="graphs__container" id="nps_bars">
 
-</div>
-
+                            </div>
                         </div>
                     </div>
                 </div>
