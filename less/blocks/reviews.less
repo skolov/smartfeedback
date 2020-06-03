@@ -189,6 +189,9 @@
                 width: 100%;
                 max-width: 593px;
             }
+            &-header{
+                margin: 0 0 16px 0;
+            }
             &-select-arrow{
                 display: block;
                 width: 24px;
@@ -201,18 +204,35 @@
                 bottom: 10px;
                 right: 0;
             }
-            &-header{
-                margin: 0 0 16px 0;
-            }
-            &-select-holder{
+            &-select-holder, &-select-holder--drop{
                 position: relative;
                 width: 432px;
                 cursor: pointer;
+
+
+            }
+            &-select-holder--drop{
+
+
+                
+                &:after{
+                    content: url(/assets/images/icons/dropdown-ico.svg);
+                    display: block;
+                    pointer-events: none;
+                    transform: rotateX(180deg);
+                    position: absolute;
+                    bottom: 14px;
+                    right: 10px;
+                    width: 20px;
+                    height: 20px;
+                    z-index: 1;
+                    margin-top: -3px;
+                }
             }
             &-select{
                 background: #F0F2F7;
                 border-radius: 8px;
-                padding: 14px 16px;
+                padding: 14px 32px 14px 16px;
                 box-sizing: border-box;
                 appearance: none;
                 outline: none;
@@ -227,8 +247,11 @@
 
                 display: flex;
                 align-items: center;
+                position: relative;
 
-                color: #0B0E2D;
+                color: #0B0E2D;cursor: pointer;
+                -moz-appearance: none;
+                -webkit-appearance: none;
             }
             &-textarea{
                 width: 100%;
@@ -331,6 +354,9 @@
             padding: 10px 0;
             display: flex;
             align-items: center;
+            &::after, &::before{
+                box-sizing: unset;
+            } 
         }
         &-accomp-title, &-form-accomp{
             font-style: normal;
@@ -438,6 +464,9 @@
             display: block;
             background-image: url(/assets/images/icons/star-dis.svg);
             background-size: 32px 32px;
+            &::after, &::before{
+                box-sizing: unset;
+            }
         }
 
         &-npsblock{

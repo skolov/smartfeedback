@@ -206,16 +206,13 @@
 
 
                         <div class="review__content-item">
-                            <!--
                                 <h2 class="review__content-answer-header">Ответ</h2>
 
-                                <div class="review__content-answer-select-holder">
+                                <div class="review__content-answer-select-holder--drop">
                                     <select class="review__content-answer-select" name="" id="">
-                                        <option value="">СМС-сообещние</option>
-                                        <option value="">СМС-сообещние</option>
-                                        <option value="">СМС-сообещние</option>
+                                        <option value="sms">СМС-сообещние</option>
+                                        <option value="email">Почта e-mail</option>
                                     </select>
-                                    <span class="review__content-answer-select-arrow"></span>
                                 </div>
                                 <div class="review__content-answer-select-holder">
                                     <textarea class="review__content-answer-textarea" name="" maxlength="140" id="" cols="30" rows="10"></textarea>
@@ -224,7 +221,7 @@
                                     </div>
                                 </div>
                                 <button class="button button-blue review__content-answer-button">Отправить</button>
-                            -->
+                           
 
                             <h2 class="review__content-answer-header">Ответ на электронную почту</h2>
                             <p class="review__content-answer-text">
@@ -440,7 +437,11 @@
         </div>
     </main>
 
-    <script src="/js/main.js"></script>
+    <script crossorigin="" src="/js/react-dom.production.min.js"></script>
+<script crossorigin="" src="/js/react.production.min.js"></script>
+<script src="/js/babel.min.js"></script>
+<script type="text/babel" src="/js/validation.js"></script>
+<script src="/js/main.js"></script>
 <script src="/js/graphs.js"></script>
 </body>
 

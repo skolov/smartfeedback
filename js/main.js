@@ -283,8 +283,14 @@ class Main {
 
 
         function closeContentGraphs () {
-            document.querySelector('div.graphs__panel-content').style.display = 'none';
-            document.querySelector('div.graphs__panel').style.borderRadius = '8px';
+            let panelContent = document.querySelector('div.graphs__panel-content'),
+                panel = document.querySelector('div.graphs__panel');
+
+            if(panelContent !== null && panel !== null) {
+                panelContent.style.display = 'none';
+                panel.style.borderRadius = '8px';
+            }
+
         }
 
 
