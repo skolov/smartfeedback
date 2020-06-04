@@ -240,28 +240,45 @@
 
         </div>
 
-
+ 
         <!--
-        <div class="modal__popup">
-            Сообщение на электронную почту отправлено
-        </div>
--->
 
-        <div class="modal__popup">
+            Всплывающие алерты
+
+        -->
+
+        <div class="modal__popup" data-id-content="1">
             Ссылка скопирована в буфер обмена
         </div>
 
+        <div class="modal__popup" data-id-content="2">
+            Сообщение на электронную почту отправлено
+        </div>
+
+        <div class="modal__popup" data-id-content="3">
+            <div class="modal__popup-holder">
+                <h2 class="modal__popup-header">Анкета сохранена!</h2>
+                <p class="modal__popup-text">Вы можете создать шаблон из неё и использовать<br> его при создании других анкет. </p>
+            </div>
+            <a class="modal__popup-btn">Создать шаблон</a>
+        </div>
 
         
 
     </main>
 
-    <script crossorigin="" src="/js/react-dom.production.min.js"></script>
-<script crossorigin="" src="/js/react.production.min.js"></script>
+    <!--
+<script crossorigin src="/js/react-dom.production.min.js"></script>
+<script crossorigin src="/js/react.production.min.js"></script>
 <script src="/js/babel.min.js"></script>
 <script type="text/babel" src="/js/validation.js"></script>
+-->
+
 <script src="/js/main.js"></script>
+
+<!--
 <script src="/js/graphs.js"></script>
+-->
 </body>
 
 </html>

@@ -335,6 +335,48 @@ legend {
   background: #E3E7F1;
   float: right;
 }
+.companies__paginate {
+  width: 100%;
+  height: 82px;
+  border-top: 2px solid #F0F2F7;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.companies__paginate-link {
+  color: #0B0E2D;
+  display: block;
+  margin: 0 4px;
+}
+.companies__paginate-arrows {
+  width: 11px;
+  height: 11px;
+}
+.companies__paginate .arrow-for-left {
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.companies__paginate .arrow-no-way {
+  opacity: 0.3;
+}
+.companies__paginate-item,
+.companies__paginate-item-active {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #E3E7F1;
+  align-items: center;
+  font-size: 14px;
+  line-height: 16px;
+  color: #0B0E2D;
+}
+.companies__paginate-item-active {
+  background: #E3E7F1;
+}
 .companies__help-panel {
   width: 100%;
   height: 48px;
@@ -2521,20 +2563,61 @@ input:checked + .settings__panel-switch-slider:before {
 .modal__popup {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 14px 16px;
   left: 50%;
-  margin-left: -50%;
   position: fixed;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: all 0.5s ease-out;
   margin: 0 auto;
   bottom: 64px;
   background: #0B0E2D;
-  opacity: 0.5;
   border-radius: 8px;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 20px;
+  color: #FFFFFF;
+}
+.modal__popup-btn {
+  width: 150px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  color: #FFFFFF;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+}
+.modal__popup-btn:focus {
+  outline: none;
+}
+.modal__popup-holder {
+  width: 70%;
+  height: 100%;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.modal__popup-header {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   color: #FFFFFF;
 }
 .graphs {

@@ -542,4 +542,19 @@ function setCompanyDropdownMenuClickHandler() {
     });
   }
 }
+
+function openAlertPopup(idContent) {
+  var popupWindow = document.querySelector("div[data-id-content=\"".concat(idContent, "\"]"));
+
+  if (popupWindow !== null) {
+    var width = popupWindow.offsetWidth;
+    popupWindow.style.marginLeft = "-".concat(width / 2, "px");
+    popupWindow.style.opacity = .5;
+    setTimeout(function () {
+      popupWindow.style.opacity = 0;
+    }, 5000);
+  }
+}
+
+openAlertPopup(2);
 //# sourceMappingURL=main.js.map

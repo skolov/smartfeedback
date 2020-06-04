@@ -6,6 +6,53 @@
     box-sizing: border-box;
     background: #E3E7F1;
     float: right;
+
+    &__paginate{
+        width: 100%;
+        height: 82px;
+        border-top: 2px solid #F0F2F7;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-link{
+            color: #0B0E2D;
+            display: block;
+            margin: 0 4px;
+        }
+        &-arrows{
+            width: 11px;
+            height: 11px;
+            
+        }
+        .arrow-for-left{
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+        }
+        .arrow-no-way{
+            opacity: .3;
+        }
+        &-item, &-item-active{
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #E3E7F1;
+            align-items: center;
+
+           
+            font-size: 14px;
+            line-height: 16px;
+
+            color: #0B0E2D;
+        }
+        &-item-active{
+            background: #E3E7F1;
+        }
+    }
+
     &__help-panel{
         width: 100%;
         height: 48px;

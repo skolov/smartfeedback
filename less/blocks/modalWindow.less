@@ -279,18 +279,19 @@
     &__popup{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         padding: 14px 16px;
         left: 50%;
-        margin-left: -50%;
         position: fixed;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: all .5s ease-out;
 
         
         margin: 0 auto;
         bottom: 64px;
 
         background: #0B0E2D;
-        opacity: 0.5;
         border-radius: 8px;
 
         font-style: normal;
@@ -299,5 +300,47 @@
         line-height: 20px;
 
         color: #FFFFFF;
+        &-btn{
+            width: 150px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-sizing: border-box;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            cursor: pointer;
+            outline: none;
+            color: #FFFFFF;
+            padding: 0;
+            margin: 0;
+            margin-left: 10px;
+            &:focus{
+                outline: none;
+            }
+        }
+        &-holder{
+            width: 70%;
+            height: 100%;
+            margin-bottom: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        &-header{
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+
+            color: #FFFFFF;
+        }
     }
 }

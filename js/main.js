@@ -158,6 +158,10 @@ class Main {
     }
 
 
+
+
+
+
     initMobileStar() {
         let mobileStars = document.querySelectorAll('label[data-star]'),
             mobileRateBlock = document.querySelector('div.mobile__stars-rate-number');
@@ -564,3 +568,19 @@ function setCompanyDropdownMenuClickHandler() {
         }); 
     }
 }
+
+
+function openAlertPopup (idContent) {
+    let popupWindow = document.querySelector(`div[data-id-content="${idContent}"]`);
+
+    if (popupWindow !== null) {
+        let width = popupWindow.offsetWidth;
+        popupWindow.style.marginLeft = `-${width/2}px`;
+        popupWindow.style.opacity = .5;
+        setTimeout(() => {
+            popupWindow.style.opacity = 0
+        }, 5000)
+    }
+}
+
+openAlertPopup(2)

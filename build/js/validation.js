@@ -67,8 +67,6 @@ class Validation extends React.Component {
         
         this.setState({
             notPassed: arr.includes(false) ? false : true
-        }, () => {
-            console.log(this.state)
         })
     }
 
