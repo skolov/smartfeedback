@@ -116,6 +116,7 @@ legend {
   width: 100%;
   height: 48px;
   box-sizing: border-box;
+  border: 1px solid;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -123,6 +124,23 @@ legend {
   display: flex;
   align-items: center;
   color: #0B0E2D;
+  outline: 0;
+  border-radius: 8px;
+  background: #f0f2f7;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0 16px;
+}
+.login__window-login:-webkit-autofill,
+.login__window-password:-webkit-autofill {
+  /* Цвет фона */
+  box-shadow: inset 0 0 0 50px #f0f2f7 !important;
+  /* Цвет фона */
+}
+.login__window-login:focus,
+.login__window-password:focus {
+  outline: none;
 }
 .login__window-password {
   font-style: normal;
@@ -658,10 +676,13 @@ legend {
   position: absolute;
 }
 .companies__content-add-btn {
+  width: 100%;
+  height: 100%;
   background: none;
   border: 0;
   cursor: pointer;
   outline: none;
+  padding: 0;
 }
 .companies__content-add-btn:focus {
   outline: none;
@@ -1252,11 +1273,12 @@ legend {
   box-sizing: border-box;
 }
 .settings__panel-input[type=password] {
-  font-family: 'Ubuntu';
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
 }
 .settings__panel-input:-internal-autofill-selected {
   background-color: #f0f2f7 !important;
@@ -2407,13 +2429,9 @@ input:checked + .settings__panel-switch-slider:before {
   font-weight: 500;
   font-size: 13px;
   line-height: 20px;
-  display: flex;
-  align-items: center;
   color: #0B0E2D;
 }
 .modal__window-text--muted {
-  display: flex;
-  align-items: center;
   color: #9BA6BC;
   margin-top: 10px;
   margin-bottom: 0;
@@ -2567,9 +2585,10 @@ input:checked + .settings__panel-switch-slider:before {
   padding: 14px 16px;
   left: 50%;
   position: fixed;
+  z-index: 2520;
   box-sizing: border-box;
   opacity: 0;
-  transition: all 0.5s ease-out;
+  transition: all 0.2s ease-out;
   margin: 0 auto;
   bottom: 64px;
   background: #0B0E2D;

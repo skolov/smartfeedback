@@ -576,11 +576,12 @@ function openAlertPopup (idContent) {
     if (popupWindow !== null) {
         let width = popupWindow.offsetWidth;
         popupWindow.style.marginLeft = `-${width/2}px`;
-        popupWindow.style.opacity = .5;
         setTimeout(() => {
-            popupWindow.style.opacity = 0
-        }, 5000)
+            popupWindow.style.opacity = .7;
+            setTimeout(() => {
+                popupWindow.style.opacity = 0
+            }, 5000)
+        }, 500)
+        
     }
 }
-
-openAlertPopup(2)

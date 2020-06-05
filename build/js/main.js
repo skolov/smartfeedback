@@ -549,12 +549,12 @@ function openAlertPopup(idContent) {
   if (popupWindow !== null) {
     var width = popupWindow.offsetWidth;
     popupWindow.style.marginLeft = "-".concat(width / 2, "px");
-    popupWindow.style.opacity = .5;
     setTimeout(function () {
-      popupWindow.style.opacity = 0;
-    }, 5000);
+      popupWindow.style.opacity = .7;
+      setTimeout(function () {
+        popupWindow.style.opacity = 0;
+      }, 5000);
+    }, 500);
   }
 }
-
-openAlertPopup(2);
 //# sourceMappingURL=main.js.map
