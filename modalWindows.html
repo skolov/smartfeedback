@@ -152,8 +152,6 @@
 -->
 
 
-
-
             <div class="modal__back">
                 <div class="modal__window">
                     <span class="modal__close-btn"></span>
@@ -195,56 +193,98 @@
             </div>
 
 
-
+            
 
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <div>
-                            <h5 class="modal-title" id="staticBackdropLabel">Контрольная точка создана!</h5>
-                            Вы можете создать анкету, которую пользователь сможет заполнить после отправки основного отзыва.
+                    <!--
+
+                    Ниже содержимое модалки
+
+                    -->
+
+                    <div class="modal__window">
+                        <div class="modal__window-header">
+                            <p class="modal-title modal__window-header" id="staticBackdropLabel">Контрольная точка создана!</p>
+                            <p class="modal__window-text--muted">
+                                Вы можете создать анкету, которую пользователь сможет заполнить после отправки основного отзыва.
+                            </p>
                         </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="companies__content">
-                            <div class="companies__content-item">
-                                <div class="companies__content-add">
-                                    <div class="companies__content-add-window">
-                                        <button class="companies__content-add-btn" id="from_scratch">
-                                            <img src="/assets/images/icons/company.svg" alt="company" class="companies__content-add-img">
-                                            <p>Собрать самостоятельно</p>
-                                            <p>Анкета настраивается с чистого листа</p>
-                                            <p>Выбрать</p>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="companies__content-item">
-                                <div class="companies__content-add">
-                                    <div class="companies__content-add-window">
-                                        <button class="companies__content-add-btn" id="from_template">
-                                            <img src="/assets/images/icons/company.svg" alt="company" class="companies__content-add-img">
-                                            <p>Использовать шаблон</p>
-                                            <p>Можно выбрать из готовых анкет</p>
-                                            <p>Выбрать</p>
-                                        </button>
-                                    </div>
-                                </div>
+                        <span class="modal__close-btn" data-dismiss="modal" aria-hidden="true"></span>
+                        <div class="modal-body modal__window-block-body">
+                            <div class="modal__window-picture-btn-holder">
+                                <button class="modal__window-picture-btn" id="from_scratch">
+                                    <img src="/assets/images/icons/choose-form-left-ico.svg" alt="company" class="modal__window-picture-btn-img">
+                                    <p class="modal__window-picture-btn-name">Собрать самостоятельно</p>
+                                    <p class="modal__window-picture-accomp-text">
+                                        Анкета настраивается<br/> с чистого листа
+                                    </p>
+                                    <p class="modal__window-picture-footer-text">
+                                        Выбрать
+                                    </p>
+                                </button>
+                                <button class="modal__window-picture-btn modal__window-picture-btn--choosen" id="from_template">
+                                    <img src="/assets/images/icons/choose-form-right-ico.svg" alt="company" class="modal__window-picture-btn-img">
+                                    <p class="modal__window-picture-btn-name">Использовать шаблон</p>
+                                    <p class="modal__window-picture-accomp-text">
+                                        Можно выбрать<br/> из готовых анкет
+                                    </p>
+                                    <p class="modal__window-picture-footer-text--choosen">
+                                        Выбрано
+                                    </p>
+                                </button>
                             </div>
                         </div>
+                        <div class="modal-footer modal__window-block-footer">
+                            <button type="button" class="button modal__window-footer-btn" data-dismiss="modal">Создать позже</button>
+                            <button type="button" id="create_now" class="button button-blue modal__window-footer-btn-blue" disabled="">Создать анкету</button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Создать позже</button>
-                        <button type="button" id="create_now" class="btn btn-primary" disabled="">Создать анкету</button>
+
+                    
+                </div>
+            </div>
+
+
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <!--
+
+                    Ниже содержимое модалки
+
+                    -->
+
+                    <div class="modal__window">
+                        <div class="modal__window-header">
+                            <p class="modal-title modal__window-header">test</p>
+                            <p class="modal__window-text--muted">обл Липецкая, р-н Грязинский, тер дск Свобода, </p>
+                            <p class="modal__window-text--muted" data-block="control_point_name">asd</p>
+                            <span class="modal__close-btn" aria-hidden="true" data-dismiss="modal"></span>
+                        </div>
+                        <div id="qr_container" class="modal-body  modal__window-block-body">
+                            <img 
+                                src="" 
+                                alt="QR-код"
+                                class="modal__window-body-qr-code"
+                            >
+                        </div>
+                        <div class="modal-footer modal__window-block-footer">
+                            <a
+                                id="qr_download" 
+                                href="/get-qr-code.html?controlPointId=188&amp;format=zip" 
+                                class="button button-blue modal__window-button centring-text">
+                                Скачать в виде ZIP-архива
+                            </a>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
         </div>
 
+        
+        
  
         <!--
 
@@ -255,10 +295,11 @@
         <div class="modal__popup" data-id-content="1" >
             Ссылка скопирована в буфер обмена
         </div>
--->
+
         <div class="modal__popup" data-id-content="2">
             Сообщение на электронную почту отправлено
         </div>
+        -->
 <!--
         <div class="modal__popup" data-id-content="3">
             <div class="modal__popup-holder">

@@ -15,10 +15,33 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        &-link{
+        &-direction{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        span{
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        ul{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & li{
+                display: block;
+            }
+        }
+        a{
             color: #0B0E2D;
             display: block;
             margin: 0 4px;
+            cursor: pointer;
         }
         &-arrows{
             width: 11px;
@@ -509,6 +532,7 @@
                 cursor: default;
                 &:hover{
                     text-decoration: none;
+                    color: #E3E7F1;
                 }
             }
             &-more{

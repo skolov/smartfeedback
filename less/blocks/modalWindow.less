@@ -98,6 +98,97 @@
 
             color: #0B0E2D;
         }
+        &-block-body{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        &-body-qr-code{
+            margin: 20px 0;
+        }
+        &-picture-btn-holder{
+            width: 100%;
+            height: 310px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #F0F2F7;
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        &-picture-btn, &-picture-btn--choosen{
+            width: 50%;
+            height: 100%;
+            background: none;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 0;
+            &:focus{
+                outline: none;
+            }
+        }
+        &-picture-btn--choosen{
+            background: #F0F2F7;
+            img{
+                opacity: 1;
+            }
+        }
+        &-picture-btn-img{
+            margin-top: 82px;
+            margin-bottom: 14px;
+            opacity: .5;
+        }
+        &-picture-btn-name{
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 20px;
+            margin-bottom: 4px;
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #0B0E2D;
+        }
+        &-picture-footer-text, &-picture-footer-text--choosen{
+            position: absolute;
+            width: 100%;
+            bottom: 30px;
+            color: #4E94CA;
+            left: 0;
+        }
+        &-picture-footer-text--choosen{
+            color: #9BA6BC;
+        }
+        &-block-footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+        }
+        &-footer-btn, &-footer-btn-blue{
+            height: 40px;
+            padding: 0;
+            width: 180px;
+            box-sizing: border-box;
+        }
+        &-footer-btn-blue{
+            border: 2px solid #4e94ca;
+            width: 256px;
+            &:disabled{
+                background: #4E94CA;
+                opacity: 0.45;
+            }
+        }
         &-text, &-text--muted{
             padding: 0;
             margin: 0 0 20px 0;
@@ -112,6 +203,12 @@
             color: #9BA6BC;
             margin-top: 10px;
             margin-bottom: 0;
+        }
+        &-picture-accomp-text{
+            font-size: 12px;
+            line-height: 14px;
+            color: #0B0E2D;
+            
         }
         &-logo-company{
             width: 133px;
@@ -241,6 +338,11 @@
             outline: none;
         }
     }
+    &__close-holder-btn{
+        position: absolute;
+        right: 22px;
+        top: 22px;
+    }
     &__close-btn{
         position: absolute;
         right: 22px;
@@ -336,4 +438,56 @@
             color: #FFFFFF;
         }
     }
+}
+
+
+/*Времянка*/
+.modal-content{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+.modal.show .modal-dialog {
+    -webkit-transform: none;
+    transform: none;
+}
+.modal.fade .modal-dialog {
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    -webkit-transform: translate(0,-50px);
+    transform: translate(0,-50px);
+}
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.centring-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: .5rem;
+    pointer-events: none;
+}
 }
