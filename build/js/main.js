@@ -26,6 +26,7 @@ function () {
     this.initCounterTaxtarea();
     this.initGraphToggle();
     this.initFinderLists();
+    this.toggleLimitation();
   }
 
   _createClass(Main, [{
@@ -112,32 +113,7 @@ function () {
     }
   }, {
     key: "initCounterTaxtarea",
-    value: function initCounterTaxtarea() {
-      var textarea = document.querySelector('textarea.review__content-answer-textarea'),
-          counterBlock;
-
-      if (textarea !== null) {
-        counterBlock = textarea.closest("div.review__content-answer-select-holder").querySelector("div.review__content-answer-textarea-counter");
-      }
-
-      if (textarea !== null) {
-        textarea.onkeyup = function () {
-          if (textarea.value.length >= 140) {
-            textarea.value = textarea.value.slice(0, 140);
-          }
-
-          counterBlock.innerHTML = "\u041E\u0441\u0442\u0430\u043B\u043E\u0441\u044C ".concat(140 - textarea.value.length, " \u0441\u0438\u043C\u0432\u043E").concat(getCaseNoun());
-        };
-      }
-
-      function getCaseNoun() {
-        var countMod = (140 - textarea.value.length) % 10;
-        if (countMod >= 5 && countMod <= 9) return 'лов';
-        if (countMod <= 4 && countMod >= 2) return 'ла';
-        if (countMod == 1) return 'л';
-        if (countMod == 0) return 'лов';
-      }
-    }
+    value: function initCounterTaxtarea() {}
   }, {
     key: "initMobileDateInput",
     value: function initMobileDateInput() {
@@ -513,6 +489,71 @@ function () {
             string = '';
         string = analiticsArray.join(', ');
         line.value = string;
+      }
+    }
+  }, {
+    key: "toggleLimitation",
+    value: function toggleLimitation() {
+      var select = document.querySelector('select.review__content-answer-select'),
+          counter = document.querySelector('div.review__content-answer-textarea-counter'),
+          textarea = document.querySelector('textarea.review__content-answer-textarea');
+
+      function ifsms() {
+        if (textarea !== null && counter !== null) {
+          counter.style.display = 'block';
+          textarea.style.height = '80px';
+          textarea.style.borderRadius = '8px 8px 0 0';
+          textarea.setAttribute('maxlength', '140');
+
+          if (textarea.value.length >= 140) {
+            textarea.value = textarea.value.slice(0, 140);
+          }
+
+          counter.innerHTML = "\u041E\u0441\u0442\u0430\u043B\u043E\u0441\u044C ".concat(140 - textarea.value.length, " \u0441\u0438\u043C\u0432\u043E").concat(getCaseNoun());
+
+          textarea.onkeyup = function () {
+            if (textarea.value.length >= 140) {
+              textarea.value = textarea.value.slice(0, 140);
+            }
+
+            counter.innerHTML = "\u041E\u0441\u0442\u0430\u043B\u043E\u0441\u044C ".concat(140 - textarea.value.length, " \u0441\u0438\u043C\u0432\u043E").concat(getCaseNoun());
+          };
+        }
+      }
+
+      function ifemail() {
+        if (counter !== null && textarea !== null) {
+          counter.style.display = 'none';
+          textarea.style.height = '100px';
+          textarea.style.borderRadius = '8px';
+          textarea.setAttribute('maxlength', '2000');
+
+          textarea.onkeyup = function () {};
+        }
+      }
+
+      if (select !== null) {
+        if (select.value == 'sms') {
+          ifsms();
+        } else {
+          ifemail();
+        }
+
+        select.onclick = function () {
+          if (select.value == 'email') {
+            ifemail();
+          } else {
+            ifsms();
+          }
+        };
+      }
+
+      function getCaseNoun() {
+        var countMod = (140 - textarea.value.length) % 10;
+        if (countMod >= 5 && countMod <= 9) return 'лов';
+        if (countMod <= 4 && countMod >= 2) return 'ла';
+        if (countMod == 1) return 'л';
+        if (countMod == 0) return 'лов';
       }
     }
   }]);

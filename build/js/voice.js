@@ -1,5 +1,15 @@
 navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
 	const mediaRecorder = new MediaRecorder(stream);
+
+
+	$('div.mobile__record-footer').on()
+
+	document.querySelector('div.mobile__record-footer').addEventListener('click', function(){
+		alert('asdasd')
+	});
+
+
+	
 	
 
 	document.querySelector('#delete').addEventListener('click', function(){
@@ -15,7 +25,8 @@ navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
 	});
 
 
-    document.querySelector('#start').addEventListener('touchstart', function(){
+    document.querySelector('#start').addEventListener('click', function(){
+		alert("have touch")
         mediaRecorder.start();
 		document.getElementById('send').hidden = true;
 		document.querySelector('div.mobile__record-ico-holder').style.display = 'flex';

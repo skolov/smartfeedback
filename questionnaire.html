@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <include src="../sections/head.html"></include>
+</head>
+
+<body>
+
+    <main class="main">
+        <include src="../sections/left-menu.html"></include>
+
+        <div class="companies">
+            <div class="companies__head-panel">
+                <h2 class="companies__head-panel-title">Создание анкеты</h2>
+                <div class="companies__head-panel-controls">
+                    <a class="companies__head-panel-link" href="">Подключить полный тариф</a>
+                    <div class="companies__head-panel-profile-container">
+                        <button class="companies__head-panel-profile profile-menu">Дмитрий Мезенин
+                            <div class="companies__head-panel-avatar">
+                                <img
+                                    src="/assets/images/icons/avatar-default.svg"
+                                    alt=""
+                                    class="companies__head-panel-avatar-img"
+                                />
+                            </div>
+                            <img 
+                                class="companies__head-panel-more profile-menu"
+                                src="/assets/images/icons/dropdown-ico.svg"
+                            />        
+                        </button>
+                    </div>
+                    <div class="companies__head-panel-dropdown-holder">
+
+                        <ul class="companies__head-panel-menu-dropdown profile-menu">
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-settings"></use>
+                                    </svg>Настройки
+                                </a>
+                            </li>
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-tariff"></use>
+                                    </svg>Тариф
+                                </a>
+                            </li>
+                            <li class="companies__head-panel-menu-dropdown-item">
+                                <a class="companies__head-panel-menu-dropdown-link" href="">
+                                    <svg class="companies__head-panel-menu-dropdown-ico">
+                                        <use xlink:href="/assets/images/sprite-icons/sprite/sprite-icons.svg#dropdown-exit"></use>
+                                    </svg>Выход
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <div class="companies__content">
+                <div class="quest">
+                    <div class="quest__header">
+                        <div class="quest__header-text-holder">
+                            <h2 class="quest__header-bold-text">Добавление вопросов в анкету</h2>
+                            <p class="quest__header-muted-text">Соберите анкету, добавив в неё вопросы</p>
+                        </div>
+                        <div class="quest__header-btn-block">
+                            <button class="button quest__header-btn-preshow">
+                                <img
+                                    src="/assets/images/icons/eyesOn.svg"
+                                    class="quest__header-eye-ico"
+                                />
+                                Предпросмотр анкеты</button>
+                            <button class="button button-blue quest__header-btn-save">Сохранить анкету</button>
+                        </div>
+                    </div>
+                    <div class=" quest__body">
+                        <div class="quest__container">
+
+
+                            <!--Открытый вопрос-->
+              
+
+                            <div class="quest__item">
+                                <div class="quest__item-runner">
+                                    <img
+                                        src="/assets/images/icons/drag-holder-ico.svg"
+                                        class=""
+                                    />
+                                </div>
+                                <div class="quest__item-part">
+                                    <div class="quest__onequest-header">
+                                        Вопрос 1
+                                        <button class="quest__onequest-header-delete">
+                                            Удалить вопрос
+                                        </button>
+                                    </div>
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">открытый</option>
+                                            </select>
+                                        </div>
+                                        <div class="quest__input-holder">
+                                            <input type="text" placeholder="Вопрос">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="quest__item-part">
+                                    <div class="quest__onequest-header">
+                                        2. Оцените ваше состояние после использования
+                                        <div class="quest__onequest-header-preshow">
+                                            Предпросмотр
+                                        </div>
+                                    </div>
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__input-holder">
+                                            <input type="text" placeholder="Напишите ответ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--Закрытый вопрос-->
+
+                            <div class="quest__item">
+                                <div class="quest__item-runner">
+                                    <img
+                                        src="/assets/images/icons/drag-holder-ico.svg"
+                                        class=""
+                                    />
+                                </div>
+                                <div class="quest__item-part">
+                                    <div class="quest__onequest-header">
+                                        Вопрос 1
+                                        <button class="quest__onequest-header-delete">
+                                            Удалить вопрос
+                                        </button>
+                                    </div>
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">Закрытый</option>
+                                            </select>
+                                        </div>
+                                        <div class="quest__input-holder">
+                                            <input type="text" placeholder="Вопрос">
+                                        </div>
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">1</span>
+                                            <input type="text" placeholder="Вариант ответа 1">
+                                        </div>
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">2</span>
+                                            <input type="text" placeholder="Вариант ответа 2">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="quest__item-part">
+                                    <div class="quest__onequest-header absent">
+                                        2. Вопрос не указан
+                                        <div class="quest__onequest-header-preshow">
+                                            Предпросмотр
+                                        </div>
+                                    </div>
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__radio-holder">
+                                            <input id="1" type="radio" disabled>
+                                            <label class="absent" for="1">Вариант ответа 1</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="2" type="radio" disabled>
+                                            <label class="absent" for="2">Вариант ответа 2</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+
+
+
+
+
+                            <!--Оценка в баллах-->
+
+                            <div class="quest__item">
+                                <div class="quest__item-runner">
+                                    <img
+                                        src="/assets/images/icons/drag-holder-ico.svg"
+                                        class=""
+                                    />
+                                </div>
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        Вопрос 1
+                                        <button class="quest__onequest-header-delete">
+                                            Удалить вопрос
+                                        </button>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">Оценка в баллах</option>
+                                            </select>
+                                        </div>
+                                        <div class="quest__input-holder">
+                                            <input type="text" placeholder="Вопрос">
+                                        </div>
+                                        <p class="quest__item-text">
+                                            Выберите максимальную оценку, которую сможет ставить клиент:
+                                        </p>
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">От 1 до 10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        3. Насколько вам нравятся продукт?
+                                        <div class="quest__onequest-header-preshow">
+                                            Предпросмотр
+                                        </div>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__stars-holder">
+                                            <div class="form-group rating-area mobile__stars quest__stars">
+                                                <input type="radio" id="star_3_5" name="rating" value="5">
+                                                <label data-star="5" for="star_3_5" title="5"></label>
+                                                <input type="radio" id="star_3_4" name="rating" value="4">
+                                                <label data-star="4" for="star_3_4" title="4"></label>
+                                                <input type="radio" id="star_3_3" name="rating" value="3">
+                                                <label data-star="3" for="star_3_3" title="3"></label>
+                                                <input type="radio" id="star_3_2" name="rating" value="2">
+                                                <label data-star="2" for="star_3_2" title="2"></label>
+                                                <input type="radio" id="star_3_1" name="rating" value="1">
+                                                <label data-star="1" for="star_3_1" title="1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div> 
+
+
+
+                            <!--чек-лист-->
+                            <div class="quest__item">
+                                <div class="quest__item-runner">
+                                    <img
+                                        src="/assets/images/icons/drag-holder-ico.svg"
+                                        class=""
+                                    />
+                                </div>
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        Вопрос 1
+                                        <button class="quest__onequest-header-delete">
+                                            Удалить вопрос
+                                        </button>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">Чек-лист</option>
+                                            </select>
+                                        </div>
+                                        <div class="quest__input-holder">
+                                            <input type="text" placeholder="Вопрос">
+                                        </div>
+
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">1</span>
+                                            <input type="text" placeholder="Вариант ответа 1">
+                                        </div>
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">2</span>
+                                            <input type="text" placeholder="Вариант ответа 2">
+                                        </div>
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">3</span>
+                                            <input type="text" placeholder="Вариант ответа 3">
+                                            <button class="quest__answer-holder-delete">
+                                                <span class="quest__answer-holder-cross"></span>
+                                            </button>
+                                        </div>
+                                        <button class="quest__onequest-add-variant">Добавить вариант</button>
+                                    </div>
+                                </div>
+
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        3. Насколько вам нравятся продукт?
+                                        <div class="quest__onequest-header-preshow">
+                                            Предпросмотр
+                                        </div>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__radio-holder">
+                                            <input id="1" type="radio" disabled>
+                                            <label for="1">Нейтрально</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="2" type="radio" disabled>
+                                            <label for="2">Очень здорово</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="2" type="radio" disabled>
+                                            <label class="absent" for="2">Вариант ответа 3</label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <!--Матрица-->
+                            <div class="quest__item">
+                                <div class="quest__item-runner">
+                                    <img
+                                        src="/assets/images/icons/drag-holder-ico.svg"
+                                        class=""
+                                    />
+                                </div>
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        Вопрос 1
+                                        <button class="quest__onequest-header-delete">
+                                            Удалить вопрос
+                                        </button>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">Матрица</option>
+                                            </select>
+                                        </div>
+                                        <div class="quest__input-holder">
+                                            <input type="text" value="Насколько верны следующие утверждения?" placeholder="Вопрос">
+                                        </div>
+
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">1</span>
+                                            <input type="text" value="Я посоветую ваш продукт друзьям" placeholder="Вариант ответа 1">
+                                        </div>
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">3</span>
+                                            <input type="text" placeholder="Подвопрос 2">
+                                            <button class="quest__answer-holder-delete">
+                                                <span class="quest__answer-holder-cross"></span>
+                                            </button>
+                                        </div>
+                                        <button class="quest__onequest-add-variant">Добавить подвопрос</button>
+                                    </div>
+                                </div>
+
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        3. Насколько вам нравятся продукт?
+                                        <div class="quest__onequest-header-preshow">
+                                            Предпросмотр
+                                        </div>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <p class="quest__item-text">
+                                            Выберите максимальную оценку, которую сможет ставить клиент:
+                                        </p>
+                                        <div class="quest__radio-holder">
+                                            <input id="1" type="radio" disabled>
+                                            <label for="1">Несомненно согласен/на</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="2" type="radio" disabled>
+                                            <label for="2">Согласен/на</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="3" type="radio" disabled>
+                                            <label for="3">Нейтрально</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="4" type="radio" disabled>
+                                            <label for="4">Не согласен/на</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="5" type="radio" disabled>
+                                            <label for="5">Несомненно не согласен/на</label>
+                                        </div>
+                                        <p class="quest__item-text absent">
+                                            Подвопрос 2
+                                        </p>
+                                        <div class="quest__radio-holder">
+                                            <input id="1" type="radio" disabled>
+                                            <label class="absent" for="1">Несомненно согласен/на</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="2" type="radio" disabled>
+                                            <label class="absent" for="2">Согласен/на</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="3" type="radio" disabled>
+                                            <label class="absent" for="3">Нейтрально</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="4" type="radio" disabled>
+                                            <label class="absent" for="4">Не согласен/на</label>
+                                        </div>
+                                        <div class="quest__radio-holder">
+                                            <input id="5" type="radio" disabled>
+                                            <label class="absent" for="5">Несомненно не согласен/на</label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+
+                            <!--Матрица оценок-->
+                            <div class="quest__item">
+                                <div class="quest__item-runner">
+                                    <img
+                                        src="/assets/images/icons/drag-holder-ico.svg"
+                                        class=""
+                                    />
+                                </div>
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        Вопрос 1
+                                        <button class="quest__onequest-header-delete">
+                                            Удалить вопрос
+                                        </button>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">Матрица оценок</option>
+                                            </select>
+                                        </div>
+                                        <div class="quest__input-holder">
+                                            <input type="text" value="Насколько верны следующие утверждения?" placeholder="Вопрос">
+                                        </div>
+
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">1</span>
+                                            <input type="text" placeholder="Вариант ответа 1">
+                                        </div>
+                                        <div class="quest__answer-holder">
+                                            <span class="quest__answer-holder-number">2</span>
+                                            <input type="text" placeholder="Вариант ответа 2">
+                                            <button class="quest__answer-holder-delete">
+                                                <span class="quest__answer-holder-cross"></span>
+                                            </button>
+                                        </div>
+                                        <button class="quest__onequest-add-variant">Добавить подвопрос</button>
+                                        <p class="quest__item-text">
+                                            Выберите максимальную оценку, которую сможет ставить клиент:
+                                        </p>
+                                        <div class="quest__select-holder">
+                                            <select name="" id="">
+                                                <option value="">От 1 до 10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quest__item-part">
+
+                                    <div class="quest__onequest-header">
+                                        3. Насколько вам нравятся продукт?
+                                        <div class="quest__onequest-header-preshow">
+                                            Предпросмотр
+                                        </div>
+                                    </div>
+
+                                    <div class="quest__onequest-body">
+                                        <p class="quest__item-text">
+                                            Я посоветую ваш продукт друзьям
+                                        </p>
+                                        <div class="quest__stars-holder">
+                                            <div class="form-group rating-area mobile__stars quest__stars">
+                                                <input type="radio" id="star_3_5" name="rating" value="5">
+                                                <label data-star="5" for="star_3_5" title="5"></label>
+                                                <input type="radio" id="star_3_4" name="rating" value="4">
+                                                <label data-star="4" for="star_3_4" title="4"></label>
+                                                <input type="radio" id="star_3_3" name="rating" value="3">
+                                                <label data-star="3" for="star_3_3" title="3"></label>
+                                                <input type="radio" id="star_3_2" name="rating" value="2">
+                                                <label data-star="2" for="star_3_2" title="2"></label>
+                                                <input type="radio" id="star_3_1" name="rating" value="1">
+                                                <label data-star="1" for="star_3_1" title="1"></label>
+                                            </div>
+                                        </div>
+                                        <p class="quest__item-text">
+                                            Я снова куплю ваш продукт
+                                        </p>
+                                        <div class="quest__stars-holder">
+                                            <div class="form-group rating-area mobile__stars quest__stars">
+                                                <input type="radio" id="star_3_5" name="rating" value="5">
+                                                <label data-star="5" for="star_3_5" title="5"></label>
+                                                <input type="radio" id="star_3_4" name="rating" value="4">
+                                                <label data-star="4" for="star_3_4" title="4"></label>
+                                                <input type="radio" id="star_3_3" name="rating" value="3">
+                                                <label data-star="3" for="star_3_3" title="3"></label>
+                                                <input type="radio" id="star_3_2" name="rating" value="2">
+                                                <label data-star="2" for="star_3_2" title="2"></label>
+                                                <input type="radio" id="star_3_1" name="rating" value="1">
+                                                <label data-star="1" for="star_3_1" title="1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <button class="quest__body-addbtn">
+                            <img
+                                src="/assets/images/icons/add-plus-ico.svg"
+                                class="quest__body-addbtn-ico"
+                            />
+                            Добавить вопрос
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <include src="../sections/scripts.html"></include>
+</body>
+
+</html>

@@ -18,6 +18,8 @@ class Main {
 
         this.initGraphToggle();
         this.initFinderLists();
+
+        this.toggleLimitation();
     }
 
 
@@ -108,33 +110,7 @@ class Main {
 
 
     initCounterTaxtarea() {
-        let textarea = document.querySelector('textarea.review__content-answer-textarea'),
-            counterBlock;
-
-        if (textarea !== null) {
-            counterBlock = textarea
-                    .closest("div.review__content-answer-select-holder")
-                    .querySelector("div.review__content-answer-textarea-counter");
-        }
-            
-            
-        if (textarea !== null) {
-            textarea.onkeyup = () => {
-                if (textarea.value.length >= 140) {
-                    textarea.value = textarea.value.slice(0, 140)
-                }
-                counterBlock.innerHTML = `Осталось ${140 - textarea.value.length} симво${getCaseNoun()}`;
-            }
-        }
-
-
-        function getCaseNoun() {
-            let countMod = (140 - textarea.value.length) % 10;
-            if (countMod >= 5 && countMod <= 9) return 'лов';
-            if (countMod <= 4 && countMod >= 2) return 'ла';
-            if (countMod == 1) return 'л';
-            if (countMod == 0) return 'лов';
-        }
+        
 
     }
 
@@ -537,6 +513,73 @@ class Main {
         }
     }
 
+
+
+    toggleLimitation() {
+        let select = document.querySelector('select.review__content-answer-select'),
+            counter = document.querySelector('div.review__content-answer-textarea-counter'),
+            textarea = document.querySelector('textarea.review__content-answer-textarea');
+
+
+        function ifsms() {
+            if (textarea !== null && counter !== null)  {
+                counter.style.display = 'block';
+                textarea.style.height = '80px';
+                textarea.style.borderRadius = '8px 8px 0 0';
+                textarea.setAttribute('maxlength', '140');
+
+                if (textarea.value.length >= 140) {
+                    textarea.value = textarea.value.slice(0, 140)
+                }
+                counter.innerHTML = `Осталось ${140 - textarea.value.length} симво${getCaseNoun()}`;
+                textarea.onkeyup = () => {
+                    if (textarea.value.length >= 140) {
+                        textarea.value = textarea.value.slice(0, 140)
+                    }
+                    counter.innerHTML = `Осталось ${140 - textarea.value.length} симво${getCaseNoun()}`;
+                }
+            }
+        }
+
+
+        function ifemail() {
+            if(counter !== null && textarea !== null){
+                counter.style.display = 'none';
+                textarea.style.height = '100px';
+                textarea.style.borderRadius = '8px';
+                
+                textarea.setAttribute('maxlength', '2000');
+                textarea.onkeyup = () => {}
+            }
+        }
+
+
+        if(select !== null) {
+            if(select.value == 'sms') {
+                ifsms()
+            } else {
+                ifemail()
+            } 
+            
+            select.onclick = () => {
+                if(select.value == 'email'){
+                    ifemail();
+                } else {
+                    ifsms();        
+                }
+            }
+        }
+
+
+        function getCaseNoun() {
+            let countMod = (140 - textarea.value.length) % 10;
+            if (countMod >= 5 && countMod <= 9) return 'лов';
+            if (countMod <= 4 && countMod >= 2) return 'ла';
+            if (countMod == 1) return 'л';
+            if (countMod == 0) return 'лов';
+        }
+
+    }
 
 
     
