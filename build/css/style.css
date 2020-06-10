@@ -1206,6 +1206,11 @@ legend {
   width: 256px;
   margin-right: 10px;
 }
+.settings__panel-select-holder div.select,
+.settings__panel-select-holder--smaller div.select {
+  border-radius: 8px;
+  background: #f0f2f7;
+}
 .settings__panel-select-holder::after,
 .settings__panel-select-holder--smaller::after {
   content: url(/assets/images/icons/dropdown-ico.svg);
@@ -3564,7 +3569,7 @@ input:checked + .settings__panel-switch-slider:before {
   position: relative;
   margin: 16px 0 0 0;
 }
-.quest__input-holder input[type=text] {
+.quest__input-holder-input {
   border: 0;
   border-radius: 8px;
   outline: none;
@@ -3582,7 +3587,7 @@ input:checked + .settings__panel-switch-slider:before {
   display: flex;
   align-items: center;
 }
-.quest__input-holder input[type=text]:focus {
+.quest__input-holder-input:focus {
   outline: none;
 }
 .quest__answer-holder {
@@ -3643,7 +3648,7 @@ input:checked + .settings__panel-switch-slider:before {
   font-size: 13px;
   line-height: 20px;
 }
-.quest__answer-holder input[type=text] {
+.quest__answer-holder-input {
   border: 0;
   border-radius: 8px;
   outline: none;
@@ -3660,7 +3665,7 @@ input:checked + .settings__panel-switch-slider:before {
   display: flex;
   align-items: center;
 }
-.quest__answer-holder input[type=text]:focus {
+.quest__answer-holder-input:focus {
   outline: none;
 }
 .quest__item-text {
@@ -3696,6 +3701,80 @@ input:checked + .settings__panel-switch-slider:before {
 }
 .absent {
   color: #9BA6BC !important;
+}
+#container_questionnaire {
+  border-radius: 8px;
+  border: 2px solid #f0f2f7;
+}
+select {
+  display: block;
+  max-width: 215px;
+  width: 100%;
+  position: relative;
+}
+.new-select {
+  position: relative;
+  padding: 10px 15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  color: #0B0E2D;
+}
+.new-select__list {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+  background: #F0F2F7;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 6px 12px -4px rgba(0, 0, 0, 0.75);
+}
+.new-select__list.on {
+  display: block;
+}
+.new-select__item span {
+  display: block;
+  padding: 10px 15px;
+  background: #F0F2F7;
+}
+.new-select__item span:hover {
+  background: #e0e0e0;
+}
+.new-select:after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  background: url('path-to-image') no-repeat right center / cover;
+  opacity: 0.6;
+  transition: all 0.27s ease-in-out;
+  transform: rotate(0deg);
+}
+.new-select.on:after {
+  transform: rotate(180deg);
 }
 .mobile__chat-sender-panel {
   width: 100%;
@@ -4317,6 +4396,14 @@ input:checked + .settings__panel-switch-slider:before {
 }
 .mobile__send-review {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: url(/assets/images/icons/big-finger-ico.svg);
+  background-position: center 40%;
+  background-repeat: no-repeat;
 }
 .mobile__send-header {
   width: 100%;
@@ -4335,7 +4422,7 @@ input:checked + .settings__panel-switch-slider:before {
   font-size: 13px;
   line-height: 20px;
   padding: 0 16px;
-  margin-top: 22px;
+  margin-top: 10px;
   box-sizing: border-box;
   text-align: center;
   color: #0B0E2D;
@@ -4693,6 +4780,10 @@ input:checked + .settings__panel-switch-slider:before {
   padding: 0;
   border: 0;
   float: left;
+  outline: none;
+}
+.mobile__record-play-btn:focus {
+  outline: none;
 }
 .mobile__record-play-btn-ico {
   width: 44px;
@@ -4714,7 +4805,7 @@ input:checked + .settings__panel-switch-slider:before {
   position: relative;
 }
 .mobile__record-player-line-back {
-  width: 90px;
+  width: 0;
   height: 4px;
   border-radius: 2px;
   position: absolute;
@@ -4733,7 +4824,6 @@ input:checked + .settings__panel-switch-slider:before {
   border: 4px solid #4E94CA;
   position: absolute;
   top: -6px;
-  left: 82px;
 }
 .mobile__record-ico-holder {
   z-index: 1;

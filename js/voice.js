@@ -1,18 +1,18 @@
-navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
+var durationTrack = '',
+	interval = null,
+	toggleFlag = true;
+
+
+
+function successCallback(stream) {
 	const mediaRecorder = new MediaRecorder(stream);
 
-
-	$('div.mobile__record-footer').on()
-
-	document.querySelector('div.mobile__record-footer').addEventListener('click', function(){
-		alert('asdasd')
-	});
-
-
-	
-	
-
 	document.querySelector('#delete').addEventListener('click', function(){
+		document.querySelector('div.mobile__record-player-line-back').style.width = '0px';
+		document.querySelector('span.mobile__record-player-line-pointer').style.left = '0px';
+		document.querySelector('div.mobile__record-timer').innerText = '00:00';
+		document.querySelector('img.mobile__record-play-btn-ico').setAttribute('src', '/assets/images/icons/play-button-blue-ico.svg');
+
 		document.getElementById('start').hidden = false;
 		document.getElementById('send').hidden = true;
 		document.querySelector('div.mobile__record-ico-holder').style.display = 'none'; 
@@ -22,12 +22,16 @@ navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
 		document.querySelector('#messages').innerHTML = '';
 		document.clockform.hidden = true;
 		document.getElementById('delete').hidden = true;
+		durationTrack = '';
+
 	});
 
 
-    document.querySelector('#start').addEventListener('click', function(){
-		alert("have touch")
-        mediaRecorder.start();
+    document.querySelector('#start').addEventListener('touchstart', function(){
+		document.oncontextmenu = e => {
+			return false
+		}
+		mediaRecorder.start();
 		document.getElementById('send').hidden = true;
 		document.querySelector('div.mobile__record-ico-holder').style.display = 'flex';
 		document.querySelector('div.mobile__record-form-holder').style.display = 'flex';
@@ -35,8 +39,8 @@ navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
 		document.querySelector('#messages').innerHTML = '';
 		document.clockform.hidden = false;
 		findTIME();
-		
-    });
+	});
+	
     let audioChunks = [];
     mediaRecorder.addEventListener("dataavailable",function(event) {
         audioChunks.push(event.data);
@@ -50,7 +54,6 @@ navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
 		document.querySelector('div.mobile__record-form-holder').style.display = 'none';
 		document.querySelector('div.mobile__record-player-holder').style.display = 'flex';
 		document.clockform.hidden = false;
-		
 		findTIME();
     });
 
@@ -76,7 +79,31 @@ navigator.mediaDevices.getUserMedia({ audio: true}).then(stream => {
         sendTempVoice(fd);
         audioChunks = [];
     });
-});  
+}
+
+function errorCallback(error) {
+	alert("navigator.getUserMedia error: ", error);
+  }
+
+
+
+
+navigator.getUserMedia = (
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia
+);
+
+
+if (typeof navigator.mediaDevices.getUserMedia === 'undefined') {
+    navigator.getUserMedia({audio: true}, successCallback, errorCallback);
+} else {
+	navigator.mediaDevices.getUserMedia({audio: true})
+		.then(successCallback)
+		.catch(errorCallback);
+}
+
 
 async function sendVoice(form) {
     let promise = await fetch("/ajax.php", {
@@ -126,6 +153,7 @@ function startTIME() {
 	var ms = t%1000; t-=ms; ms=Math.floor(ms/10);
 	t = Math.floor (t/1000);
 	var s = t%60; t-=s;
+	var forcount = s + '.' + ms;
 	t = Math.floor (t/60);
 	var m = t%60; t-=m;
 	t = Math.floor (t/60);
@@ -135,6 +163,7 @@ function startTIME() {
 	if (s<10) s='0'+s;
 	if (ms<10) ms='0'+ms;
 	if (init==1) document.clockform.clock.value = m + ':' + s;
+	if (init==1) durationTrack = forcount;
 	clocktimer = setTimeout("startTIME()",10);
 }
 
@@ -160,10 +189,6 @@ function initPlayer() {
 		timeLine = document.querySelector('div.mobile__record-player-line'),
 		timeLinePointer = document.querySelector('span.mobile__record-player-line-pointer'),
 		timeLineBack = document.querySelector('div.mobile__record-player-line-back');
-
-
-	let toggleFlag = true;
-
 	if(
 		audio !== null &&
 		playBtn !== null &&
@@ -176,47 +201,57 @@ function initPlayer() {
 			playBtn.onclick = () => {
 				if (toggleFlag) {
 					audio.play();
-					console.log('play')
-					timer.innerHTML = getNormalDate(audio.duration);
+					playBtn.querySelector('img').setAttribute('src', '/assets/images/icons/pause-ico-btn.svg');
+					interval = setInterval(() => {
+                        getDateWhilePlaing(audio, timeLinePointer,timer,timeLine, timeLineBack, playBtn)
+                    }, 100);
 				} else {
 					audio.pause();
-					console.log('pause')
-					timer.innerHTML = getNormalDate(audio.duration);
+					playBtn.querySelector('img').setAttribute('src', '/assets/images/icons/play-button-blue-ico.svg');
+                    interval = clearInterval(interval);
 				} 
 				toggleFlag = !toggleFlag;
 			}
 		}
 	}
-	
 }
 
+function getDateWhilePlaing(
+		audio,
+		timeLinePointer,
+		timer,
+		timeLine,
+		timeLineBack,
+		playBtn
+	) 
+	{
+		let currentTime = Math.round((audio.currentTime)*100)/100;
+
+		if((+durationTrack-0.12) > (currentTime)) {
+			let position = (currentTime/durationTrack * 100 ),
+				widthPointer = timeLine.clientWidth;
+			timer.innerText = getNormalDate(currentTime);
+			position =  Math.round(widthPointer / 100 * position);
+			timeLinePointer.style.left = `${position}px`;
+			timeLineBack.style.width = `${position}px`;
+			console.log('dsa')
+	}else{
+			console.log('asd')
+			playBtn.querySelector('img.mobile__record-play-btn-ico').setAttribute('src', '/assets/images/icons/play-button-blue-ico.svg');
+			interval = clearInterval(interval);
+			toggleFlag = !toggleFlag;
+	}
+}
 
 function getNormalDate(inputTime) {
-
-	let tempData = '02:22:00',
-		arr = tempData.split('.');
-
-	/*
-
-	if (inputTime !== Infinity) {
-		console.log(typeof(inputTime));
-		console.log(inputTime);
-		console.log(inputTime.toString().split('.'))
-		
-		let arr = toString(inputTime).split('.');
-	
-		if(arr[0] < 10) arr[0] = '0' + arr[0];
-		arr[1] = Math.floor(arr[1]/100);
-		if(arr[1] < 10) arr[1] = '0' + arr[1];
-
-
-		console.log(arr[0] + ':' + arr[1]);
-		
+	let currentTime = Math.round(inputTime);
+	let s = currentTime % 60,
+		m = Math.floor(currentTime/60);
+	if (s <= 9) {
+		s = `0${s}`;
 	}
-
-	*/
-
-
-	
-	return '00:00';
+	if (m <= 9) {
+		m = `0${m}`;
+	}
+	return `${m}:${s}`;
 }

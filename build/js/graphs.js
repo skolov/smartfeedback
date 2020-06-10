@@ -1,30 +1,45 @@
 var data = {
   marks_graph: {
-    x: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
-    y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    x: [],
+    y: [] //x: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
+    //y: [10, 41, 35, 51, 49, 62, 69, 91, 148, 104, 113, 87, 65, 45, 153]
+
   },
   marks_bars: {
-    x: ['1', '2', '3', '4', '5'],
-    y: [10, 200, 300, 400, 50]
+    x: [],
+    y: [] //x: ['1', '2', '3', '4', '5'],
+    //y: [10, 200, 300, 400, 50]
+
   },
   review: {
-    x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
-    y: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+    x: [],
+    y: [] //x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
+    //y: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+
   },
   occupancy: {
+    x: [],
     y: {
-      _1: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213],
-      _2: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
-    },
-    x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+      _1: [],
+      _2: []
+    } //y: {
+    //  _1: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213],
+    //  _2: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+    //},
+    //x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+
   },
   nps_graph: {
-    y: [1, 2, 2, 3, 2, 4, 5, 6, 5, 7, 8, 7, 9, 10, 10],
-    x: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+    x: [],
+    y: [] //y: [1, 2, 2, 3, 2, 4, 5, 6, 5, 7, 8, 7, 9, 10, 10],
+    //x: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+
   },
   nps_bars: {
-    y: [10, 50, 130, 180, 160, 250, 390, 280, 390, 280],
-    x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    x: [],
+    y: [] //y: [10, 50, 130, 180, 160, 250, 390, 280, 390, 280],
+    //x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
   }
 };
 var marks_graph = {
@@ -57,6 +72,14 @@ var marks_graph = {
       }
     }
   },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
   grid: {
     borderColor: '#90A4AE',
     strokeDashArray: 5
@@ -71,7 +94,10 @@ var marks_bars = {
   }],
   chart: {
     type: 'bar',
-    height: 246
+    height: 246,
+    zoom: {
+      enabled: false
+    }
   },
   colors: ['#4E94CA'],
   plotOptions: {
@@ -99,6 +125,14 @@ var marks_bars = {
       }
     }
   },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
   fill: {
     opacity: 1
   },
@@ -116,7 +150,10 @@ var review = {
   }],
   chart: {
     type: 'bar',
-    height: 246
+    height: 246,
+    zoom: {
+      enabled: false
+    }
   },
   colors: ['#9E95DE'],
   plotOptions: {
@@ -144,6 +181,14 @@ var review = {
       }
     }
   },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
   fill: {
     opacity: 1
   },
@@ -163,7 +208,10 @@ var occupancy = {
   }],
   chart: {
     type: 'bar',
-    height: 246
+    height: 246,
+    zoom: {
+      enabled: false
+    }
   },
   colors: ['#95DEBF', '#DE9595'],
   plotOptions: {
@@ -182,7 +230,23 @@ var occupancy = {
     colors: ['transparent']
   },
   xaxis: {
-    categories: data.occupancy.x
+    categories: data.occupancy.x,
+    labels: {
+      show: true,
+      style: {
+        colors: '#0B0E2D',
+        fontSize: '12px',
+        fontFamily: 'Montserrat,sans-serif'
+      }
+    }
+  },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
   },
   fill: {
     opacity: 1
@@ -231,6 +295,14 @@ var nps_graph = {
       }
     }
   },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
   grid: {
     borderColor: '#90A4AE',
     strokeDashArray: 5
@@ -257,7 +329,10 @@ var nps_bars = {
   }],
   chart: {
     height: 246,
-    type: 'bar'
+    type: 'bar',
+    zoom: {
+      enabled: false
+    }
   },
   colors: ['#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#EBD380', '#EBD380', '#95DEBF', '#95DEBF'],
   plotOptions: {
@@ -285,6 +360,14 @@ var nps_bars = {
       }
     }
   },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
   grid: {
     borderColor: '#90A4AE',
     strokeDashArray: 5
@@ -293,12 +376,12 @@ var nps_bars = {
     enabled: false
   }
 };
-var nps_bars = new ApexCharts(document.querySelector("#nps_bars"), nps_bars);
-var marks_graph = new ApexCharts(document.querySelector("#marks_graph"), marks_graph);
-var marks_bars = new ApexCharts(document.querySelector("#marks_bars"), marks_bars);
-var nps_graph = new ApexCharts(document.querySelector("#nps_graph"), nps_graph);
-var occupancy = new ApexCharts(document.querySelector("#occupancy"), occupancy);
-var review = new ApexCharts(document.querySelector("#review"), review);
+nps_bars = new ApexCharts(document.querySelector("#nps_bars"), nps_bars);
+marks_graph = new ApexCharts(document.querySelector("#marks_graph"), marks_graph);
+marks_bars = new ApexCharts(document.querySelector("#marks_bars"), marks_bars);
+nps_graph = new ApexCharts(document.querySelector("#nps_graph"), nps_graph);
+occupancy = new ApexCharts(document.querySelector("#occupancy"), occupancy);
+review = new ApexCharts(document.querySelector("#review"), review);
 nps_bars.render();
 marks_graph.render();
 marks_bars.render();
