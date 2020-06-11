@@ -4,7 +4,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var analiticsArray = [];
+var analiticsArray = {};
 
 var Main =
 /*#__PURE__*/
@@ -466,12 +466,25 @@ function () {
 
       function getValuesOfChecked(oneList) {
         var checked = false;
+
+        if (oneList.querySelector('li.graphs__panel-list-item:first-child label input').checked) {
+          var allCompany = function allCompany(name, kt) {
+            this.name = name;
+            this.kt = kt;
+          };
+
+          var nameCompany = oneList.querySelector('li.graphs__panel-list-item:first-child').innerText;
+          var companyObj = new allCompany(nameCompany, '(Все контрольные точки)');
+          console.log(companyObj);
+        }
+
         oneList.querySelectorAll('li.graphs__panel-list-item label').forEach(function (element) {
           if (element.querySelector('input').checked) {
+            /*
             if (!analiticsArray.includes(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText)) {
-              analiticsArray.push(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
+                analiticsArray.push(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
             }
-
+            */
             checked = true;
           }
         });
@@ -479,9 +492,8 @@ function () {
         if (!checked) {
           var index = analiticsArray.indexOf(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
           analiticsArray.splice(index, 1);
-        }
+        } //addToline();
 
-        addToline();
       }
 
       function addToline() {
@@ -598,4 +610,67 @@ function openAlertPopup(idContent) {
     }, 500);
   }
 }
+
+$(document).ready(function () {
+  $('#track').on('canplay canplaythrough', function () {
+    var _this2 = this;
+
+    var interval,
+        toggleFlag = false;
+
+    if (this.duration === Infinity) {
+      this.currentTime = 1e101;
+
+      this.ontimeupdate = function () {
+        this.ontimeupdate = function () {
+          return;
+        };
+      };
+
+      this.currentTime = 0;
+    } else {
+      var duration = Math.round(this.duration),
+          minutes = Math.floor(duration / 60),
+          seconds = duration % 60,
+          timer = document.querySelector('span.mobile__attachment-time'),
+          btnMobilePlay = document.getElementById('audioPlayAttach');
+      if (minutes <= 9) minutes = "0".concat(minutes);
+      if (seconds <= 9) seconds = "0".concat(seconds);
+
+      if (timer !== null && btnMobilePlay !== null) {
+        timer.innerText = "".concat(minutes, ":").concat(seconds);
+
+        btnMobilePlay.onclick = function () {
+          if (!toggleFlag) {
+            _this2.play();
+
+            btnMobilePlay.querySelector('img').setAttribute('src', '/assets/images/icons/pause-ico-btn.svg');
+            interval = setInterval(function () {
+              getDateWhilePlaing(_this2, btnMobilePlay, duration);
+            }, 100);
+          } else {
+            _this2.pause();
+
+            btnMobilePlay.querySelector('img').setAttribute('src', '/assets/images/icons/play-button-blue-ico.svg');
+            interval = clearInterval(interval);
+          }
+
+          toggleFlag = !toggleFlag;
+        };
+      }
+    }
+
+    ;
+
+    function getDateWhilePlaing(audio, btnMobilePlay, duration) {
+      var currentTime = Math.round(audio.currentTime * 100) / 100;
+
+      if (duration < currentTime + 0.1) {
+        btnMobilePlay.querySelector('img').setAttribute('src', '/assets/images/icons/play-button-blue-ico.svg');
+        interval = clearInterval(interval);
+        toggleFlag = !toggleFlag;
+      }
+    }
+  });
+});
 //# sourceMappingURL=main.js.map

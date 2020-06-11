@@ -1,4 +1,4 @@
-var analiticsArray = [];
+var analiticsArray = {};
 
 class Main {
     
@@ -485,11 +485,24 @@ class Main {
     
         function getValuesOfChecked(oneList) {
             let checked = false;
+            if(oneList.querySelector('li.graphs__panel-list-item:first-child label input').checked){
+                let nameCompany = oneList.querySelector('li.graphs__panel-list-item:first-child').innerText;
+                    
+                function allCompany(name, kt) {
+                    this.name = name;
+                    this.kt = kt;
+                }
+                      
+                let companyObj = new allCompany(nameCompany, '(Все контрольные точки)');
+                console.log(companyObj)
+            }
             oneList.querySelectorAll('li.graphs__panel-list-item label').forEach(element => {
                 if (element.querySelector('input').checked) {
+                    /*
                     if (!analiticsArray.includes(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText)) {
                         analiticsArray.push(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
                     }
+                    */
                     checked = true;
                 }
             })
@@ -499,7 +512,7 @@ class Main {
                 analiticsArray.splice(index, 1)
             }
     
-            addToline();
+            //addToline();
         }
     
     
@@ -628,3 +641,61 @@ function openAlertPopup (idContent) {
         
     }
 }
+
+
+
+$(document).ready(function () {
+    $('#track').on('canplay canplaythrough', function () {
+
+        var interval,
+            toggleFlag = false;
+  
+        if (this.duration === Infinity) {
+            this.currentTime = 1e101;
+            this.ontimeupdate = function () {
+                this.ontimeupdate = function () {
+                    return;
+                };
+            };
+            this.currentTime = 0;
+        } else {
+            let duration = Math.round(this.duration),
+                minutes = Math.floor(duration / 60),
+                seconds = duration % 60,
+                timer = document.querySelector('span.mobile__attachment-time'),
+                btnMobilePlay = document.getElementById('audioPlayAttach');
+
+            if(minutes <= 9) minutes = `0${minutes}`;
+            if(seconds <= 9) seconds = `0${seconds}`;
+
+            if(timer !== null && btnMobilePlay !== null) {
+                timer.innerText = `${minutes}:${seconds}`;
+                btnMobilePlay.onclick = () => {
+                    if (!toggleFlag) {
+                        this.play();
+                        btnMobilePlay.querySelector('img').setAttribute('src', '/assets/images/icons/pause-ico-btn.svg');
+                        interval = setInterval(() => {
+                            getDateWhilePlaing(this, btnMobilePlay, duration)
+                        }, 100);
+                    } else {
+                        this.pause();
+                        btnMobilePlay.querySelector('img').setAttribute('src', '/assets/images/icons/play-button-blue-ico.svg');
+                        interval = clearInterval(interval);
+                    }
+                    toggleFlag = !toggleFlag;
+                }
+            }
+            
+            
+        };
+
+        function getDateWhilePlaing(audio, btnMobilePlay, duration) {
+            let currentTime = Math.round((audio.currentTime)*100)/100;
+            if(duration < currentTime + 0.1) {
+                btnMobilePlay.querySelector('img').setAttribute('src', '/assets/images/icons/play-button-blue-ico.svg');
+                interval = clearInterval(interval);
+                toggleFlag = !toggleFlag;
+            }
+        }
+    });
+});

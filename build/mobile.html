@@ -283,17 +283,17 @@
 -->
 
 
-<!--
-    На всякий
-    <div class="container mt-3 "  id = "finishForm" hidden>
-	    <h1 id = "formTitle"></h1>
-		<p id = "formMsg"></p>
-		<a href="#" id = "showQuestionary">Заполнить анкету</a>
+
+   
+    <div class="container mt-3 " id="finishForm" hidden="">
+	    <h1 id="formTitle"></h1>
+		<p id="formMsg"></p>
+		<a href="#" id="showQuestionary">Заполнить анкету</a>
 	</div>
     
     
-    <form id = "createQuestionaryForm">
-        <input type="hidden" name = "key" value = "[[+key]]">
+    <form id="createQuestionaryForm">
+        <input type="hidden" name="key" value="[[+key]]">
         <h1 class="mobile__fill-header">Заполните анкету</h1>
         <div class="mobile__form">
             <p class="mobile__form-title">Анкета</p>
@@ -317,7 +317,7 @@
             <div class="form-group row">
                 <div class="col mobile__form-radioitem">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question[{$number}]" id="answer_{$number}_1" value="1" checked>
+                        <input class="form-check-input" type="radio" name="question[{$number}]" id="answer_{$number}_1" value="1" checked="">
                         <label class="form-check-label" for="answer_{$number}_1">Да</label>
                     </div>
                 </div>
@@ -385,16 +385,12 @@
         </div>
 
 
-        <button class="mobile__form-button" type = "submit">Отправить</button>
+        <button class="mobile__form-button" type="submit">Отправить</button>
         <div class="mobile__form-footer">
-            <img 
-                src="/assets/images/icons/footer-logo-mobile.png"
-                alt=""
-                class="mobile__form-footer-ico"
-            />
+            <img src="/assets/images/icons/footer-logo-mobile.png" alt="" class="mobile__form-footer-ico">
         </div>
     </form>
--->
+
 
 
 
@@ -490,10 +486,14 @@
         </div>
 
     -->
-
+<!--
 
         <a href="[[~13]]?key={$.get.key}" class="mobile__record-btn-back">
-            <img src="/assets/images/icons/back-arrow.svg" class="mobile__record-btn-back-ico" alt="arrow-back">
+            <img
+                src="/assets/images/icons/back-arrow.svg"
+                class="mobile__record-btn-back-ico"
+                alt="arrow-back"
+            />
             Чат
         </a>
 
@@ -608,10 +608,13 @@
 
         <div class="mobile__chat-sender-panel">
                 <textarea class="mobile__chat-textarea" name="mess" id="mess" cols="30" rows="10" placeholder="Введите сообщение"></textarea>
-                <button class="mobile__chat-send-btn" id="sendClientMsg" type="button">
-                    <img src="assets/images/icons/send-ico.svg" class="mobile__chat-send-btn-ico">
+                <button class="mobile__chat-send-btn" id = "sendClientMsg" type = "button">
+                    <img
+                        src="assets/images/icons/send-ico.svg"
+                        class="mobile__chat-send-btn-ico"
+                    />
                 </button>
-        </div>
+        </div>-->
         
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="/assets/js/scripts.js"></script>
