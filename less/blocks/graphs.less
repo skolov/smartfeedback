@@ -285,6 +285,44 @@
         display: none;
     }
 }
+.daterangepicker{
+    background: #FFFFFF;
+    box-shadow: 0px 5px 25px rgba(104, 130, 159, 0.25);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0;
+    .drp-calendar{
+        .calendar-table{
+            padding-right: 0 !important;
+        }
+        &.left{
+            padding: 0 !important;
+        }
+        &.right{
+            padding: 0 !important;
+        }
+    }
+
+    .calendar-table thead tr:first-child th {
+        border-bottom: 1px solid #DFE8F6;
+
+        font-family: 'Montserrat',sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 40px;
+        color: #172549;
+    }
+    .calendar-table thead tr:last-child th{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 40px;
+        font-family: 'Montserrat',sans-serif;
+        color: #172549;
+    } 
+}
+
 
 
 @media (max-width: 1100px) {

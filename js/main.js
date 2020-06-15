@@ -484,45 +484,45 @@ class Main {
     
     
         function getValuesOfChecked(oneList) {
-            let checked = false;
+            let checked = false,
+                controlPoints = [],
+                nameCompany = oneList.querySelector('li.graphs__panel-list-item:first-child').innerText;
+
             if(oneList.querySelector('li.graphs__panel-list-item:first-child label input').checked){
-                let nameCompany = oneList.querySelector('li.graphs__panel-list-item:first-child').innerText;
-                    
-                function allCompany(name, kt) {
-                    this.name = name;
-                    this.kt = kt;
-                }
-                      
-                let companyObj = new allCompany(nameCompany, '(Все контрольные точки)');
-                console.log(companyObj)
-            }
-            oneList.querySelectorAll('li.graphs__panel-list-item label').forEach(element => {
-                if (element.querySelector('input').checked) {
-                    /*
-                    if (!analiticsArray.includes(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText)) {
-                        analiticsArray.push(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
+                analiticsArray[nameCompany] = 'Все контрольные точки';
+                checked = true;
+            } else {
+                oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child) label').forEach(element => {
+                    if (element.querySelector('input').checked) {
+    
+                        if(oneList.querySelector('li.graphs__panel-list-item:first-child label input').checked){
+    
+                        }
+                        controlPoints.push(element.innerText);
+                        analiticsArray[nameCompany] = controlPoints;
+                        checked = true;
                     }
-                    */
-                    checked = true;
-                }
-            })
-    
+                })
+            }    
             if (!checked) {
-                let index = analiticsArray.indexOf(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
-                analiticsArray.splice(index, 1)
+                delete analiticsArray[nameCompany]
             }
-    
-            //addToline();
+            addToline();
         }
     
     
         function addToline() {
             let line = document.querySelector('input.graphs__panel-input'),
-                string = '';
-            
-            string = analiticsArray.join(', ')
-    
-            line.value = string;
+                concet = '';
+            for (var key in analiticsArray) {
+                if(typeof(analiticsArray[key]) != 'string') {
+                    concet = concet + ' ' + key + ' (' + analiticsArray[key].join(', ') + ')';
+                    concet = concet + `${concet === '' ? ' ' : ', '}`;
+                } else {
+                    concet = concet + ' ' + key + ' (' + analiticsArray[key] + ') ';
+                }
+            }
+            line.value = concet;
         }
     }
 

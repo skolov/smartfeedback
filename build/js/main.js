@@ -465,42 +465,46 @@ function () {
       }
 
       function getValuesOfChecked(oneList) {
-        var checked = false;
+        var checked = false,
+            controlPoints = [],
+            nameCompany = oneList.querySelector('li.graphs__panel-list-item:first-child').innerText;
 
         if (oneList.querySelector('li.graphs__panel-list-item:first-child label input').checked) {
-          var allCompany = function allCompany(name, kt) {
-            this.name = name;
-            this.kt = kt;
-          };
+          analiticsArray[nameCompany] = 'Все контрольные точки';
+          checked = true;
+        } else {
+          oneList.querySelectorAll('li.graphs__panel-list-item:not(:first-child) label').forEach(function (element) {
+            if (element.querySelector('input').checked) {
+              if (oneList.querySelector('li.graphs__panel-list-item:first-child label input').checked) {}
 
-          var nameCompany = oneList.querySelector('li.graphs__panel-list-item:first-child').innerText;
-          var companyObj = new allCompany(nameCompany, '(Все контрольные точки)');
-          console.log(companyObj);
+              controlPoints.push(element.innerText);
+              analiticsArray[nameCompany] = controlPoints;
+              checked = true;
+            }
+          });
         }
 
-        oneList.querySelectorAll('li.graphs__panel-list-item label').forEach(function (element) {
-          if (element.querySelector('input').checked) {
-            /*
-            if (!analiticsArray.includes(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText)) {
-                analiticsArray.push(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
-            }
-            */
-            checked = true;
-          }
-        });
-
         if (!checked) {
-          var index = analiticsArray.indexOf(oneList.querySelector('li.graphs__panel-list-item:first-child').innerText);
-          analiticsArray.splice(index, 1);
-        } //addToline();
+          delete analiticsArray[nameCompany];
+        }
 
+        addToline();
       }
 
       function addToline() {
         var line = document.querySelector('input.graphs__panel-input'),
-            string = '';
-        string = analiticsArray.join(', ');
-        line.value = string;
+            concet = '';
+
+        for (var key in analiticsArray) {
+          if (typeof analiticsArray[key] != 'string') {
+            concet = concet + ' ' + key + ' (' + analiticsArray[key].join(', ') + ')';
+            concet = concet + "".concat(concet === '' ? ' ' : ', ');
+          } else {
+            concet = concet + ' ' + key + ' (' + analiticsArray[key] + ') ';
+          }
+        }
+
+        line.value = concet;
       }
     }
   }, {

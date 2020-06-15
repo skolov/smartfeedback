@@ -67,20 +67,7 @@
             <div class="graphs__panel">
 
                 <div class="graphs__panel-calendar">
-                    <select class="graphs__panel-chose-date">
-                        <option>1 янв – 31 янв 2020</option>
-                        <option>1 фев – 29 фев 2020</option>
-                        <option>1 мар – 31 мар 2020</option>
-                        <option>1 апр – 30 апр 2020</option>
-                        <option>1 мая – 30 мая 2020</option>
-                        <option>1 июня – 30 июня 2020</option>
-                        <option>1 июля – 31 июля 2020</option>
-                        <option>1 авг – 31 авг 2020</option>
-                        <option>1 сен – 30 сен 2020</option>
-                        <option>1 окт – 31 окт 2020</option>
-                        <option>1 ноя – 30 ноя 2020</option>
-                        <option>1 дек – 31 дек 2020</option>
-                    </select>
+                    <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
                     <img
                         src="/assets/images/icons/date-calend.svg"
                         alt=""
@@ -348,8 +335,52 @@
 
         </div>
     </main>
-
     <include src="../sections/scripts.html"></include>
+    <script>
+    $(function () {
+        $('input[name="daterange"]').daterangepicker({
+            "autoApply": true,
+            "locale": {
+                "format": "MM/DD/YYYY",
+                "separator": " - ",
+                "applyLabel": "Apply",
+                "cancelLabel": "Cancel",
+                "fromLabel": "From",
+                "toLabel": "To",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "Вс",
+                    "Пн",
+                    "Вт",
+                    "Ср",
+                    "Чт",
+                    "Пт",
+                    "Сб"
+                ],
+                "monthNames": [
+                    "Январь",
+                    "Февраль",
+                    "Март",
+                    "Апрель",
+                    "Май",
+                    "Июнь",
+                    "Июль",
+                    "Август",
+                    "Сентябрь",
+                    "Октябрь",
+                    "Ноябрь",
+                    "Декабрь"
+                ],
+                "firstDay": 1
+            },
+            "startDate": "06/09/2020",
+            "endDate": "06/15/2020"
+        }, function(start, end, label) {
+        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        });
+    })
+    </script>
 </body>
 
 </html>
