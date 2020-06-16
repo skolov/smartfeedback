@@ -1,4 +1,4 @@
-$('select').each(function() {
+/*$('select').each(function() {
     const _this = $(this),
         selectOption = _this.find('option'),
         selectOptionLength = selectOption.length,
@@ -51,4 +51,4 @@ $('select').each(function() {
             selectList.slideUp(duration);
         }
     });
-});
+});*/

@@ -19,7 +19,18 @@
 @import "blocks/questionnaire.less";
 @import "blocks/errors.less";
 
-@import "blocks/customSelects.less";
+@import "blocks/nice-select.less";
 
 
 @import "blocks/mobile.less";
+
+
+
+.create-kt__select-holder{
+    &:after{
+        display: none !important;
+    }
+}
+select {
+    display: none !important;
+}

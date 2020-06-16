@@ -159,6 +159,14 @@
             padding: 0 16px 0 24px;
             float: left;
             color: #0F1546;
+            & input{
+                border: 0;
+                cursor: pointer;
+                outline: none;
+                &:focus{
+                    outline: none;
+                }
+            }
             &-ico{
                 position: absolute;
                 right: 16px;
@@ -333,4 +341,33 @@
             margin: 0 0 10px 0;
         }
     }
+}
+
+
+.arrow_box{
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    min-width: 66px;
+    min-height: 38px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    box-sizing: border-box;
+    padding: 5px;
+    .arrow-ydata, .arrow-xdata{
+        width: 100%;
+        display: block;
+    }
+    .arrow-ydata{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+
+        color: #FFFFFF;
+    }
+}
+.apexcharts-xaxistooltip{
+    display: none;
 }

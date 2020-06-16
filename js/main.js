@@ -698,4 +698,56 @@ $(document).ready(function () {
             }
         }
     });
+
+    
+});
+
+
+
+$(function () {
+    $('input[name="daterange"]').daterangepicker({
+        "autoApply": true,
+        "locale": {
+            "format": "DD-MM-YYYY",
+            "separator": " - ",
+            "applyLabel": "Apply",
+            "cancelLabel": "Cancel",
+            "fromLabel": "From",
+            "toLabel": "To",
+            "customRangeLabel": "Custom",
+            "weekLabel": "W",
+            "daysOfWeek": [
+                "Вс",
+                "Пн",
+                "Вт",
+                "Ср",
+                "Чт",
+                "Пт",
+                "Сб"
+            ],
+            "monthNames": [
+                "Январь",
+                "Февраль",
+                "Март",
+                "Апрель",
+                "Май",
+                "Июнь",
+                "Июль",
+                "Август",
+                "Сентябрь",
+                "Октябрь",
+                "Ноябрь",
+                "Декабрь"
+            ],
+            "firstDay": 1
+        },
+        "startDate": "09/06/2020",
+        "endDate": "15/06/2020"
+    }, function(start, end, label) {
+    
+    });
+})
+
+$(document).ready(function() {
+    $('select').niceSelect();
 });

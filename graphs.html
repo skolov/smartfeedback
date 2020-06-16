@@ -67,7 +67,7 @@
             <div class="graphs__panel">
 
                 <div class="graphs__panel-calendar">
-                    <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+                    <input type="text" name="daterange" readonly value />
                     <img
                         src="/assets/images/icons/date-calend.svg"
                         alt=""
@@ -336,51 +336,6 @@
         </div>
     </main>
     <include src="../sections/scripts.html"></include>
-    <script>
-    $(function () {
-        $('input[name="daterange"]').daterangepicker({
-            "autoApply": true,
-            "locale": {
-                "format": "MM/DD/YYYY",
-                "separator": " - ",
-                "applyLabel": "Apply",
-                "cancelLabel": "Cancel",
-                "fromLabel": "From",
-                "toLabel": "To",
-                "customRangeLabel": "Custom",
-                "weekLabel": "W",
-                "daysOfWeek": [
-                    "Вс",
-                    "Пн",
-                    "Вт",
-                    "Ср",
-                    "Чт",
-                    "Пт",
-                    "Сб"
-                ],
-                "monthNames": [
-                    "Январь",
-                    "Февраль",
-                    "Март",
-                    "Апрель",
-                    "Май",
-                    "Июнь",
-                    "Июль",
-                    "Август",
-                    "Сентябрь",
-                    "Октябрь",
-                    "Ноябрь",
-                    "Декабрь"
-                ],
-                "firstDay": 1
-            },
-            "startDate": "06/09/2020",
-            "endDate": "06/15/2020"
-        }, function(start, end, label) {
-        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-        });
-    })
-    </script>
 </body>
 
 </html>

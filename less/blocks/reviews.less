@@ -47,6 +47,8 @@
         width: 100%;
         &-video{
             width: 100%;
+            max-width: 600px;
+            margin-top: 10px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -54,8 +56,10 @@
             &-btn{
                 width: 155px;
                 height: 155px;
+                border-radius: 50%;
                 position: absolute;
-                
+                z-index: 1000;
+                cursor: pointer;
             }
             &-ico{
                 width: 100%;
