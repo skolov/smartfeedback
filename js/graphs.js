@@ -68,8 +68,9 @@ var data = {
           cssClass: 'apexcharts-xaxis-label'
         },
         formatter: function(value) {
+          console.log(data.marks_graph.y)
           if(value !== undefined) {
-            value = value.split(' ')[0]
+            //value = value.split('.')[0]
           }
           return value
         }
@@ -87,6 +88,27 @@ var data = {
       borderColor: '#90A4AE',
       strokeDashArray: 5
     },
+    /*markers: {
+      size: 0,
+      colors: '#FAC700',
+      strokeColors: '#FAC700',
+      strokeWidth: 0,
+      strokeOpacity: 0.9,
+      strokeDashArray: 0,
+      fillOpacity: 1,
+      discrete: [],
+      shape: "circle",
+      radius: 2,
+      offsetX: 0,
+      offsetY: 0,
+      onClick: undefined,
+      onDblClick: undefined,
+      showNullDataPoints: true,
+      hover: {
+        size: undefined,
+        sizeOffset: 3
+      }
+    },*/
     tooltip: {
       enabled: true,
       enabledOnSeries: undefined,

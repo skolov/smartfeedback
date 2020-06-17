@@ -300,14 +300,25 @@
     overflow: hidden;
     border: 0;
     .drp-calendar{
+        &:after{
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: #DFE8F6;
+            position: absolute;
+            z-index: 1000;
+            top: 44px;
+        }
         .calendar-table{
             padding-right: 0 !important;
         }
         &.left{
             padding: 0 !important;
+            margin-right: 20px;
         }
         &.right{
             padding: 0 !important;
+            margin-left: 20px;
         }
     }
 

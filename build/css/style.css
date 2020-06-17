@@ -590,10 +590,9 @@ legend {
 }
 .companies__head-panel-menu-dropdown {
   width: 228px;
-  height: 136px;
   position: absolute;
   right: 0;
-  bottom: -150px;
+  top: 50px;
   display: none;
   z-index: 10;
   background: #FFFFFF;
@@ -1004,16 +1003,12 @@ legend {
   text-align: left;
   line-height: 20px;
   color: #0B0E2D;
-  opacity: 0.5;
+  opacity: 0.7;
   height: 40px;
   line-height: 40px;
 }
 .companies__table table thead tr th:first-child {
   text-align: center;
-}
-.companies__table table thead tr th:nth-child(2) {
-  font-weight: bold;
-  opacity: 1;
 }
 .companies__table table tbody tr td {
   height: 48px;
@@ -3134,14 +3129,25 @@ input:checked + .settings__panel-switch-slider:before {
   overflow: hidden;
   border: 0;
 }
+.daterangepicker .drp-calendar:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #DFE8F6;
+  position: absolute;
+  z-index: 1000;
+  top: 44px;
+}
 .daterangepicker .drp-calendar .calendar-table {
   padding-right: 0 !important;
 }
 .daterangepicker .drp-calendar.left {
   padding: 0 !important;
+  margin-right: 20px;
 }
 .daterangepicker .drp-calendar.right {
   padding: 0 !important;
+  margin-left: 20px;
 }
 .daterangepicker .calendar-table thead tr:first-child th {
   border-bottom: 1px solid #DFE8F6;
@@ -3276,6 +3282,9 @@ input:checked + .settings__panel-switch-slider:before {
 }
 .chat__bar .active p {
   color: #ffffff;
+}
+.chat__bar .active span {
+  color: #fff;
 }
 .chat__dialog {
   width: calc(100% - 254px);
