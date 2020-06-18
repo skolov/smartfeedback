@@ -1687,7 +1687,7 @@ input:checked + .settings__panel-switch-slider:before {
   margin: 0 0 16px 0;
 }
 .review__content-answer-select-arrow {
-  display: block;
+  display: none;
   width: 24px;
   height: 24px;
   background: url(/assets/images/icons/dropdown-ico.svg);
@@ -1703,6 +1703,9 @@ input:checked + .settings__panel-switch-slider:before {
   position: relative;
   width: 432px;
   cursor: pointer;
+}
+.review__content-answer-select-holder {
+  min-height: 40px;
 }
 .review__content-answer-select-holder--drop:after {
   content: url(/assets/images/icons/dropdown-ico.svg);

@@ -68,8 +68,6 @@ var marks_graph = {
         cssClass: 'apexcharts-xaxis-label'
       },
       formatter: function formatter(value) {
-        console.log(data.marks_graph.y);
-
         if (value !== undefined) {//value = value.split('.')[0]
         }
 

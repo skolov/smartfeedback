@@ -725,6 +725,22 @@ $(function () {
     "maxDate": new Date(date.getFullYear(), date.getMonth(), date.getDate())
   }, function (start, end, label) {});
 });
+$('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+    let dateString = $('input[name="daterange"]').val().split(' '),
+        toDay, lastDay;
+    
+    dateString[0] = dateString[0].split('-');
+    dateString[2] = dateString[2].split('-');
+    
+    toDay = new Date(`${dateString[0][1]}-${dateString[0][0]}-${dateString[0][2]}`);
+    lastDay = new Date(`${dateString[2][1]}-${dateString[2][0]}-${dateString[2][2]}`);
+    
+    console.log((lastDay - toDay) / (60 * 60 * 24 * 1000))
+});
 $(document).ready(function () {
   $('select').niceSelect();
+
 });
+$(function(){
+    $("#phoneMask").mask("+7(999) 999-9999");
+  });
