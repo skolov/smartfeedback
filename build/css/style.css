@@ -990,7 +990,7 @@ legend {
 }
 .companies__table table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse !important;
 }
 .companies__table table thead {
   padding: 10px 0;

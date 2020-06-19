@@ -1,4 +1,6 @@
-var analiticsArray = {};
+var analiticsArray = {},
+    stringForTipsGraph;
+
 
 class Main {
     
@@ -701,46 +703,58 @@ $(document).ready(function () {
 
     
 });
+function initDataPicker(date) {
+    var toDay = new Date(),
+        lastDay;
 
+    if(date === '') {
+        lastDay = new Date()
+    } else {
+        lastDay = date.split('.');
+        lastDay = new Date(lastDay[2], lastDay[1] - 1, lastDay[0]);
+    }
 
+    $(function () {
+      $('input[name="daterange"]').daterangepicker({
+        "autoApply": true,
+        "locale": {
+          "format": "DD-MM-YYYY",
+          "separator": " - ",
+          "applyLabel": "Apply",
+          "cancelLabel": "Cancel",
+          "fromLabel": "From",
+          "toLabel": "To",
+          "customRangeLabel": "Custom",
+          "weekLabel": "W",
+          "daysOfWeek": ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+          "monthNames": ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+          "firstDay": 1
+        },
+        "startDate": lastDay,
+        "endDate": new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate()),
+        "minDate": lastDay,
+        "maxDate": new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate())
+      }, function (start, end, label) {});
+    });
 
-var date = new Date()
-$(function () {
-  $('input[name="daterange"]').daterangepicker({
-    "autoApply": true,
-    "locale": {
-      "format": "DD-MM-YYYY",
-      "separator": " - ",
-      "applyLabel": "Apply",
-      "cancelLabel": "Cancel",
-      "fromLabel": "From",
-      "toLabel": "To",
-      "customRangeLabel": "Custom",
-      "weekLabel": "W",
-      "daysOfWeek": ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-      "monthNames": ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-      "firstDay": 1
-    },
-    "minDate": new Date(date.getFullYear() - 1, date.getMonth(), date.getDate()),
-    "maxDate": new Date(date.getFullYear(), date.getMonth(), date.getDate())
-  }, function (start, end, label) {});
-});
-$('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
-    let dateString = $('input[name="daterange"]').val().split(' '),
-        toDay, lastDay;
+    getLengthOfCurrentPeriod(lastDay, new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate()))
+  }
+
+function getLengthOfCurrentPeriod(lastDay, toDay) {
+    stringForTipsGraph = (toDay - lastDay) / (60 * 60 * 24 * 1000);
+    let div = document.createElement('div'), allXaxis = document.querySelectorAll(".apexcharts-xaxis-texts-g");
+        div.className = "alert-xaxis-charts";
+        div.innerHTML = "Дни";
+        document.body.append(div);
+
+    if(allXaxis) {
+        console.log(allXaxis)
+    }
     
-    dateString[0] = dateString[0].split('-');
-    dateString[2] = dateString[2].split('-');
     
-    toDay = new Date(`${dateString[0][1]}-${dateString[0][0]}-${dateString[0][2]}`);
-    lastDay = new Date(`${dateString[2][1]}-${dateString[2][0]}-${dateString[2][2]}`);
-    
-    console.log((lastDay - toDay) / (60 * 60 * 24 * 1000))
-});
-$(document).ready(function () {
-  $('select').niceSelect();
+}
 
-});
 $(function(){
     $("#phoneMask").mask("+7(999) 999-9999");
-  });
+    $('select').niceSelect();
+});

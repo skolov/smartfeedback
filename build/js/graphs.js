@@ -1,165 +1,235 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var dateForGraphs = [''];
 var data = {
   marks_graph: {
-    //x: [],
-    //y: []
-    x: ['02 июня', '04 июня', '06 июня', '08 июня', '10 июня', '12 июня', '14 июня', '16 июня', '18 июня', '20 июня', '22 июня', '24 июня', '26 июня', '28 июня', '30 июня'],
-    y: [10, 41, 35, 51, 49, 62, 69, 91, 148, 104, 113, 87, 65, 45, 153]
+    x: [],
+    y: []
   },
   marks_bars: {
-    //x: [],
-    //y: []
-    x: ['1', '2', '3', '4', '5'],
-    y: [10, 200, 300, 400, 50]
+    x: [],
+    y: []
   },
-  review: {
-    //x: [],
-    //y: []
-    x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'],
-    y: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
+  review_bars: {
+    x: [],
+    y: []
   },
-  occupancy: {
-    //x: [],
-    //y: {_1: [], _2: []}
+  review_graph: {
+    x: [],
+    y: []
+  },
+  occupancy_bars: {
+    x: [],
     y: {
-      _1: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213],
-      _2: [10, 200, 300, 400, 50, 122, 130, 160, 120, 100, 40, 12, 42, 320, 213]
-    },
-    x: ['01', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+      _1: [],
+      _2: []
+    }
+  },
+  occupancy_graph: {
+    x: [],
+    y: {
+      _1: [],
+      _2: []
+    }
   },
   nps_graph: {
-    //x: [],
-    //y: []
-    y: [1, 2, 2, 3, 2, 4, 5, 6, 5, 7, 8, 7, 9, 10, 10],
-    x: ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30']
+    x: [],
+    y: []
   },
   nps_bars: {
-    //x: [],
-    //y: []
-    y: [10, 50, 130, 180, 160, 250, 390, 280, 390, 280],
-    x: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    x: [],
+    y: []
   }
 };
-var marks_graph = {
-  series: [{
-    data: data.marks_graph.y
-  }],
-  chart: {
-    height: 246,
-    type: 'line',
-    zoom: {
-      enabled: false
-    }
-  },
-  dataLabels: {
-    enabled: false
-  },
-  stroke: {
-    curve: 'smooth',
-    colors: '#FAC700'
-  },
-  xaxis: {
-    categories: data.marks_graph.x,
-    labels: {
-      show: true,
-      style: {
-        colors: '#0B0E2D',
-        fontSize: '12px',
-        fontFamily: 'Montserrat,sans-serif',
-        cssClass: 'apexcharts-xaxis-label'
-      },
-      formatter: function formatter(value) {
-        if (value !== undefined) {//value = value.split('.')[0]
-        }
 
-        return value;
-      }
-    }
-  },
-  yaxis: {
-    forceNiceScale: true,
-    labels: {
-      formatter: function formatter(val) {
-        return parseInt(val) != val ? '' : val;
-      }
-    }
-  },
-  grid: {
-    borderColor: '#90A4AE',
-    strokeDashArray: 5
-  },
+function formatterForGraphs(value, timestamp, index) {
+  if (value !== undefined && value !== '') {
+    var newValue = dateForGraphs[value - 1];
 
-  /*markers: {
-    size: 0,
-    colors: '#FAC700',
-    strokeColors: '#FAC700',
-    strokeWidth: 0,
-    strokeOpacity: 0.9,
-    strokeDashArray: 0,
-    fillOpacity: 1,
-    discrete: [],
-    shape: "circle",
-    radius: 2,
-    offsetX: 0,
-    offsetY: 0,
-    onClick: undefined,
-    onDblClick: undefined,
-    showNullDataPoints: true,
-    hover: {
-      size: undefined,
-      sizeOffset: 3
-    }
-  },*/
-  tooltip: {
-    enabled: true,
-    enabledOnSeries: undefined,
-    shared: true,
-    followCursor: false,
-    intersect: false,
-    inverseOrder: false,
-    custom: function custom(_ref) {
-      var series = _ref.series,
-          seriesIndex = _ref.seriesIndex,
-          dataPointIndex = _ref.dataPointIndex,
-          w = _ref.w;
-      return '<div class="arrow_box">' + '<span class="arrow-xdata">' + series[seriesIndex][dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + w.globals.lastXAxis.categories[dataPointIndex] + '</span>' + '</div>';
-    },
-    fillSeriesColor: false,
-    theme: false,
-    style: {
-      fontSize: '12px',
-      fontFamily: undefined
-    },
-    onDatasetHover: {
-      highlightDataSeries: false
-    },
-    x: {
-      show: true,
-      format: 'dd MMM',
-      formatter: undefined
-    },
-    y: {
-      formatter: undefined,
-      title: {
-        formatter: function formatter(seriesName) {
-          return seriesName;
-        }
-      }
-    },
-    z: {
-      formatter: undefined,
-      title: 'Size: '
-    },
-    marker: {
-      show: false
-    },
-    fixed: {
-      enabled: false,
-      position: 'topRight',
-      offsetX: -100,
-      offsetY: -100
+    if (newValue !== undefined) {
+      return newValue.split('.')[0];
     }
   }
-};
+}
+
+function formatterForBars(value, timestamp, index) {
+  if (value !== undefined && value !== '') {
+    return value.split('.')[0];
+  }
+}
+
+function getCustomToolptipBars(object) {
+  function getNormalView(param) {
+    var mounth = {
+      '01': 'Января',
+      '02': 'Февраля',
+      '03': 'Марта',
+      '04': 'Апреля',
+      '05': 'Мая',
+      '06': 'Июня',
+      '07': 'Июля',
+      '08': 'Августа',
+      '09': 'Сентября',
+      '10': 'Октября',
+      '11': 'Ноября',
+      '12': 'Декабря'
+    },
+        mounth2 = {
+      '01': 'Январь',
+      '02': 'Февраль',
+      '03': 'Март',
+      '04': 'Апрель',
+      '05': 'Май',
+      '06': 'Июнь',
+      '07': 'Июль',
+      '08': 'Август',
+      '09': 'Сентябрь',
+      '10': 'Октябрь',
+      '11': 'Ноябрь',
+      '12': 'Декабрь'
+    },
+        dateArray;
+    dateArray = param.split('.');
+
+    if (dateArray.length === 3) {
+      return dateArray[0] + ' ' + mounth[dateArray[1]];
+    } else {
+      return mounth2[dateArray[0]];
+    }
+  }
+
+  return '<div class="arrow_box">' + '<span class="arrow-xdata">' + object.series[object.seriesIndex][object.dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + getNormalView(object.w.globals.labels[object.dataPointIndex]) + '</span>' + '</div>';
+}
+
+function getCustomToolptipGraph(object) {
+  function getNormalView(param) {
+    var mounth = {
+      '01': 'Января',
+      '02': 'Февраля',
+      '03': 'Марта',
+      '04': 'Апреля',
+      '05': 'Мая',
+      '06': 'Июня',
+      '07': 'Июля',
+      '08': 'Августа',
+      '09': 'Сентября',
+      '10': 'Октября',
+      '11': 'Ноября',
+      '12': 'Декабря'
+    },
+        mounth2 = {
+      '01': 'Январь',
+      '02': 'Февраль',
+      '03': 'Март',
+      '04': 'Апрель',
+      '05': 'Май',
+      '06': 'Июнь',
+      '07': 'Июль',
+      '08': 'Август',
+      '09': 'Сентябрь',
+      '10': 'Октябрь',
+      '11': 'Ноябрь',
+      '12': 'Декабрь'
+    },
+        dateArray;
+    dateArray = param.split('.');
+
+    if (dateArray.length === 3) {
+      return dateArray[0] + ' ' + mounth[dateArray[1]];
+    } else {
+      return mounth2[dateArray[0]];
+    }
+  }
+
+  return '<div class="arrow_box">' + '<span class="arrow-xdata">' + object.series[object.seriesIndex][object.dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + getNormalView(dateForGraphs[object.dataPointIndex]) + '</span>' + '</div>';
+}
+
+function getCustomToolptipGraphTwo(object) {
+  function getNormalView(param) {
+    var mounth = {
+      '01': 'Января',
+      '02': 'Февраля',
+      '03': 'Марта',
+      '04': 'Апреля',
+      '05': 'Мая',
+      '06': 'Июня',
+      '07': 'Июля',
+      '08': 'Августа',
+      '09': 'Сентября',
+      '10': 'Октября',
+      '11': 'Ноября',
+      '12': 'Декабря'
+    },
+        mounth2 = {
+      '01': 'Январь',
+      '02': 'Февраль',
+      '03': 'Март',
+      '04': 'Апрель',
+      '05': 'Май',
+      '06': 'Июнь',
+      '07': 'Июль',
+      '08': 'Август',
+      '09': 'Сентябрь',
+      '10': 'Октябрь',
+      '11': 'Ноябрь',
+      '12': 'Декабрь'
+    },
+        dateArray;
+    dateArray = param.split('.');
+
+    if (dateArray.length === 3) {
+      return dateArray[0] + ' ' + mounth[dateArray[1]];
+    } else {
+      return mounth2[dateArray[0]];
+    }
+  }
+
+  return '<div class="arrow_box">' + '<span class="arrow-xdata">' + object.series[0][object.dataPointIndex] + '</span>' + '<span class="arrow-xdata">' + object.series[1][object.dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + getNormalView(dateForGraphs[object.dataPointIndex]) + '</span>' + '</div>';
+}
+
+function getCustomToolptipBarsTwo(object) {
+  function getNormalView(param) {
+    var mounth = {
+      '01': 'Января',
+      '02': 'Февраля',
+      '03': 'Марта',
+      '04': 'Апреля',
+      '05': 'Мая',
+      '06': 'Июня',
+      '07': 'Июля',
+      '08': 'Августа',
+      '09': 'Сентября',
+      '10': 'Октября',
+      '11': 'Ноября',
+      '12': 'Декабря'
+    },
+        mounth2 = {
+      '01': 'Январь',
+      '02': 'Февраль',
+      '03': 'Март',
+      '04': 'Апрель',
+      '05': 'Май',
+      '06': 'Июнь',
+      '07': 'Июль',
+      '08': 'Август',
+      '09': 'Сентябрь',
+      '10': 'Октябрь',
+      '11': 'Ноябрь',
+      '12': 'Декабрь'
+    },
+        dateArray;
+    dateArray = param.split('.');
+
+    if (dateArray.length === 3) {
+      return dateArray[0] + ' ' + mounth[dateArray[1]];
+    } else {
+      return mounth2[dateArray[0]];
+    }
+  }
+
+  return '<div class="arrow_box">' + '<span class="arrow-xdata">' + object.series[0][object.dataPointIndex] + '</span>' + '<span class="arrow-xdata">' + object.series[1][object.dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + getNormalView(object.w.globals.labels[object.dataPointIndex]) + '</span>' + '</div>';
+}
+
 var marks_bars = {
   series: [{
     data: data.marks_bars.y
@@ -194,6 +264,9 @@ var marks_bars = {
         colors: '#0B0E2D',
         fontSize: '12px',
         fontFamily: 'Montserrat,sans-serif'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForBars(value, timestamp, index);
       }
     }
   },
@@ -214,58 +287,30 @@ var marks_bars = {
   },
   tooltip: {
     enabled: true,
-    enabledOnSeries: undefined,
-    shared: true,
-    followCursor: false,
-    intersect: false,
-    inverseOrder: false,
-    custom: function custom(_ref2) {
-      var series = _ref2.series,
-          seriesIndex = _ref2.seriesIndex,
-          dataPointIndex = _ref2.dataPointIndex,
-          w = _ref2.w;
-      return '<div class="arrow_box">' + '<span class="arrow-xdata">' + series[seriesIndex][dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + w.globals.lastXAxis.categories[dataPointIndex] + '</span>' + '</div>';
-    },
-    fillSeriesColor: false,
-    theme: false,
-    style: {
-      fontSize: '12px',
-      fontFamily: undefined
-    },
-    onDatasetHover: {
-      highlightDataSeries: false
-    },
-    x: {
-      show: true,
-      format: 'dd MMM',
-      formatter: undefined
-    },
-    y: {
-      formatter: undefined,
-      title: {
-        formatter: function formatter(seriesName) {
-          return seriesName;
-        }
-      }
-    },
-    z: {
-      formatter: undefined,
-      title: 'Size: '
-    },
-    marker: {
-      show: false
-    },
-    fixed: {
-      enabled: false,
-      position: 'topRight',
-      offsetX: -100,
-      offsetY: -100
+    followCursor: true,
+    custom: function custom(_ref) {
+      var series = _ref.series,
+          seriesIndex = _ref.seriesIndex,
+          dataPointIndex = _ref.dataPointIndex,
+          w = _ref.w;
+      return getCustomToolptipBars({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
     }
+  },
+  legend: {
+    show: true,
+    showForSingleSeries: true,
+    showForNullSeries: true,
+    showForZeroSeries: true
   }
 };
-var review = {
+var review_bars = {
   series: [{
-    data: data.review.y
+    data: data.review_bars.y
   }],
   chart: {
     type: 'bar',
@@ -290,13 +335,16 @@ var review = {
     width: 2
   },
   xaxis: {
-    categories: data.review.x,
+    categories: data.review_bars.x,
     labels: {
       show: true,
       style: {
         colors: '#0B0E2D',
         fontSize: '12px',
         fontFamily: 'Montserrat,sans-serif'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForBars(value, timestamp, index);
       }
     }
   },
@@ -317,60 +365,110 @@ var review = {
   },
   tooltip: {
     enabled: true,
-    enabledOnSeries: undefined,
-    shared: true,
-    followCursor: false,
-    intersect: false,
-    inverseOrder: false,
+    followCursor: true,
+    custom: function custom(_ref2) {
+      var series = _ref2.series,
+          seriesIndex = _ref2.seriesIndex,
+          dataPointIndex = _ref2.dataPointIndex,
+          w = _ref2.w;
+      return getCustomToolptipBars({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
+    }
+  },
+  legend: {
+    show: true,
+    showForSingleSeries: true,
+    showForNullSeries: true,
+    showForZeroSeries: true
+  }
+};
+var review_graph = {
+  series: [{
+    data: data.review_graph.y
+  }],
+  chart: {
+    type: 'line',
+    height: 246,
+    zoom: {
+      enabled: false
+    }
+  },
+  colors: ['#9E95DE'],
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: '20%',
+      endingShape: 'rounded'
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    curve: 'smooth',
+    show: true
+  },
+  xaxis: {
+    categories: data.review_graph.x,
+    labels: {
+      show: true,
+      style: {
+        colors: '#0B0E2D',
+        fontSize: '12px',
+        fontFamily: 'Montserrat,sans-serif'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForGraphs(value, timestamp, index);
+      }
+    }
+  },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
+  fill: {
+    opacity: 1
+  },
+  grid: {
+    borderColor: '#90A4AE',
+    strokeDashArray: 5
+  },
+  tooltip: {
+    enabled: true,
+    followCursor: true,
     custom: function custom(_ref3) {
       var series = _ref3.series,
           seriesIndex = _ref3.seriesIndex,
           dataPointIndex = _ref3.dataPointIndex,
           w = _ref3.w;
-      return '<div class="arrow_box">' + '<span class="arrow-xdata">' + series[seriesIndex][dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + w.globals.lastXAxis.categories[dataPointIndex] + '</span>' + '</div>';
-    },
-    fillSeriesColor: false,
-    theme: false,
-    style: {
-      fontSize: '12px',
-      fontFamily: undefined
-    },
-    onDatasetHover: {
-      highlightDataSeries: false
-    },
-    x: {
-      show: true,
-      format: 'dd MMM',
-      formatter: undefined
-    },
-    y: {
-      formatter: undefined,
-      title: {
-        formatter: function formatter(seriesName) {
-          return seriesName;
-        }
-      }
-    },
-    z: {
-      formatter: undefined,
-      title: 'Size: '
-    },
-    marker: {
-      show: false
-    },
-    fixed: {
-      enabled: false,
-      position: 'topRight',
-      offsetX: -100,
-      offsetY: -100
+      return getCustomToolptipGraph({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
     }
+  },
+  legend: {
+    show: true,
+    showForSingleSeries: true,
+    showForNullSeries: true,
+    showForZeroSeries: true
   }
 };
-var occupancy = {
+var occupancy_bars = {
   series: [{
-    data: data.occupancy.y._1
+    data: data.occupancy_bars.y._1
   }, {
-    data: data.occupancy.y._2
+    data: data.occupancy_bars.y._2
   }],
   chart: {
     type: 'bar',
@@ -390,19 +488,17 @@ var occupancy = {
   dataLabels: {
     enabled: false
   },
-  stroke: {
-    show: true,
-    width: 2,
-    colors: ['transparent']
-  },
   xaxis: {
-    categories: data.occupancy.x,
+    categories: data.occupancy_bars.x,
     labels: {
       show: true,
       style: {
         colors: '#0B0E2D',
         fontSize: '12px',
         fontFamily: 'Montserrat,sans-serif'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForBars(value, timestamp, index);
       }
     }
   },
@@ -423,70 +519,46 @@ var occupancy = {
   },
   tooltip: {
     enabled: true,
-    enabledOnSeries: undefined,
-    shared: true,
-    followCursor: false,
-    intersect: false,
-    inverseOrder: false,
+    followCursor: true,
     custom: function custom(_ref4) {
       var series = _ref4.series,
           seriesIndex = _ref4.seriesIndex,
           dataPointIndex = _ref4.dataPointIndex,
           w = _ref4.w;
-      return '<div class="arrow_box">' + '<span class="arrow-xdata">' + series[seriesIndex][dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + w.globals.lastXAxis.categories[dataPointIndex] + '</span>' + '</div>';
-    },
-    fillSeriesColor: false,
-    theme: false,
-    style: {
-      fontSize: '12px',
-      fontFamily: undefined
-    },
-    onDatasetHover: {
-      highlightDataSeries: false
-    },
-    x: {
-      show: true,
-      format: 'dd MMM',
-      formatter: undefined
-    },
-    y: {
-      formatter: undefined,
-      title: {
-        formatter: function formatter(seriesName) {
-          return seriesName;
-        }
-      }
-    },
-    z: {
-      formatter: undefined,
-      title: 'Size: '
-    },
-    marker: {
-      show: false
-    },
-    fixed: {
-      enabled: false,
-      position: 'topRight',
-      offsetX: -100,
-      offsetY: -100
+      return getCustomToolptipBarsTwo({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
     }
   },
   legend: {
-    show: false,
-    showForSingleSeries: false,
-    showForNullSeries: false,
-    showForZeroSeries: false
+    show: true,
+    showForSingleSeries: true,
+    showForNullSeries: true,
+    showForZeroSeries: true
   }
 };
-var nps_graph = {
+var occupancy_graph = {
   series: [{
-    data: data.nps_graph.y
+    data: data.occupancy_graph.y._1
+  }, {
+    data: data.occupancy_graph.y._2
   }],
   chart: {
-    height: 246,
     type: 'line',
+    height: 246,
     zoom: {
       enabled: false
+    }
+  },
+  colors: ['#95DEBF', '#DE9595'],
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: '55%',
+      endingShape: 'rounded'
     }
   },
   dataLabels: {
@@ -494,17 +566,19 @@ var nps_graph = {
   },
   stroke: {
     curve: 'smooth',
-    colors: '#c5ff91'
+    show: true
   },
   xaxis: {
-    categories: data.nps_graph.x,
+    categories: data.occupancy_graph.x,
     labels: {
       show: true,
       style: {
         colors: '#0B0E2D',
         fontSize: '12px',
-        fontFamily: 'Montserrat,sans-serif',
-        cssClass: 'apexcharts-xaxis-label'
+        fontFamily: 'Montserrat,sans-serif'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForGraphs(value, timestamp, index);
       }
     }
   },
@@ -516,74 +590,39 @@ var nps_graph = {
       }
     }
   },
+  fill: {
+    opacity: 1
+  },
   grid: {
     borderColor: '#90A4AE',
     strokeDashArray: 5
   },
   tooltip: {
     enabled: true,
-    enabledOnSeries: undefined,
-    shared: true,
-    followCursor: false,
-    intersect: false,
-    inverseOrder: false,
+    shared: false,
+    followCursor: true,
     custom: function custom(_ref5) {
       var series = _ref5.series,
           seriesIndex = _ref5.seriesIndex,
           dataPointIndex = _ref5.dataPointIndex,
           w = _ref5.w;
-      return '<div class="arrow_box">' + '<span class="arrow-xdata">' + series[seriesIndex][dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + w.globals.lastXAxis.categories[dataPointIndex] + '</span>' + '</div>';
-    },
-    fillSeriesColor: false,
-    theme: false,
-    style: {
-      fontSize: '12px',
-      fontFamily: undefined
-    },
-    onDatasetHover: {
-      highlightDataSeries: false
-    },
-    x: {
-      show: true,
-      format: 'dd MMM',
-      formatter: undefined
-    },
-    y: {
-      formatter: undefined,
-      title: {
-        formatter: function formatter(seriesName) {
-          return seriesName;
-        }
-      }
-    },
-    z: {
-      formatter: undefined,
-      title: 'Size: '
-    },
-    marker: {
-      show: false
-    },
-    fixed: {
-      enabled: false,
-      position: 'topRight',
-      offsetX: -100,
-      offsetY: -100
+      return getCustomToolptipGraphTwo({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
     }
   },
-  fill: {
-    type: 'gradient',
-    gradient: {
-      shade: 'dark',
-      gradientToColors: ['#fc0303'],
-      shadeIntensity: 1,
-      type: 'horizontal',
-      opacityFrom: 1,
-      opacityTo: 1,
-      stops: [0, 100, 200, 300, 400]
-    }
+  legend: {
+    show: true,
+    showForSingleSeries: true,
+    showForNullSeries: true,
+    showForZeroSeries: true
   }
 };
-var nps_bars = {
+
+var nps_bars = _defineProperty({
   series: [{
     data: data.nps_bars.y
   }],
@@ -617,6 +656,9 @@ var nps_bars = {
         fontSize: '12px',
         fontFamily: 'Montserrat,sans-serif',
         cssClass: 'apexcharts-xaxis-label'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForBars(value, timestamp, index);
       }
     }
   },
@@ -634,65 +676,185 @@ var nps_bars = {
   },
   tooltip: {
     enabled: true,
-    enabledOnSeries: undefined,
-    shared: true,
-    followCursor: false,
-    intersect: false,
-    inverseOrder: false,
+    followCursor: true,
     custom: function custom(_ref6) {
       var series = _ref6.series,
           seriesIndex = _ref6.seriesIndex,
           dataPointIndex = _ref6.dataPointIndex,
           w = _ref6.w;
-      return '<div class="arrow_box">' + '<span class="arrow-xdata">' + series[seriesIndex][dataPointIndex] + '</span>' + '<span class="arrow-ydata">' + w.globals.lastXAxis.categories[dataPointIndex] + '</span>' + '</div>';
-    },
-    fillSeriesColor: false,
-    theme: false,
-    style: {
-      fontSize: '12px',
-      fontFamily: undefined
-    },
-    onDatasetHover: {
-      highlightDataSeries: false
-    },
-    x: {
-      show: true,
-      format: 'dd MMM',
-      formatter: undefined
-    },
-    y: {
-      formatter: undefined,
-      title: {
-        formatter: function formatter(seriesName) {
-          return seriesName;
-        }
-      }
-    },
-    z: {
-      formatter: undefined,
-      title: 'Size: '
-    },
-    marker: {
-      show: false
-    },
-    fixed: {
-      enabled: false,
-      position: 'topRight',
-      offsetX: -100,
-      offsetY: -100
+      return getCustomToolptipBars({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
     }
+  }
+}, "legend", {
+  show: false,
+  showForSingleSeries: true,
+  showForNullSeries: true,
+  showForZeroSeries: true
+});
+
+var nps_graph = {
+  series: [{
+    name: "Desktops2",
+    data: data.nps_graph.y
+  }],
+  chart: {
+    height: 246,
+    type: 'line',
+    zoom: {
+      enabled: false
+    }
+  },
+  stroke: {
+    curve: 'smooth',
+    colors: '#c5ff91'
+  },
+  xaxis: {
+    categories: data.nps_graph.x,
+    labels: {
+      show: true,
+      style: {
+        colors: '#0B0E2D',
+        fontSize: '12px',
+        fontFamily: 'Montserrat,sans-serif',
+        cssClass: 'apexcharts-xaxis-label'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForGraphs(value, timestamp, index);
+      }
+    }
+  },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
+  grid: {
+    borderColor: '#90A4AE',
+    strokeDashArray: 5
+  },
+  tooltip: {
+    enabled: true,
+    followCursor: true,
+    custom: function custom(_ref7) {
+      var series = _ref7.series,
+          seriesIndex = _ref7.seriesIndex,
+          dataPointIndex = _ref7.dataPointIndex,
+          w = _ref7.w;
+      return getCustomToolptipGraph({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
+    }
+  },
+  fill: {
+    type: 'gradient',
+    gradient: {
+      shade: 'dark',
+      gradientToColors: ['#fc0303'],
+      shadeIntensity: 1,
+      type: 'horizontal',
+      opacityFrom: 1,
+      opacityTo: 1,
+      stops: [0, 100, 200, 300, 400]
+    }
+  },
+  legend: {
+    show: true,
+    showForSingleSeries: true,
+    showForNullSeries: true,
+    showForZeroSeries: true
+  }
+};
+var marks_graph = {
+  series: [{
+    data: data.marks_graph.y
+  }],
+  chart: {
+    height: 246,
+    type: 'line',
+    zoom: {
+      enabled: false
+    }
+  },
+  stroke: {
+    curve: 'smooth',
+    colors: '#FAC700'
+  },
+  colors: ['#FAC700'],
+  xaxis: {
+    categories: data.marks_graph.x,
+    labels: {
+      show: true,
+      style: {
+        colors: '#0B0E2D',
+        fontSize: '12px',
+        fontFamily: 'Montserrat,sans-serif',
+        cssClass: 'apexcharts-xaxis-label'
+      },
+      formatter: function formatter(value, timestamp, index) {
+        return formatterForGraphs(value, timestamp, index);
+      }
+    }
+  },
+  yaxis: {
+    forceNiceScale: true,
+    labels: {
+      formatter: function formatter(val) {
+        return parseInt(val) != val ? '' : val;
+      }
+    }
+  },
+  grid: {
+    borderColor: '#90A4AE',
+    strokeDashArray: 5
+  },
+  tooltip: {
+    enabled: true,
+    followCursor: true,
+    custom: function custom(_ref8) {
+      var series = _ref8.series,
+          seriesIndex = _ref8.seriesIndex,
+          dataPointIndex = _ref8.dataPointIndex,
+          w = _ref8.w;
+      return getCustomToolptipGraph({
+        series: series,
+        seriesIndex: seriesIndex,
+        dataPointIndex: dataPointIndex,
+        w: w
+      });
+    }
+  },
+  legend: {
+    show: true,
+    showForSingleSeries: true,
+    showForNullSeries: true,
+    showForZeroSeries: true
   }
 };
 nps_bars = new ApexCharts(document.querySelector("#nps_bars"), nps_bars);
-marks_graph = new ApexCharts(document.querySelector("#marks_graph"), marks_graph);
+occupancy_graph = new ApexCharts(document.querySelector("#occupancy_graph"), occupancy_graph);
+occupancy_bars = new ApexCharts(document.querySelector("#occupancy_bars"), occupancy_bars);
+review_bars = new ApexCharts(document.querySelector("#review_bars"), review_bars);
+review_graph = new ApexCharts(document.querySelector("#review_graph"), review_graph);
 marks_bars = new ApexCharts(document.querySelector("#marks_bars"), marks_bars);
+marks_graph = new ApexCharts(document.querySelector("#marks_graph"), marks_graph);
 nps_graph = new ApexCharts(document.querySelector("#nps_graph"), nps_graph);
-occupancy = new ApexCharts(document.querySelector("#occupancy"), occupancy);
-review = new ApexCharts(document.querySelector("#review"), review);
 nps_bars.render();
 marks_graph.render();
 marks_bars.render();
 nps_graph.render();
-occupancy.render();
-review.render();
+occupancy_graph.render();
+review_graph.render();
+occupancy_bars.render();
+review_bars.render();
 //# sourceMappingURL=graphs.js.map
