@@ -716,6 +716,10 @@ legend {
 .companies__content-add-btn:focus {
   outline: none;
 }
+.companies__content-add-btn:hover .companies__content-add-img {
+  -webkit-filter: none;
+          filter: none;
+}
 .companies__content-nocompanies {
   width: 100%;
   height: calc(100vh - 220px);
@@ -782,6 +786,8 @@ legend {
 }
 .companies__content-add-img {
   margin: 0 auto;
+  -webkit-filter: saturate(0.5);
+          filter: saturate(0.5);
 }
 .companies__content-add-window {
   width: 200px;
@@ -2894,7 +2900,6 @@ input:checked + .settings__panel-switch-slider:before {
 .graphs__item-toggle {
   width: 32px;
   height: 32px;
-  background: #F0F2F7;
   border-radius: 4px;
   margin-right: 8px;
   display: flex;
@@ -2912,7 +2917,7 @@ input:checked + .settings__panel-switch-slider:before {
   position: relative;
 }
 .graphs__item .active {
-  background: none;
+  background: #f0f2f7;
 }
 .graphs__item-graph {
   width: 100%;
@@ -4016,6 +4021,11 @@ input:checked + .settings__panel-switch-slider:before {
 }
 .no-csspointerevents .nice-select.open .list {
   display: block;
+}
+.mobile__field-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
 }
 .mobile__chat-sender-panel {
   width: 100%;

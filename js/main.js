@@ -740,6 +740,7 @@ function initDataPicker(date) {
     getLengthOfCurrentPeriod(lastDay, new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate()))
   }
 
+/*
 function getLengthOfCurrentPeriod(lastDay, toDay) {
     stringForTipsGraph = (toDay - lastDay) / (60 * 60 * 24 * 1000);
     let div = document.createElement('div'), allXaxis = document.querySelectorAll(".apexcharts-xaxis-texts-g");
@@ -750,9 +751,8 @@ function getLengthOfCurrentPeriod(lastDay, toDay) {
     if(allXaxis) {
         console.log(allXaxis)
     }
-    
-    
 }
+*/
 
 $(function(){
     $("#phoneMask").mask("+7(999) 999-9999");

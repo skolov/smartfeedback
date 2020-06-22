@@ -714,19 +714,20 @@ function initDataPicker(date) {
   });
   getLengthOfCurrentPeriod(lastDay, new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate()));
 }
-
+/*
 function getLengthOfCurrentPeriod(lastDay, toDay) {
-  stringForTipsGraph = (toDay - lastDay) / (60 * 60 * 24 * 1000);
-  var div = document.createElement('div'),
-      allXaxis = document.querySelectorAll(".apexcharts-xaxis-texts-g");
-  div.className = "alert-xaxis-charts";
-  div.innerHTML = "Дни";
-  document.body.append(div);
+    stringForTipsGraph = (toDay - lastDay) / (60 * 60 * 24 * 1000);
+    let div = document.createElement('div'), allXaxis = document.querySelectorAll(".apexcharts-xaxis-texts-g");
+        div.className = "alert-xaxis-charts";
+        div.innerHTML = "Дни";
+        document.body.append(div);
 
-  if (allXaxis) {
-    console.log(allXaxis);
-  }
+    if(allXaxis) {
+        console.log(allXaxis)
+    }
 }
+*/
+
 
 $(function () {
   $("#phoneMask").mask("+7(999) 999-9999");
