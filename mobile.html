@@ -47,6 +47,9 @@
         </p>
         
         <div class="mobile__attachment-elem-holder">
+            <div class="mobile__attachment-loader">
+                <img src="/assets/images/icons/ajax-loader.gif"/>
+            </div>
             <div id = "[[+id]]"  class="mobile__attachment-element">
                 <div class="mobile__attachment-scetch">
                     <img 
@@ -116,8 +119,9 @@
         <div class="mobile__attachment-buttons">       
             <a class="button mobile__attachment-btn" href="[[~14]]?key={$.get.key}">Фото или видео</a>
             <a class="button mobile__attachment-btn" href="#" id = "selectPhoto">Аудиосообщение</a>
-            <progress value="0" max="100" id = "loadFile" hidden>загрузка..</progress>
+            <progress value="0" max="100" id = "loadFile" hidden></progress>
         </div>
+
     </div>
 
 
@@ -145,7 +149,7 @@
             </div>
     
             
-            <div class="mobile__textarea-holder">
+            <div class="mobile__userinfo-input-holder">
                 <textarea 
                     placeholder="И расскажите, что думаете об этом" 
                     name="comment" 
@@ -160,40 +164,43 @@
                 Оцените по шкале от 0 до 10, какова вероятность того, что вы будете порекомендуете своим друзьям?
             </div>
 
-            <div class="mobile__nps-rate">
-                <label>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="1"><span>1</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="2"><span>2</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="3"><span>3</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="4"><span>4</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="5"><span>5</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="6"><span>6</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="7"><span>7</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="8"><span>8</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="9"><span>9</span>
-                    </div>
-                    <div class="mobile__nps-rate-item">
-                        <input type="radio"  name="nps" value="10"><span>10</span>
-                    </div>
-                </label>
+            <div class="mobile__stars-container">
+                <div class="mobile__nps-rate">
+                    <label>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="1"><span>1</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="2"><span>2</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="3"><span>3</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="4"><span>4</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="5"><span>5</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="6"><span>6</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="7"><span>7</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="8"><span>8</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="9"><span>9</span>
+                        </div>
+                        <div class="mobile__nps-rate-item">
+                            <input type="radio"  name="nps" value="10"><span>10</span>
+                        </div>
+                    </label>
+                </div>
             </div>
+            
 
         </div>
         

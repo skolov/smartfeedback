@@ -4246,6 +4246,17 @@ input:checked + .settings__panel-switch-slider:before {
   border-bottom: 2px solid #F0F2F7;
   text-decoration: none;
 }
+.mobile__attachment-loader {
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  position: relative;
+}
+.mobile__attachment-loader img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 .mobile__attachment-elem-holder:last-child {
   border-bottom: 0;
 }
@@ -4279,9 +4290,6 @@ input:checked + .settings__panel-switch-slider:before {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-.mobile__attachment-buttons progress {
-  display: none;
 }
 .mobile__attachment-element {
   width: 100%;
@@ -4440,13 +4448,16 @@ input:checked + .settings__panel-switch-slider:before {
 .mobile__stars {
   width: 100%;
   height: 50px;
-  margin: 10px 0;
+  margin-top: 10px;
   display: flex;
   justify-content: flex-end;
   direction: rtl;
   position: relative;
   padding-left: 10px;
   box-sizing: border-box;
+}
+.mobile__stars-container {
+  margin: 10px 0;
 }
 .mobile__stars-rate-number {
   position: absolute;

@@ -48,7 +48,7 @@ gulp.task("serve", function(done) {
     gulp.watch("../assets/images/sprite-icons/*.svg", gulp.series("svgstore"));
     gulp.watch("../sections/*.html", gulp.series("copy:html", "include"));
     gulp.watch("../*.html").on("change", server.reload);
-    gulp.watch("../assets/images/**/*.{png,jpg,svg}", gulp.series("images"));
+    gulp.watch("../assets/images/**/*.{png,jpg,svg,gif}", gulp.series("images"));
     gulp.watch("../animation/**", gulp.series("copy"));
     gulp.watch("../js/*.js", gulp.series("copy:js", "babel")).on(
         "change",
@@ -60,7 +60,7 @@ gulp.task("serve", function(done) {
 
 gulp.task("images", function() {
     return new Promise(function(resolve, reject) {
-        gulp.src("../assets/images/**/*.{png,jpg,svg}")
+        gulp.src("../assets/images/**/*.{png,jpg,svg,gif}")
             .pipe(
                 imagemin([
                     imagemin.optipng({
@@ -212,7 +212,7 @@ gulp.task("copy:html", function() {
 
 gulp.task("copy:images", function() {
     return gulp
-        .src(["../assets/images/**/*.{png,jpg,svg}"], {
+        .src(["../assets/images/**/*.{png,jpg,svg,gif}"], {
             base: "../"
         })
         .pipe(gulp.dest("../build"));

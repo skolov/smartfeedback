@@ -243,6 +243,17 @@
         padding: 0 15px 20px 15px;
         border-bottom: 2px solid #F0F2F7;
         text-decoration: none;
+        &-loader{
+            width: 30px;
+            height: 30px;
+            margin: 15px;
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
+        }
         &-elem-holder{
             &:last-child{
                 border-bottom: 0;
@@ -280,9 +291,6 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            progress{
-                display: none;
-            }
         }
 
         &-element{
@@ -454,13 +462,16 @@
     &__stars{
         width: 100%;
         height: 50px;
-        margin: 10px 0;
+        margin-top: 10px;
         display: flex;
         justify-content: flex-end;
         direction: rtl;
         position: relative;
         padding-left: 10px;
         box-sizing: border-box;
+        &-container{
+            margin: 10px 0;
+        }
         &-rate-number{
             position: absolute;
             right: 0;
