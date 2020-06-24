@@ -82,7 +82,13 @@ function successCallback(stream) {
 }
 
 function errorCallback(error) {
-	alert("navigator.getUserMedia error: ", error);
+	//alert(error.name + ": " + error.message);
+	if(navigator.userAgent.includes("Safari")) {
+		let div = document.createElement('div');
+			div.className = "safe__safari";
+			div.innerHTML = "Для включения аудиозаписи Вам необходимо следующее: Настройки -> safari -> Дополнения -> Experimental Features -> MediaRecorder (активировать ползунок)";
+		document.body.append(div);
+	}
   }
 
 

@@ -254,7 +254,7 @@ colors: ['#4E94CA'],
 plotOptions: {
 bar: {
   horizontal: false,
-  columnWidth: '40%',
+  columnWidth: '10%',
   endingShape: 'flat'
 }
 },
@@ -332,7 +332,7 @@ colors: ['#9E95DE'],
 plotOptions: {
 bar: {
   horizontal: false,
-  columnWidth: '20%',
+  columnWidth: '10%',
   endingShape: 'rounded'
 }
 },
@@ -410,7 +410,7 @@ colors: ['#9E95DE'],
 plotOptions: {
 bar: {
   horizontal: false,
-  columnWidth: '20%',
+  columnWidth: '10%',
   endingShape: 'rounded'
 }
 },
@@ -490,7 +490,7 @@ colors: ['#95DEBF', '#DE9595'],
 plotOptions: {
 bar: {
   horizontal: false,
-  columnWidth: '55%',
+  columnWidth: '10%',
   endingShape: 'rounded'
 }
 },
@@ -566,7 +566,7 @@ colors: ['#95DEBF', '#DE9595'],
 plotOptions: {
 bar: {
   horizontal: false,
-  columnWidth: '55%',
+  columnWidth: '10%',
   endingShape: 'rounded'
 }
 },
@@ -644,7 +644,7 @@ zoom: {
 colors: ['#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#EBD380', '#EBD380', '#95DEBF', '#95DEBF'],
 plotOptions: {
 bar: {
-  columnWidth: '20%',
+  columnWidth: '10%',
   distributed: true,
   endingShape: 'rounded'
 }

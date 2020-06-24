@@ -245,7 +245,7 @@ var marks_bars = {
   plotOptions: {
     bar: {
       horizontal: false,
-      columnWidth: '40%',
+      columnWidth: '10%',
       endingShape: 'flat'
     }
   },
@@ -323,7 +323,7 @@ var review_bars = {
   plotOptions: {
     bar: {
       horizontal: false,
-      columnWidth: '20%',
+      columnWidth: '10%',
       endingShape: 'rounded'
     }
   },
@@ -401,7 +401,7 @@ var review_graph = {
   plotOptions: {
     bar: {
       horizontal: false,
-      columnWidth: '20%',
+      columnWidth: '10%',
       endingShape: 'rounded'
     }
   },
@@ -481,7 +481,7 @@ var occupancy_bars = {
   plotOptions: {
     bar: {
       horizontal: false,
-      columnWidth: '55%',
+      columnWidth: '10%',
       endingShape: 'rounded'
     }
   },
@@ -557,7 +557,7 @@ var occupancy_graph = {
   plotOptions: {
     bar: {
       horizontal: false,
-      columnWidth: '55%',
+      columnWidth: '10%',
       endingShape: 'rounded'
     }
   },
@@ -636,7 +636,7 @@ var nps_bars = _defineProperty({
   colors: ['#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#DE9595', '#EBD380', '#EBD380', '#95DEBF', '#95DEBF'],
   plotOptions: {
     bar: {
-      columnWidth: '20%',
+      columnWidth: '10%',
       distributed: true,
       endingShape: 'rounded'
     }

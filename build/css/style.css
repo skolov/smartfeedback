@@ -7,7 +7,6 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 320px;
-  min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   line-height: 1.2;
@@ -4119,8 +4118,8 @@ input:checked + .settings__panel-switch-slider:before {
 }
 .mobile__chat-msg-block {
   width: 100%;
-  height: calc(100vh - 98px);
-  min-height: calc(100vh - 98px);
+  height: calc(100% - 98px);
+  min-height: calc(100% - 98px);
   margin-top: 49px;
   background: #E3E7F1;
   position: absolute;
@@ -5182,6 +5181,15 @@ input:checked + .settings__panel-switch-slider:before {
 }
 .rating-area:not(:checked) > input {
   display: none;
+}
+.safe__safari {
+  position: absolute;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
 }
 .create-kt__select-holder:after {
   display: none !important;

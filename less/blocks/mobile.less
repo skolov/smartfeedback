@@ -103,8 +103,8 @@
 
     &__chat-msg-block{
         width: 100%;
-        height: calc(100vh - 98px);
-        min-height: calc(100vh - 98px);
+        height: calc(100% - 98px);
+        min-height: calc(100% - 98px);
         margin-top: 49px;
         background: #E3E7F1;
         position: absolute;
@@ -1244,4 +1244,15 @@
 
 .rating-area:not(:checked) > input {
     display: none;
+}
+
+
+.safe__safari{
+    position: absolute;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
 }

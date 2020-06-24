@@ -711,8 +711,7 @@ function initDataPicker(date) {
       "minDate": lastDay,
       "maxDate": new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate())
     }, function (start, end, label) {});
-  });
-  getLengthOfCurrentPeriod(lastDay, new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate()));
+  }); //getLengthOfCurrentPeriod(lastDay, new Date(toDay.getFullYear(), toDay.getMonth(), toDay.getDate()))
 }
 /*
 function getLengthOfCurrentPeriod(lastDay, toDay) {
