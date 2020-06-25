@@ -2224,7 +2224,7 @@ input:checked + .settings__panel-switch-slider:before {
   flex-wrap: wrap;
 }
 .tariffs__item {
-  width: 48%;
+  width: 32%;
   background: #ffffff;
   border-radius: 8px;
   min-width: 347px;
@@ -2237,6 +2237,8 @@ input:checked + .settings__panel-switch-slider:before {
   padding: 32px 32px 40px 32px;
 }
 .tariffs__item-tariff-name {
+  height: 100px;
+  margin: 0;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -2244,7 +2246,7 @@ input:checked + .settings__panel-switch-slider:before {
   color: #0B0E2D;
 }
 .tariffs__item-price-holder {
-  margin: 20px 0;
+  margin-top: 10px;
 }
 .tariffs__item-price {
   font-style: normal;
@@ -2334,6 +2336,7 @@ input:checked + .settings__panel-switch-slider:before {
     justify-content: flex-start;
   }
   .tariffs__item {
+    width: 48%;
     margin-bottom: 10px;
     margin-right: 2%;
   }
@@ -3874,6 +3877,45 @@ input:checked + .settings__panel-switch-slider:before {
   align-items: center;
   color: #000000;
 }
+.safari__error {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #E3E7F1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.safari__error-center {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 8px;
+}
+.safari__error-list {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  list-style-position: outside;
+  color: #0B0E2D;
+  font-size: 14px;
+}
+.safari__error-text {
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0B0E2D;
+}
 .nice-select {
   -webkit-tap-highlight-color: transparent;
   background-color: none;
@@ -5129,10 +5171,11 @@ input:checked + .settings__panel-switch-slider:before {
   align-items: center;
   outline: none;
   margin: 32px auto;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -webkit-touch-callout: none;
   z-index: 50;
 }
 .mobile__record-btn-record:focus {

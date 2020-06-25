@@ -86,7 +86,23 @@ function errorCallback(error) {
 	if(navigator.userAgent.includes("Safari")) {
 		let div = document.createElement('div');
 			div.className = "safe__safari";
-			div.innerHTML = "Для включения аудиозаписи Вам необходимо следующее: Настройки -> safari -> Дополнения -> Experimental Features -> MediaRecorder (активировать ползунок)";
+			div.innerHTML = `<div class="safari__error">
+								<div class="safari__error-center">
+									<p class="safari__error-text">
+										Для включения аудиозаписи Вам необходимо следующее:
+									</p>
+
+									
+									<ul class="safari__error-list">
+										<li>Зайти в настройки</li>
+										<li>Перейти в настройки Safari</li>
+										<li>Перейти во вкладку "Дополнения"</li>
+										<li>Перейти во вкладку "Experimental Features"</li>
+										<li>Активировать ползунок "MediaRecorder"</li>
+									</ul>
+
+								</div>
+							</div>`;
 		document.body.append(div);
 	}
   }
