@@ -5,6 +5,118 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    &__tables{
+        padding: 24px 32px 64px;
+        width: 100%;
+        background: #FFFFFF;
+
+        box-sizing: border-box;
+
+        box-shadow: 0px 16px 64px rgba(187, 211, 235, 0.8);
+        border-radius: 8px;
+        
+        text-align: center;
+    }
+    &__row, &__row--head{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 0;
+        border-bottom: 1px solid #E3E7F1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__row--head{
+        //padding-left: 300px;
+    }
+    &__row-cell{
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &-btn{
+            border: 0;
+            outline: none;
+            background: #3187D6;
+            max-width: 160px;
+            width: 160px;
+            min-width: 98px;
+            height: 40px;
+
+            font-family: 'Montserrat',sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 20px;
+
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 6px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #FFFFFF;
+            &:hover{
+                background: #3783BD;
+            }
+            &.active{  
+                background: #F0F2F7;
+                color: #9BA6BC;
+                cursor: default;
+                &:hover{
+                    background: #F0F2F7;
+                }
+            }
+        }
+        &-text--bolder, &-text{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            display: block;
+
+            margin: 0;
+            padding: 0;
+
+
+            color: #0B0E2D;
+            
+            &.price{
+                margin: 14px 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        &-text--bolder{
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        &--name{
+            width: 190px;
+            min-width: 190px;
+            justify-content: start;
+            align-items: flex-start;
+            text-align: left;
+        }
+        &-ask{
+            background: none;
+            border: 0;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            margin: 0;
+            padding: 0;
+            color: #3187D6;
+
+        }
+    }
     &__item{
         width: 32%;
         background: #ffffff;
@@ -118,6 +230,66 @@
     }
 }
 
+
+@media (max-width: 1300px){
+    .tariffs{
+        &__row-cell{
+            &-btn{
+                width: unset;
+                font-size: 12px;
+                height: 40px;
+            }
+            &-text--bolder, &-text{
+                font-size: 12px;
+                &.price{
+                    font-size: 12px;
+                }
+            }
+            &-text--bolder{
+                font-size: 12px;
+            }
+            &--name{
+                width: 150px;
+                min-width: 150px;
+                justify-content: start;
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1100px){
+    .tariffs{
+        &__row-cell{
+            &-btn{
+                width: unset;
+                font-size: 10px;
+                height: 30px;
+            }
+            &-text--bolder, &-text{
+                font-size: 10px;
+                &.price{
+                    font-size: 10px;
+                }
+            }
+            &-text--bolder{
+                font-size: 12px;
+            }
+            &--name{
+                width: 100px;
+                min-width: 100px;
+                justify-content: start;
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+/*
 @media (max-width: 1420px){
     .tariffs{
         justify-content: flex-start;
@@ -173,3 +345,4 @@
     }
 
 }
+*/

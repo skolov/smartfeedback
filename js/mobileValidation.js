@@ -14,7 +14,7 @@ class MobileValidation {
         this.regExps = {
             'contact[name]' : /^[а-яё ]{2,30}$/iu,
             'contact[email]' : /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            'contact[phone]' : /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
+            'contact[phone]' : /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- \s]?)?[\d\- ]{7,10}$/,
             'comment' : /^[а-яё0-9!-., ]{1,300}$/i
         }
     }
@@ -37,7 +37,11 @@ class MobileValidation {
                         field.style.border = 0
                     }
                 } else {
-                    field.oninput = e => {this.checkInputValue(e)}
+                    if(field.name === 'contact[phone]'){
+                        field.onkeyup = e => {this.checkInputValue(e)}
+                    } else {
+                        field.oninput = e => {this.checkInputValue(e)}
+                    }
                 }
             });
             this.mobileTextarea.oninput = e => {this.checkInputValue(e)}
@@ -65,6 +69,9 @@ class MobileValidation {
     checkInputValue (input) {
         let value = input.target.value,
             target = input.target.name;
+            
+            
+        console.log(value)
 
 
         if(target === 'contact[name]') {
